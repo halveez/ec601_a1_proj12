@@ -33,24 +33,28 @@ I tested two sets of photos from this dataset, and included the first set of rep
 
 ### OS GitHub 
 
-After forming teams, I focused more specifically on shadow detection and removal in single images, without requiring stitching of multiple images together to create 3D reconstructions from aerial shots. This was much faster to test and implement, and to do this, I tested a set from the following list of GitHub links to first reproduce their results and system, which I plan to later improve upon:
-
-https://github.com/ThomasWangWeiHong/Shadow-Detection-Algorithm-for-Aerial-and-Satellite-Images
-https://github.com/tsingqguo/exposure-fusion-shadow-removal
-https://github.com/mykhailo-mostipan/shadow-removal
-https://github.com/jvalhondo/Shadow_Removal/blob/master/Shadow_Removal_VA_jvr.m
-https://github.com/kittenish/Image-Shadow-Detection-and-Removal
-https://github.com/ceciliavision/perceptual-reflection-removal#conda-environment
+After forming teams, I focused more specifically on shadow detection and removal in single images, without requiring stitching of multiple images together to create 3D reconstructions from aerial shots. This was much faster to test and implement, and to do this, I tested the following programs to first reproduce their results and system, which I plan to later improve upon.
 
 I continued using the same set of images from WebODM, but also tested separately a set of images provided by Ece Sureyya Birol, who is also working on this project, although not through the class. This set of images was acquired from a DJI FC330, and has accompanying GPS coordinates for each image. This would be helpful for 3D scene reconstructions, but is not used in more simple image colorspace processing algorithms.
 
-Describe specific links from above that were tested - pipeline, pre-processing, etc.
 
-Before and after results
-
-Next steps
+#### [Near Real - Time Shadow Detection and Removal in Aerial Motion Imagery Application](https://github.com/ThomasWangWeiHong/Shadow-Detection-Algorithm-for-Aerial-and-Satellite-Images)
 
 
+BEFORE AND AFTER HERE WITH COMMENTS 
+
+
+#### [Shadow Detection and Removal Based on YCbCr Color Space](https://github.com/mykhailo-mostipan/shadow-removal)
+
+
+BEFORE AND AFTER HERE WITH COMMENTS 
+
+
+
+#### [Shadow Removal from RGB Images](https://github.com/jvalhondo/Shadow_Removal/blob/master/Shadow_Removal_VA_jvr.m)
+
+
+BEFORE AND AFTER HERE WITH COMMENTS 
 
 
 
@@ -59,7 +63,6 @@ Next steps
 Definition of architecture
 Technology Selection and justification
 Functional demonstration of major user story
-
 
 
 ## References
