@@ -1,28 +1,33 @@
 # EC601 Team Project - Sprint 1
 Zachary Halvorson, Boston University Fall 2021
 
-Items to cover:
-Define your product mission
-Comprehensive literature review (build on project 1)
-Define MVP and MVP user stories
+## Product Mission
+
+## MVP Definition
+
+## User Stories
+
+
+
 Technologies to evaluate and reason for choosing them
+
 Setup of development environment
 
 
-## Reproduction of OS Results
+## Reproduction of Open Source Products
 
 ### NAIP Cold Springs Fire
 
-For Sprint 1, I attempted to reproduce the results in [[1]](#1), first by downloading the Cold Springs Fire data from the NAIP and following their guide to establishing a working environment in Python.
+For Sprint 1, I attempted to reproduce the results in [[1]](#1), first by downloading the Cold Springs Fire data from the National Agriculture Imagery Program (NAIP) and following their guide to establishing a working environment in Python.
 
 First, I needed to install Microsoft Visual C++ 14.0 tools. I then ran into some Python issues, and was advised to reinstall using Anacadona, additionally for troubleshooting Rasterio package installation.
 
-Ran into some additional issues with Anaconda and gdal, rasterio, and rioaxxary installation, and was ultimately unable to follow the guide to completion.
+Ran into some additional issues with Anaconda and gdal, rasterio, and rioaxxary installation, and was ultimately unable to follow the guide to completion. This will be revisited in future sprints to test their datasets.
 
 
 ### OpenDroneMap WebODM
 
-Instead, I set up OpenDroneMap's WebODM system, and downloaded some shared multi-spectral datasets from their user forums, and set out to extract some 3D models from these aerial images. Sourced from https://community.opendronemap.org/t/xmission-multispectral/7524. I first processed folders 01 and 03 separately, which consisted of a Green, Red, Red edge, NIR, and NDVI image for each position (5 bands). The data also included a 6th RGB image, however this was excluded as it was of different dimensions and WebODM failed processing when it was included.
+Next, I set up OpenDroneMap's WebODM system, and downloaded some shared multi-spectral datasets from their user forums, and set out to extract some 3D models from these aerial images. Sourced from https://community.opendronemap.org/t/xmission-multispectral/7524. I first processed folders 01 and 03 separately, which consisted of a Green, Red, Red edge, NIR, and NDVI image for each position (5 bands). The data also included a 6th RGB image, however this was excluded as it was of different dimensions and WebODM failed processing when it was included.
 
 This was quite effective in demonstrating some multi-spectral image analysis, as using the WebODM interface, it was possible to analyze the combined scene and use some of their preset algorithms to determine "Plant Health", generally based on various values or red, green, and blue in order to characterize plant health.
 
