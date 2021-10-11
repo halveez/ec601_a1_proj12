@@ -30,7 +30,7 @@ I tested two sets of photos from this dataset, and included the first set of rep
 
 ### OS GitHub 
 
-After forming teams, I focused more specifically on shadow detection and removal in single images, without requiring stitching of multiple images together to create 3D reconstructions from aerial shots. This was much faster to test and attempt to implement, and to do this, I tested a set from the following list of GitHub links to first reproduce their results and system, which I plan to later improve upon:
+After forming teams, I focused more specifically on shadow detection and removal in single images, without requiring stitching of multiple images together to create 3D reconstructions from aerial shots. This was much faster to test and implement, and to do this, I tested a set from the following list of GitHub links to first reproduce their results and system, which I plan to later improve upon:
 
 https://github.com/ThomasWangWeiHong/Shadow-Detection-Algorithm-for-Aerial-and-Satellite-Images
 https://github.com/tsingqguo/exposure-fusion-shadow-removal
@@ -39,8 +39,8 @@ https://github.com/jvalhondo/Shadow_Removal/blob/master/Shadow_Removal_VA_jvr.m
 https://github.com/kittenish/Image-Shadow-Detection-and-Removal
 https://github.com/ceciliavision/perceptual-reflection-removal#conda-environment
 
-Describe images used here - from who and what study group
-
+I continued using the same set of images from WebODM, but also tested separately a set of images provided by Ece Sureyya Birol, who is also working on this project, although not through the class.
+ 
 Describe Drone image acquisition next - camera specifics, etc.
 
 Describe specific links from above that were tested - pipeline, pre-processing, etc.

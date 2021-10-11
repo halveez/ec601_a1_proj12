@@ -1,0 +1,1221 @@
+[INFO]    Initializing ODM - Mon Oct 11 20:38:00  2021
+[INFO]    ==============
+[INFO]    build_overviews: False
+[INFO]    camera_lens: auto
+[INFO]    cameras: {}
+[INFO]    cog: True
+[INFO]    copy_to: None
+[INFO]    crop: 3
+[INFO]    debug: False
+[INFO]    dem_decimation: 1
+[INFO]    dem_euclidean_map: False
+[INFO]    dem_gapfill_steps: 3
+[INFO]    dem_resolution: 5
+[INFO]    depthmap_resolution: 640
+[INFO]    dsm: False
+[INFO]    dtm: False
+[INFO]    end_with: odm_postprocess
+[INFO]    fast_orthophoto: False
+[INFO]    feature_quality: high
+[INFO]    feature_type: sift
+[INFO]    force_gps: False
+[INFO]    gcp: None
+[INFO]    geo: None
+[INFO]    gps_accuracy: 10
+[INFO]    ignore_gsd: False
+[INFO]    matcher_distance: 0
+[INFO]    matcher_neighbors: 8
+[INFO]    matcher_type: flann
+[INFO]    max_concurrency: 8
+[INFO]    merge: all
+[INFO]    mesh_octree_depth: 11
+[INFO]    mesh_size: 200000
+[INFO]    min_num_features: 8000
+[INFO]    name: dc6aba02-3639-4809-8d80-5daf2018adf0
+[INFO]    optimize_disk_space: False
+[INFO]    orthophoto_compression: DEFLATE
+[INFO]    orthophoto_cutline: False
+[INFO]    orthophoto_kmz: False
+[INFO]    orthophoto_no_tiled: False
+[INFO]    orthophoto_png: False
+[INFO]    orthophoto_resolution: 5
+[INFO]    pc_classify: False
+[INFO]    pc_csv: False
+[INFO]    pc_ept: True
+[INFO]    pc_filter: 2.5
+[INFO]    pc_geometric: False
+[INFO]    pc_las: False
+[INFO]    pc_quality: medium
+[INFO]    pc_rectify: False
+[INFO]    pc_sample: 0
+[INFO]    pc_tile: False
+[INFO]    primary_band: auto
+[INFO]    project_path: /var/www/data
+[INFO]    radiometric_calibration: camera
+[INFO]    rerun: None
+[INFO]    rerun_all: False
+[INFO]    rerun_from: None
+[INFO]    resize_to: 2048
+[INFO]    skip_3dmodel: False
+[INFO]    skip_band_alignment: False
+[INFO]    skip_report: False
+[INFO]    sm_cluster: None
+[INFO]    smrf_scalar: 1.25
+[INFO]    smrf_slope: 0.15
+[INFO]    smrf_threshold: 0.5
+[INFO]    smrf_window: 18.0
+[INFO]    split: 999999
+[INFO]    split_image_groups: None
+[INFO]    split_overlap: 150
+[INFO]    texturing_data_term: gmi
+[INFO]    texturing_keep_unseen_faces: False
+[INFO]    texturing_outlier_removal_type: gauss_clamping
+[INFO]    texturing_skip_global_seam_leveling: True
+[INFO]    texturing_skip_local_seam_leveling: False
+[INFO]    texturing_tone_mapping: none
+[INFO]    tiles: False
+[INFO]    time: False
+[INFO]    use_3dmesh: False
+[INFO]    use_exif: False
+[INFO]    use_fixed_camera_params: False
+[INFO]    use_hybrid_bundle_adjustment: False
+[INFO]    verbose: False
+[INFO]    ==============
+[INFO]    Running dataset stage
+[INFO]    Loading dataset from: /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/images
+[INFO]    Loading 25 images
+[INFO]    Wrote images database: /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/images.json
+[INFO]    Found 25 usable images
+[INFO]    Parsing SRS header: WGS84 UTM 34N
+[INFO]    Finished dataset stage
+[INFO]    Running split stage
+[INFO]    Normal dataset, will process all at once.
+[INFO]    Finished split stage
+[INFO]    Running merge stage
+[INFO]    Normal dataset, nothing to merge.
+[INFO]    Finished merge stage
+[INFO]    Running opensfm stage
+[INFO]    Reconstruction will use 5 images from auto band
+[INFO]    Writing exif overrides
+[INFO]    Maximum photo dimensions: 1280px
+[INFO]    Photo dimensions for feature extraction: 640px
+[INFO]    Altitude data detected, enabling it for GPS alignment
+[INFO]    ['use_exif_size: no', 'flann_algorithm: KDTREE', 'feature_process_size: 640', 'feature_min_frames: 8000', 'processes: 8', 'matching_gps_neighbors: 8', 'matching_gps_distance: 0', 'optimize_camera_parameters: yes', 'undistorted_image_format: tif', 'bundle_outlier_filtering_type: AUTO', 'sift_peak_threshold: 0.066', 'align_orientation_prior: vertical', 'triangulation_type: ROBUST', 'retriangulation_ratio: 2', 'feature_type: SIFT', 'use_altitude_tag: yes', 'align_method: auto', 'local_bundle_radius: 0']
+[INFO]    Wrote reference_lla.json
+[INFO]    running /code/SuperBuild/install/bin/opensfm/bin/opensfm extract_metadata "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/opensfm"
+2021-10-11 20:38:02,251 INFO: Extracting EXIF for XAG001_0037_550nm.tif
+2021-10-11 20:38:02,305 INFO: Extracting EXIF for XAG001_0036_550nm.tif
+2021-10-11 20:38:02,325 INFO: Extracting EXIF for XAG001_0035_550nm.tif
+2021-10-11 20:38:02,345 INFO: Extracting EXIF for XAG001_0038_550nm.tif
+2021-10-11 20:38:02,362 INFO: Extracting EXIF for XAG001_0039_550nm.tif
+[INFO]    running /code/SuperBuild/install/bin/opensfm/bin/opensfm detect_features "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/opensfm"
+2021-10-11 20:38:04,348 INFO: Capping memory usage to ~ 5000.912109375 MB
+2021-10-11 20:38:04,348 INFO: Expecting to process 200 images.
+2021-10-11 20:38:04,461 INFO: Reading data for image XAG001_0037_550nm.tif (queue-size=0
+2021-10-11 20:38:04,461 INFO: Reading data for image XAG001_0035_550nm.tif (queue-size=0
+2021-10-11 20:38:04,477 INFO: Reading data for image XAG001_0039_550nm.tif (queue-size=0
+2021-10-11 20:38:04,718 INFO: Reading data for image XAG001_0036_550nm.tif (queue-size=1
+2021-10-11 20:38:04,719 INFO: Extracting ROOT_SIFT features for image XAG001_0037_550nm.tif
+2021-10-11 20:38:04,735 INFO: Reading data for image XAG001_0038_550nm.tif (queue-size=1
+2021-10-11 20:38:04,738 INFO: Extracting ROOT_SIFT features for image XAG001_0035_550nm.tif
+2021-10-11 20:38:04,756 DEBUG: Computing sift with threshold 0.066
+2021-10-11 20:38:04,757 DEBUG: Computing sift with threshold 0.066
+2021-10-11 20:38:04,758 INFO: Extracting ROOT_SIFT features for image XAG001_0039_550nm.tif
+2021-10-11 20:38:04,760 DEBUG: Computing sift with threshold 0.066
+2021-10-11 20:38:04,774 INFO: Extracting ROOT_SIFT features for image XAG001_0036_550nm.tif
+2021-10-11 20:38:04,777 DEBUG: Computing sift with threshold 0.066
+2021-10-11 20:38:04,975 INFO: Finished reading images
+2021-10-11 20:38:04,976 INFO: Extracting ROOT_SIFT features for image XAG001_0038_550nm.tif
+2021-10-11 20:38:05,443 DEBUG: Computing sift with threshold 0.066
+2021-10-11 20:38:06,529 DEBUG: Found 27 points in 1.7557966709136963s
+2021-10-11 20:38:06,529 DEBUG: reducing threshold
+2021-10-11 20:38:06,530 DEBUG: Computing sift with threshold 0.044000000000000004
+2021-10-11 20:38:06,646 DEBUG: Found 219 points in 1.8689227104187012s
+2021-10-11 20:38:06,646 DEBUG: reducing threshold
+2021-10-11 20:38:06,646 DEBUG: Computing sift with threshold 0.044000000000000004
+2021-10-11 20:38:06,668 DEBUG: Found 219 points in 0.13783645629882812s
+2021-10-11 20:38:06,668 DEBUG: reducing threshold
+2021-10-11 20:38:06,668 DEBUG: Computing sift with threshold 0.029333333333333336
+2021-10-11 20:38:06,770 DEBUG: Found 235 points in 2.0128493309020996s
+2021-10-11 20:38:06,771 DEBUG: reducing threshold
+2021-10-11 20:38:06,771 DEBUG: Computing sift with threshold 0.044000000000000004
+2021-10-11 20:38:06,800 DEBUG: Found 770 points in 0.1508164405822754s
+2021-10-11 20:38:06,821 DEBUG: reducing threshold
+2021-10-11 20:38:06,823 DEBUG: Computing sift with threshold 0.029333333333333336
+2021-10-11 20:38:06,869 DEBUG: Found 685 points in 0.20071029663085938s
+2021-10-11 20:38:06,869 DEBUG: reducing threshold
+2021-10-11 20:38:06,869 DEBUG: Computing sift with threshold 0.01955555555555556
+2021-10-11 20:38:06,931 DEBUG: Found 754 points in 0.16020774841308594s
+2021-10-11 20:38:06,931 DEBUG: reducing threshold
+2021-10-11 20:38:06,931 DEBUG: Computing sift with threshold 0.029333333333333336
+2021-10-11 20:38:06,939 DEBUG: Found 231 points in 2.181696891784668s
+2021-10-11 20:38:06,939 DEBUG: reducing threshold
+2021-10-11 20:38:06,939 DEBUG: Computing sift with threshold 0.044000000000000004
+2021-10-11 20:38:07,106 DEBUG: Found 254 points in 1.4363517761230469s
+2021-10-11 20:38:07,106 DEBUG: reducing threshold
+2021-10-11 20:38:07,106 DEBUG: Computing sift with threshold 0.044000000000000004
+2021-10-11 20:38:07,126 DEBUG: Found 1469 points in 0.19488239288330078s
+2021-10-11 20:38:07,127 DEBUG: Found 823 points in 0.1874704360961914s
+2021-10-11 20:38:07,127 DEBUG: reducing threshold
+2021-10-11 20:38:07,127 DEBUG: reducing threshold
+2021-10-11 20:38:07,127 DEBUG: Computing sift with threshold 0.01955555555555556
+2021-10-11 20:38:07,127 DEBUG: Computing sift with threshold 0.029333333333333336
+2021-10-11 20:38:07,138 DEBUG: Found 1523 points in 0.3143305778503418s
+2021-10-11 20:38:07,138 DEBUG: reducing threshold
+2021-10-11 20:38:07,139 DEBUG: Computing sift with threshold 0.01955555555555556
+2021-10-11 20:38:07,155 DEBUG: Found 1335 points in 0.28546667098999023s
+2021-10-11 20:38:07,155 DEBUG: reducing threshold
+2021-10-11 20:38:07,155 DEBUG: Computing sift with threshold 0.01303703703703704
+2021-10-11 20:38:07,308 DEBUG: Found 877 points in 0.20178556442260742s
+2021-10-11 20:38:07,308 DEBUG: reducing threshold
+2021-10-11 20:38:07,308 DEBUG: Computing sift with threshold 0.029333333333333336
+2021-10-11 20:38:07,324 DEBUG: Found 1683 points in 0.18834733963012695s
+2021-10-11 20:38:07,324 DEBUG: reducing threshold
+2021-10-11 20:38:07,324 DEBUG: Computing sift with threshold 0.01955555555555556
+2021-10-11 20:38:07,357 DEBUG: Found 2473 points in 0.22891902923583984s
+2021-10-11 20:38:07,357 DEBUG: reducing threshold
+2021-10-11 20:38:07,357 DEBUG: Computing sift with threshold 0.01303703703703704
+2021-10-11 20:38:07,375 DEBUG: Found 1835 points in 0.22035622596740723s
+2021-10-11 20:38:07,376 DEBUG: reducing threshold
+2021-10-11 20:38:07,376 DEBUG: Computing sift with threshold 0.00869135802469136
+2021-10-11 20:38:07,435 DEBUG: Found 2523 points in 0.2959306240081787s
+2021-10-11 20:38:07,435 DEBUG: reducing threshold
+2021-10-11 20:38:07,435 DEBUG: Computing sift with threshold 0.01303703703703704
+2021-10-11 20:38:07,479 DEBUG: Found 1666 points in 0.17035984992980957s
+2021-10-11 20:38:07,479 DEBUG: reducing threshold
+2021-10-11 20:38:07,482 DEBUG: Computing sift with threshold 0.01955555555555556
+2021-10-11 20:38:07,553 DEBUG: Found 2498 points in 0.2290339469909668s
+2021-10-11 20:38:07,553 DEBUG: reducing threshold
+2021-10-11 20:38:07,553 DEBUG: Computing sift with threshold 0.01303703703703704
+2021-10-11 20:38:07,578 DEBUG: Found 2204 points in 0.20258879661560059s
+2021-10-11 20:38:07,579 DEBUG: reducing threshold
+2021-10-11 20:38:07,579 DEBUG: Computing sift with threshold 0.005794238683127573
+2021-10-11 20:38:07,594 DEBUG: Found 3855 points in 0.23633313179016113s
+2021-10-11 20:38:07,594 DEBUG: reducing threshold
+2021-10-11 20:38:07,594 DEBUG: Computing sift with threshold 0.00869135802469136
+2021-10-11 20:38:07,659 DEBUG: Found 3733 points in 0.22425556182861328s
+2021-10-11 20:38:07,660 DEBUG: reducing threshold
+2021-10-11 20:38:07,660 DEBUG: Computing sift with threshold 0.00869135802469136
+2021-10-11 20:38:07,694 DEBUG: Found 2301 points in 0.21155738830566406s
+2021-10-11 20:38:07,694 DEBUG: reducing threshold
+2021-10-11 20:38:07,694 DEBUG: Computing sift with threshold 0.01303703703703704
+2021-10-11 20:38:07,778 DEBUG: Found 2985 points in 0.19905853271484375s
+2021-10-11 20:38:07,778 DEBUG: reducing threshold
+2021-10-11 20:38:07,778 DEBUG: Computing sift with threshold 0.0038628257887517153
+2021-10-11 20:38:07,782 DEBUG: Found 3472 points in 0.22794699668884277s
+2021-10-11 20:38:07,782 DEBUG: reducing threshold
+2021-10-11 20:38:07,782 DEBUG: Computing sift with threshold 0.00869135802469136
+2021-10-11 20:38:07,814 DEBUG: Found 5063 points in 0.21955442428588867s
+2021-10-11 20:38:07,815 DEBUG: reducing threshold
+2021-10-11 20:38:07,815 DEBUG: Computing sift with threshold 0.005794238683127573
+2021-10-11 20:38:07,910 DEBUG: Found 4759 points in 0.2497246265411377s
+2021-10-11 20:38:07,915 DEBUG: reducing threshold
+2021-10-11 20:38:07,915 DEBUG: Computing sift with threshold 0.005794238683127573
+2021-10-11 20:38:07,925 DEBUG: Found 2956 points in 0.2306666374206543s
+2021-10-11 20:38:07,925 DEBUG: reducing threshold
+2021-10-11 20:38:07,925 DEBUG: Computing sift with threshold 0.00869135802469136
+2021-10-11 20:38:08,020 DEBUG: Found 4468 points in 0.23757243156433105s
+2021-10-11 20:38:08,020 DEBUG: reducing threshold
+2021-10-11 20:38:08,020 DEBUG: Computing sift with threshold 0.005794238683127573
+2021-10-11 20:38:08,030 DEBUG: Found 4104 points in 0.25112271308898926s
+2021-10-11 20:38:08,030 DEBUG: reducing threshold
+2021-10-11 20:38:08,030 DEBUG: Computing sift with threshold 0.0025752171925011434
+2021-10-11 20:38:08,111 DEBUG: Found 5547 points in 0.2950906753540039s
+2021-10-11 20:38:08,112 DEBUG: reducing threshold
+2021-10-11 20:38:08,112 DEBUG: Computing sift with threshold 0.0038628257887517153
+2021-10-11 20:38:08,253 DEBUG: Found 3921 points in 0.32782912254333496s
+2021-10-11 20:38:08,253 DEBUG: reducing threshold
+2021-10-11 20:38:08,253 DEBUG: Computing sift with threshold 0.005794238683127573
+2021-10-11 20:38:08,268 DEBUG: Found 5313 points in 0.3521113395690918s
+2021-10-11 20:38:08,271 DEBUG: reducing threshold
+2021-10-11 20:38:08,272 DEBUG: Computing sift with threshold 0.0038628257887517153
+2021-10-11 20:38:08,291 DEBUG: Found 4804 points in 0.26114726066589355s
+2021-10-11 20:38:08,291 DEBUG: reducing threshold
+2021-10-11 20:38:08,291 DEBUG: Computing sift with threshold 0.0017168114616674288
+2021-10-11 20:38:08,396 DEBUG: Found 5155 points in 0.3753821849822998s
+2021-10-11 20:38:08,396 DEBUG: reducing threshold
+2021-10-11 20:38:08,396 DEBUG: Computing sift with threshold 0.0038628257887517153
+2021-10-11 20:38:08,408 DEBUG: Found 5646 points in 0.29624271392822266s
+2021-10-11 20:38:08,408 DEBUG: reducing threshold
+2021-10-11 20:38:08,408 DEBUG: Computing sift with threshold 0.0025752171925011434
+2021-10-11 20:38:08,552 DEBUG: Found 4747 points in 0.2988133430480957s
+2021-10-11 20:38:08,553 DEBUG: reducing threshold
+2021-10-11 20:38:08,553 DEBUG: Computing sift with threshold 0.0038628257887517153
+2021-10-11 20:38:08,582 DEBUG: Found 5513 points in 0.3094675540924072s
+2021-10-11 20:38:08,582 DEBUG: reducing threshold
+2021-10-11 20:38:08,582 DEBUG: Computing sift with threshold 0.0025752171925011434
+2021-10-11 20:38:08,607 DEBUG: Found 5024 points in 0.3149721622467041s
+2021-10-11 20:38:08,607 DEBUG: reducing threshold
+2021-10-11 20:38:08,607 DEBUG: Computing sift with threshold 0.0011445409744449526
+2021-10-11 20:38:08,709 DEBUG: Found 5674 points in 0.3008565902709961s
+2021-10-11 20:38:08,710 DEBUG: reducing threshold
+2021-10-11 20:38:08,710 DEBUG: Computing sift with threshold 0.0017168114616674288
+2021-10-11 20:38:08,728 DEBUG: Found 5433 points in 0.3307993412017822s
+2021-10-11 20:38:08,730 DEBUG: reducing threshold
+2021-10-11 20:38:08,731 DEBUG: Computing sift with threshold 0.0025752171925011434
+2021-10-11 20:38:08,839 DEBUG: Found 5545 points in 0.2562685012817383s
+2021-10-11 20:38:08,839 DEBUG: reducing threshold
+2021-10-11 20:38:08,839 DEBUG: Computing sift with threshold 0.0017168114616674288
+2021-10-11 20:38:08,883 DEBUG: Found 5129 points in 0.3299682140350342s
+2021-10-11 20:38:08,883 DEBUG: reducing threshold
+2021-10-11 20:38:08,883 DEBUG: Computing sift with threshold 0.0025752171925011434
+2021-10-11 20:38:08,919 DEBUG: Found 5066 points in 0.31241679191589355s
+2021-10-11 20:38:08,920 DEBUG: reducing threshold
+2021-10-11 20:38:08,920 DEBUG: Computing sift with threshold 0.000763027316296635
+2021-10-11 20:38:09,018 DEBUG: Found 5682 points in 0.30788278579711914s
+2021-10-11 20:38:09,018 DEBUG: reducing threshold
+2021-10-11 20:38:09,018 DEBUG: Computing sift with threshold 0.0011445409744449526
+2021-10-11 20:38:09,046 DEBUG: Found 5507 points in 0.31494665145874023s
+2021-10-11 20:38:09,046 DEBUG: reducing threshold
+2021-10-11 20:38:09,047 DEBUG: Computing sift with threshold 0.0017168114616674288
+2021-10-11 20:38:09,114 DEBUG: Found 5553 points in 0.27505922317504883s
+2021-10-11 20:38:09,114 DEBUG: reducing threshold
+2021-10-11 20:38:09,114 DEBUG: Computing sift with threshold 0.0011445409744449526
+2021-10-11 20:38:09,179 DEBUG: Found 5221 points in 0.2954394817352295s
+2021-10-11 20:38:09,179 DEBUG: reducing threshold
+2021-10-11 20:38:09,179 DEBUG: Computing sift with threshold 0.0017168114616674288
+2021-10-11 20:38:09,220 DEBUG: Found 5071 points in 0.29929423332214355s
+2021-10-11 20:38:09,226 DEBUG: reducing threshold
+2021-10-11 20:38:09,227 DEBUG: Computing sift with threshold 0.00050868487753109
+2021-10-11 20:38:09,328 DEBUG: Found 5527 points in 0.2817566394805908s
+2021-10-11 20:38:09,329 DEBUG: reducing threshold
+2021-10-11 20:38:09,329 DEBUG: Computing sift with threshold 0.0011445409744449526
+2021-10-11 20:38:09,332 DEBUG: Found 5684 points in 0.3137032985687256s
+2021-10-11 20:38:09,332 DEBUG: reducing threshold
+2021-10-11 20:38:09,332 DEBUG: Computing sift with threshold 0.000763027316296635
+2021-10-11 20:38:09,382 DEBUG: Found 5555 points in 0.26754331588745117s
+2021-10-11 20:38:09,383 DEBUG: reducing threshold
+2021-10-11 20:38:09,383 DEBUG: Computing sift with threshold 0.000763027316296635
+2021-10-11 20:38:09,450 DEBUG: Found 5237 points in 0.2706887722015381s
+2021-10-11 20:38:09,450 DEBUG: reducing threshold
+2021-10-11 20:38:09,450 DEBUG: Computing sift with threshold 0.0011445409744449526
+2021-10-11 20:38:09,494 DEBUG: Found 5072 points in 0.26719093322753906s
+2021-10-11 20:38:09,494 DEBUG: reducing threshold
+2021-10-11 20:38:09,494 DEBUG: Computing sift with threshold 0.00033912325168739335
+2021-10-11 20:38:09,600 DEBUG: Found 5530 points in 0.2707984447479248s
+2021-10-11 20:38:09,600 DEBUG: reducing threshold
+2021-10-11 20:38:09,600 DEBUG: Computing sift with threshold 0.000763027316296635
+2021-10-11 20:38:09,624 DEBUG: Found 5556 points in 0.24033546447753906s
+2021-10-11 20:38:09,624 DEBUG: reducing threshold
+2021-10-11 20:38:09,624 DEBUG: Computing sift with threshold 0.00050868487753109
+2021-10-11 20:38:09,626 DEBUG: Found 5684 points in 0.2938377857208252s
+2021-10-11 20:38:09,630 DEBUG: reducing threshold
+2021-10-11 20:38:09,633 DEBUG: Computing sift with threshold 0.00050868487753109
+2021-10-11 20:38:09,770 DEBUG: Found 5243 points in 0.31981897354125977s
+2021-10-11 20:38:09,770 DEBUG: reducing threshold
+2021-10-11 20:38:09,770 DEBUG: Computing sift with threshold 0.000763027316296635
+2021-10-11 20:38:09,812 DEBUG: Found 5072 points in 0.31710267066955566s
+2021-10-11 20:38:09,812 DEBUG: reducing threshold
+2021-10-11 20:38:09,812 DEBUG: Computing sift with threshold 0.00022608216779159557
+2021-10-11 20:38:09,892 DEBUG: Found 5530 points in 0.2914705276489258s
+2021-10-11 20:38:09,892 DEBUG: reducing threshold
+2021-10-11 20:38:09,892 DEBUG: Computing sift with threshold 0.00050868487753109
+2021-10-11 20:38:09,905 DEBUG: Found 5556 points in 0.2784905433654785s
+2021-10-11 20:38:09,910 DEBUG: reducing threshold
+2021-10-11 20:38:09,911 DEBUG: Computing sift with threshold 0.00033912325168739335
+2021-10-11 20:38:09,961 DEBUG: Found 5684 points in 0.322223424911499s
+2021-10-11 20:38:09,963 DEBUG: reducing threshold
+2021-10-11 20:38:09,964 DEBUG: Computing sift with threshold 0.00033912325168739335
+2021-10-11 20:38:10,064 DEBUG: Found 5243 points in 0.29309654235839844s
+2021-10-11 20:38:10,064 DEBUG: reducing threshold
+2021-10-11 20:38:10,064 DEBUG: Computing sift with threshold 0.00050868487753109
+2021-10-11 20:38:10,126 DEBUG: Found 5072 points in 0.3141744136810303s
+2021-10-11 20:38:10,126 DEBUG: reducing threshold
+2021-10-11 20:38:10,126 DEBUG: Computing sift with threshold 0.00015072144519439704
+2021-10-11 20:38:10,182 DEBUG: Found 5530 points in 0.2899665832519531s
+2021-10-11 20:38:10,183 DEBUG: reducing threshold
+2021-10-11 20:38:10,184 DEBUG: Computing sift with threshold 0.00033912325168739335
+2021-10-11 20:38:10,188 DEBUG: Found 5556 points in 0.27756309509277344s
+2021-10-11 20:38:10,188 DEBUG: reducing threshold
+2021-10-11 20:38:10,189 DEBUG: Computing sift with threshold 0.00022608216779159557
+2021-10-11 20:38:10,265 DEBUG: Found 5684 points in 0.29915571212768555s
+2021-10-11 20:38:10,265 DEBUG: reducing threshold
+2021-10-11 20:38:10,265 DEBUG: Computing sift with threshold 0.00022608216779159557
+2021-10-11 20:38:10,344 DEBUG: Found 5243 points in 0.2801036834716797s
+2021-10-11 20:38:10,344 DEBUG: reducing threshold
+2021-10-11 20:38:10,346 DEBUG: Computing sift with threshold 0.00033912325168739335
+2021-10-11 20:38:10,419 DEBUG: Found 5072 points in 0.2928140163421631s
+2021-10-11 20:38:10,420 DEBUG: reducing threshold
+2021-10-11 20:38:10,420 DEBUG: Computing sift with threshold 0.00010048096346293136
+2021-10-11 20:38:10,438 DEBUG: Found 5530 points in 0.2538604736328125s
+2021-10-11 20:38:10,439 DEBUG: reducing threshold
+2021-10-11 20:38:10,439 DEBUG: Computing sift with threshold 0.00022608216779159557
+2021-10-11 20:38:10,445 DEBUG: Found 5556 points in 0.2566871643066406s
+2021-10-11 20:38:10,446 DEBUG: reducing threshold
+2021-10-11 20:38:10,446 DEBUG: Computing sift with threshold 0.00015072144519439704
+2021-10-11 20:38:10,573 DEBUG: Found 5684 points in 0.3083057403564453s
+2021-10-11 20:38:10,574 DEBUG: reducing threshold
+2021-10-11 20:38:10,574 DEBUG: Computing sift with threshold 0.00015072144519439704
+2021-10-11 20:38:10,630 DEBUG: Found 5243 points in 0.2823503017425537s
+2021-10-11 20:38:10,630 DEBUG: reducing threshold
+2021-10-11 20:38:10,630 DEBUG: Computing sift with threshold 0.00022608216779159557
+2021-10-11 20:38:10,675 DEBUG: Found 5072 points in 0.2551884651184082s
+2021-10-11 20:38:10,676 DEBUG: reducing threshold
+2021-10-11 20:38:10,676 DEBUG: Computing sift with threshold 6.698730897528758e-05
+2021-10-11 20:38:10,713 DEBUG: Found 5530 points in 0.2730255126953125s
+2021-10-11 20:38:10,713 DEBUG: reducing threshold
+2021-10-11 20:38:10,713 DEBUG: Computing sift with threshold 0.00015072144519439704
+2021-10-11 20:38:10,726 DEBUG: Found 5556 points in 0.2806057929992676s
+2021-10-11 20:38:10,727 DEBUG: reducing threshold
+2021-10-11 20:38:10,727 DEBUG: Computing sift with threshold 0.00010048096346293136
+2021-10-11 20:38:10,861 DEBUG: Found 5684 points in 0.28766870498657227s
+2021-10-11 20:38:10,862 DEBUG: reducing threshold
+2021-10-11 20:38:10,862 DEBUG: Computing sift with threshold 0.00010048096346293136
+2021-10-11 20:38:10,945 DEBUG: Found 5243 points in 0.3152339458465576s
+2021-10-11 20:38:10,946 DEBUG: reducing threshold
+2021-10-11 20:38:10,946 DEBUG: Computing sift with threshold 0.00015072144519439704
+2021-10-11 20:38:10,996 DEBUG: Found 5072 points in 0.32006359100341797s
+2021-10-11 20:38:10,997 DEBUG: done
+2021-10-11 20:38:11,004 DEBUG: Found 5530 points in 0.2909400463104248s
+2021-10-11 20:38:11,004 DEBUG: reducing threshold
+2021-10-11 20:38:11,004 DEBUG: Computing sift with threshold 0.00010048096346293136
+2021-10-11 20:38:11,017 DEBUG: Found 5556 points in 0.29059696197509766s
+2021-10-11 20:38:11,018 DEBUG: reducing threshold
+2021-10-11 20:38:11,018 DEBUG: Computing sift with threshold 6.698730897528758e-05
+2021-10-11 20:38:11,170 DEBUG: Found 5684 points in 0.30786681175231934s
+2021-10-11 20:38:11,170 DEBUG: reducing threshold
+2021-10-11 20:38:11,170 DEBUG: Computing sift with threshold 6.698730897528758e-05
+2021-10-11 20:38:11,278 DEBUG: Found 5243 points in 0.33237791061401367s
+2021-10-11 20:38:11,278 DEBUG: reducing threshold
+2021-10-11 20:38:11,279 DEBUG: Computing sift with threshold 0.00010048096346293136
+2021-10-11 20:38:11,325 DEBUG: Found 5530 points in 0.3206198215484619s
+2021-10-11 20:38:11,325 DEBUG: reducing threshold
+2021-10-11 20:38:11,326 DEBUG: Computing sift with threshold 6.698730897528758e-05
+2021-10-11 20:38:11,339 DEBUG: Found 5556 points in 0.32123851776123047s
+2021-10-11 20:38:11,339 DEBUG: done
+2021-10-11 20:38:11,500 DEBUG: Found 5684 points in 0.3299567699432373s
+2021-10-11 20:38:11,500 DEBUG: done
+2021-10-11 20:38:11,568 DEBUG: Found 5243 points in 0.28917837142944336s
+2021-10-11 20:38:11,568 DEBUG: reducing threshold
+2021-10-11 20:38:11,568 DEBUG: Computing sift with threshold 6.698730897528758e-05
+2021-10-11 20:38:11,627 DEBUG: Found 5530 points in 0.30141234397888184s
+2021-10-11 20:38:11,627 DEBUG: done
+2021-10-11 20:38:11,716 DEBUG: No segmentation for XAG001_0039_550nm.tif, no features masked.
+2021-10-11 20:38:11,848 DEBUG: Found 5243 points in 0.27927279472351074s
+2021-10-11 20:38:11,848 DEBUG: done
+2021-10-11 20:38:11,994 DEBUG: No segmentation for XAG001_0036_550nm.tif, no features masked.
+2021-10-11 20:38:12,126 DEBUG: No segmentation for XAG001_0035_550nm.tif, no features masked.
+2021-10-11 20:38:12,193 DEBUG: No segmentation for XAG001_0037_550nm.tif, no features masked.
+2021-10-11 20:38:12,296 DEBUG: No segmentation for XAG001_0038_550nm.tif, no features masked.
+[INFO]    running /code/SuperBuild/install/bin/opensfm/bin/opensfm match_features "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/opensfm"
+2021-10-11 20:38:14,777 INFO: Matching 10 image pairs
+2021-10-11 20:38:14,778 INFO: Computing pair matching with 8 processes
+2021-10-11 20:38:15,020 DEBUG: No segmentation for XAG001_0035_550nm.tif, no features masked.
+2021-10-11 20:38:15,039 DEBUG: No segmentation for XAG001_0038_550nm.tif, no features masked.
+2021-10-11 20:38:15,040 DEBUG: No segmentation for XAG001_0036_550nm.tif, no features masked.
+2021-10-11 20:38:15,058 DEBUG: No segmentation for XAG001_0039_550nm.tif, no features masked.
+2021-10-11 20:38:15,149 DEBUG: No segmentation for XAG001_0037_550nm.tif, no features masked.
+2021-10-11 20:38:15,714 DEBUG: Matching XAG001_0038_550nm.tif and XAG001_0037_550nm.tif.  Matcher: FLANN (symmetric) T-desc: 0.864 T-robust: 0.032 T-total: 0.914 Matches: 1162 Robust: 1146 Success: True
+2021-10-11 20:38:15,732 DEBUG: Matching XAG001_0039_550nm.tif and XAG001_0037_550nm.tif.  Matcher: FLANN (symmetric) T-desc: 0.926 T-robust: 0.002 T-total: 0.944 Matches: 227 Robust: 211 Success: True
+2021-10-11 20:38:15,736 DEBUG: Matching XAG001_0036_550nm.tif and XAG001_0037_550nm.tif.  Matcher: FLANN (symmetric) T-desc: 0.909 T-robust: 0.033 T-total: 0.946 Matches: 1327 Robust: 1315 Success: True
+2021-10-11 20:38:15,771 DEBUG: Matching XAG001_0035_550nm.tif and XAG001_0037_550nm.tif.  Matcher: FLANN (symmetric) T-desc: 0.978 T-robust: 0.004 T-total: 0.984 Matches: 664 Robust: 644 Success: True
+2021-10-11 20:38:15,820 DEBUG: Matching XAG001_0036_550nm.tif and XAG001_0039_550nm.tif.  Matcher: FLANN (symmetric) T-desc: 1.025 T-robust: 0.005 T-total: 1.030 Matches: 48 Robust: 31 Success: True
+2021-10-11 20:38:15,865 DEBUG: Matching XAG001_0036_550nm.tif and XAG001_0038_550nm.tif.  Matcher: FLANN (symmetric) T-desc: 1.073 T-robust: 0.002 T-total: 1.077 Matches: 482 Robust: 461 Success: True
+2021-10-11 20:38:15,901 DEBUG: Matching XAG001_0038_550nm.tif and XAG001_0039_550nm.tif.  Matcher: FLANN (symmetric) T-desc: 1.098 T-robust: 0.012 T-total: 1.113 Matches: 692 Robust: 672 Success: True
+2021-10-11 20:38:16,016 DEBUG: Matching XAG001_0035_550nm.tif and XAG001_0039_550nm.tif.  Matcher: FLANN (symmetric) T-desc: 1.229 Matches: FAILED
+2021-10-11 20:38:16,080 DEBUG: Matching XAG001_0038_550nm.tif and XAG001_0035_550nm.tif.  Matcher: FLANN (symmetric) T-desc: 0.364 T-robust: 0.001 T-total: 0.366 Matches: 215 Robust: 192 Success: True
+2021-10-11 20:38:16,180 DEBUG: Matching XAG001_0036_550nm.tif and XAG001_0035_550nm.tif.  Matcher: FLANN (symmetric) T-desc: 0.422 T-robust: 0.016 T-total: 0.442 Matches: 1456 Robust: 1448 Success: True
+2021-10-11 20:38:16,202 INFO: Matched 10 pairs (brown-brown: 10) in 1.42434100000537 seconds (0.14243432999937794 seconds/pair).
+[INFO]    running /code/SuperBuild/install/bin/opensfm/bin/opensfm create_tracks "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/opensfm"
+2021-10-11 20:38:18,198 INFO: reading features
+2021-10-11 20:38:18,376 DEBUG: Merging features onto tracks
+2021-10-11 20:38:18,476 DEBUG: Good tracks: 3825
+[INFO]    running /code/SuperBuild/install/bin/opensfm/bin/opensfm reconstruct "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/opensfm"
+2021-10-11 20:38:20,423 INFO: Starting incremental reconstruction
+2021-10-11 20:38:20,523 INFO: Starting reconstruction with XAG001_0036_550nm.tif and XAG001_0037_550nm.tif
+2021-10-11 20:38:20,590 INFO: Two-view reconstruction inliers: 1368 / 1368
+2021-10-11 20:38:20,946 INFO: Triangulated: 1368
+2021-10-11 20:38:22,122 DEBUG: Ceres Solver Report: Iterations: 10, Initial cost: 9.848467e+00, Final cost: 7.625211e+00, Termination: CONVERGENCE
+2021-10-11 20:38:22,153 INFO: Removed outliers: 52
+2021-10-11 20:38:22,185 INFO: -------------------------------------------------------
+2021-10-11 20:38:22,202 INFO: XAG001_0035_550nm.tif resection inliers: 566 / 591
+2021-10-11 20:38:22,340 INFO: Adding XAG001_0035_550nm.tif to the reconstruction
+2021-10-11 20:38:22,458 WARNING: Shots and/or GCPs are aligned on a single-line. Using vertical prior
+2021-10-11 20:38:23,494 DEBUG: Ceres Solver Report: Iterations: 13, Initial cost: 4.362922e+02, Final cost: 1.015476e+02, Termination: CONVERGENCE
+2021-10-11 20:38:23,545 INFO: Removed outliers: 2
+2021-10-11 20:38:23,547 INFO: -------------------------------------------------------
+2021-10-11 20:38:23,562 INFO: XAG001_0038_550nm.tif resection inliers: 423 / 519
+2021-10-11 20:38:23,724 INFO: Adding XAG001_0038_550nm.tif to the reconstruction
+2021-10-11 20:38:23,873 INFO: Re-triangulating
+2021-10-11 20:38:23,874 WARNING: Shots and/or GCPs are aligned on a single-line. Using vertical prior
+2021-10-11 20:38:25,590 DEBUG: Ceres Solver Report: Iterations: 24, Initial cost: 3.774499e+02, Final cost: 1.564972e+02, Termination: CONVERGENCE
+2021-10-11 20:38:27,184 DEBUG: Ceres Solver Report: Iterations: 9, Initial cost: 2.085840e+02, Final cost: 1.616667e+02, Termination: CONVERGENCE
+2021-10-11 20:38:27,301 INFO: Removed outliers: 5
+2021-10-11 20:38:27,304 INFO: -------------------------------------------------------
+2021-10-11 20:38:27,312 INFO: XAG001_0039_550nm.tif resection inliers: 185 / 224
+2021-10-11 20:38:27,542 INFO: Adding XAG001_0039_550nm.tif to the reconstruction
+2021-10-11 20:38:27,585 INFO: -------------------------------------------------------
+2021-10-11 20:38:27,585 WARNING: Shots and/or GCPs are aligned on a single-line. Using vertical prior
+2021-10-11 20:38:29,169 DEBUG: Ceres Solver Report: Iterations: 19, Initial cost: 5.821187e+02, Final cost: 3.266007e+02, Termination: CONVERGENCE
+2021-10-11 20:38:29,263 INFO: Removed outliers: 103
+2021-10-11 20:38:29,319 INFO: Reconstruction 0: 5 images, 3372 points
+2021-10-11 20:38:29,319 INFO: 1 partial reconstructions in total.
+[INFO]    Export reconstruction stats
+[INFO]    running /code/SuperBuild/install/bin/opensfm/bin/opensfm compute_statistics --diagram_max_points 100000 "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/opensfm"
+2021-10-11 20:38:36,561 DEBUG: locator: <matplotlib.colorbar._ColorbarAutoLocator object at 0x7f68df8bfb80>
+2021-10-11 20:38:36,561 DEBUG: Using auto colorbar locator <matplotlib.colorbar._ColorbarAutoLocator object at 0x7f68df8bfb80> on colorbar
+2021-10-11 20:38:36,562 DEBUG: Setting pcolormesh
+2021-10-11 20:38:38,583 DEBUG: locator: <matplotlib.colorbar._ColorbarAutoLocator object at 0x7f68dae54f40>
+2021-10-11 20:38:38,583 DEBUG: Using auto colorbar locator <matplotlib.colorbar._ColorbarAutoLocator object at 0x7f68dae54f40> on colorbar
+2021-10-11 20:38:38,584 DEBUG: Setting pcolormesh
+[INFO]    running /code/SuperBuild/install/bin/opensfm/bin/opensfm export_geocoords --reconstruction --proj "+proj=utm +zone=34 +datum=WGS84 +units=m +no_defs +type=crs" --offset-x 467494.0 --offset-y 5192844.0 "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/opensfm"
+[INFO]    Updating /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/opensfm/config.yaml
+[INFO]    undistorted_image_max_size: 1280
+[INFO]    Computing band alignment
+[INFO]    Insufficient features: 0
+[INFO]    Can't use features matching, will use ECC (this might take a bit)
+[INFO]    Pyramid levels: 2
+[INFO]    Insufficient features: 0
+[INFO]    Can't use features matching, will use ECC (this might take a bit)
+[INFO]    Pyramid levels: 2
+[INFO]    Insufficient features: 2
+[INFO]    Can't use features matching, will use ECC (this might take a bit)
+[INFO]    Pyramid levels: 2
+[INFO]    Computing ECC pyramid level 0
+[INFO]    Insufficient features: 0
+[INFO]    Can't use features matching, will use ECC (this might take a bit)
+[INFO]    Pyramid levels: 2
+[INFO]    Computing ECC pyramid level 0
+[INFO]    Cannot match features
+[INFO]    Can't use features matching, will use ECC (this might take a bit)
+[INFO]    Pyramid levels: 2
+[INFO]    Computing ECC pyramid level 0
+[INFO]    Computing ECC pyramid level 1
+[INFO]    Computing ECC pyramid level 0
+[INFO]    Computing ECC pyramid level 1
+[INFO]    Computing ECC pyramid level 0
+[INFO]    Computing ECC pyramid level 1
+[INFO]    Computing ECC pyramid level 1
+[INFO]    Computing ECC pyramid level 1
+[INFO]    Computing ECC pyramid level 2
+[INFO]    XAG001_0037_ndvi.tif --> XAG001_0037_550nm.tif good match
+[INFO]    Computing ECC pyramid level 2
+[INFO]    Computing ECC pyramid level 2
+[INFO]    Computing ECC pyramid level 2
+[INFO]    XAG001_0036_ndvi.tif --> XAG001_0036_550nm.tif good match
+[INFO]    XAG001_0039_ndvi.tif --> XAG001_0039_550nm.tif good match
+[INFO]    Computing ECC pyramid level 2
+[INFO]    XAG001_0035_ndvi.tif --> XAG001_0035_550nm.tif good match
+[INFO]    XAG001_0038_ndvi.tif --> XAG001_0038_550nm.tif good match
+[INFO]    RGB band will be aligned using warp matrix [[ 1.0033504e+00  9.5362402e-03 -1.6164360e+00]
+[ 1.8021739e-03  1.0055685e+00 -1.0181314e+01]
+[ 3.3661829e-06  1.3236342e-05  1.0000000e+00]] (score: 0.10756707657128572)
+[INFO]    Insufficient features: 0
+[INFO]    Can't use features matching, will use ECC (this might take a bit)
+[INFO]    Pyramid levels: 2
+[INFO]    Computing ECC pyramid level 0
+[INFO]    Can't use features matching, will use ECC (this might take a bit)
+[INFO]    Pyramid levels: 2
+[INFO]    Insufficient features: 0
+[INFO]    Computing ECC pyramid level 1
+[INFO]    Can't use features matching, will use ECC (this might take a bit)
+[INFO]    Pyramid levels: 2
+[INFO]    Cannot match features
+[INFO]    Can't use features matching, will use ECC (this might take a bit)
+[INFO]    Pyramid levels: 2
+[INFO]    Insufficient features: 0
+[INFO]    Can't use features matching, will use ECC (this might take a bit)
+[INFO]    Pyramid levels: 2
+[INFO]    Computing ECC pyramid level 0
+[INFO]    Computing ECC pyramid level 0
+[INFO]    Computing ECC pyramid level 0
+[INFO]    Computing ECC pyramid level 0
+[INFO]    Computing ECC pyramid level 1
+[INFO]    Computing ECC pyramid level 1
+[INFO]    Computing ECC pyramid level 1
+[INFO]    Computing ECC pyramid level 2
+[INFO]    Computing ECC pyramid level 1
+[INFO]    XAG001_0037_660nm.tif --> XAG001_0037_550nm.tif good match
+[INFO]    Computing ECC pyramid level 2
+[INFO]    Computing ECC pyramid level 2
+[INFO]    XAG001_0036_660nm.tif --> XAG001_0036_550nm.tif good match
+[INFO]    XAG001_0039_660nm.tif --> XAG001_0039_550nm.tif good match
+[INFO]    Computing ECC pyramid level 2
+[INFO]    Computing ECC pyramid level 2
+[INFO]    XAG001_0035_660nm.tif --> XAG001_0035_550nm.tif good match
+[INFO]    XAG001_0038_660nm.tif --> XAG001_0038_550nm.tif good match
+[INFO]    Red band will be aligned using warp matrix [[ 1.0037318e+00  1.0009697e-02 -1.8857764e+00]
+[ 2.2244118e-03  1.0060046e+00 -1.0370792e+01]
+[ 2.7791416e-06  1.4846517e-05  1.0000000e+00]] (score: 0.005821556493174285)
+[INFO]    Insufficient features: 1
+[INFO]    Can't use features matching, will use ECC (this might take a bit)
+[INFO]    Pyramid levels: 2
+[INFO]    Computing ECC pyramid level 0
+[INFO]    Insufficient features: 0
+[INFO]    Can't use features matching, will use ECC (this might take a bit)
+[INFO]    Pyramid levels: 2
+[INFO]    Computing ECC pyramid level 0
+[INFO]    Computing ECC pyramid level 1
+[INFO]    Insufficient features: 0
+[INFO]    Can't use features matching, will use ECC (this might take a bit)
+[INFO]    Pyramid levels: 2
+[INFO]    Insufficient features: 0
+[INFO]    Can't use features matching, will use ECC (this might take a bit)
+[INFO]    Pyramid levels: 2
+[INFO]    Insufficient features: 0
+[INFO]    Can't use features matching, will use ECC (this might take a bit)
+[INFO]    Pyramid levels: 2
+[INFO]    Computing ECC pyramid level 1
+[INFO]    Computing ECC pyramid level 0
+[INFO]    Computing ECC pyramid level 0
+[INFO]    Computing ECC pyramid level 0
+[INFO]    Computing ECC pyramid level 2
+[INFO]    Computing ECC pyramid level 1
+[INFO]    Computing ECC pyramid level 1
+[INFO]    XAG001_0039_735nm.tif --> XAG001_0039_550nm.tif good match
+[INFO]    Computing ECC pyramid level 1
+[INFO]    Computing ECC pyramid level 2
+[INFO]    XAG001_0035_735nm.tif --> XAG001_0035_550nm.tif good match
+[INFO]    Computing ECC pyramid level 2
+[INFO]    Computing ECC pyramid level 2
+[INFO]    XAG001_0036_735nm.tif --> XAG001_0036_550nm.tif good match
+[INFO]    Computing ECC pyramid level 2
+[INFO]    XAG001_0037_735nm.tif --> XAG001_0037_550nm.tif good match
+[INFO]    XAG001_0038_735nm.tif --> XAG001_0038_550nm.tif good match
+[INFO]    Rededge band will be aligned using warp matrix [[ 9.7491503e-01  6.6294121e-03  1.4076463e+01]
+[-5.4520171e-04  9.8599339e-01 -5.8990431e-01]
+[-7.8411649e-06  9.8956198e-06  1.0000000e+00]] (score: 0.07290059328079224)
+[INFO]    Insufficient features: 0
+[INFO]    Can't use features matching, will use ECC (this might take a bit)
+[INFO]    Pyramid levels: 2
+[INFO]    Insufficient features: 0
+[INFO]    Cannot match features
+[INFO]    Can't use features matching, will use ECC (this might take a bit)
+[INFO]    Pyramid levels: 2
+[INFO]    Can't use features matching, will use ECC (this might take a bit)
+[INFO]    Pyramid levels: 2
+[INFO]    Computing ECC pyramid level 0
+[INFO]    Computing ECC pyramid level 0
+[INFO]    Computing ECC pyramid level 0
+[INFO]    Computing ECC pyramid level 1
+[INFO]    Insufficient features: 0
+[INFO]    Can't use features matching, will use ECC (this might take a bit)
+[INFO]    Pyramid levels: 2
+[INFO]    Computing ECC pyramid level 1
+[INFO]    Insufficient features: 1
+[INFO]    Can't use features matching, will use ECC (this might take a bit)
+[INFO]    Pyramid levels: 2
+[INFO]    Computing ECC pyramid level 1
+[INFO]    Computing ECC pyramid level 0
+[INFO]    Computing ECC pyramid level 0
+[INFO]    Computing ECC pyramid level 1
+[INFO]    Computing ECC pyramid level 1
+[INFO]    Computing ECC pyramid level 2
+[INFO]    XAG001_0037_790nm.tif --> XAG001_0037_550nm.tif good match
+[INFO]    Computing ECC pyramid level 2
+[INFO]    Computing ECC pyramid level 2
+[INFO]    XAG001_0036_790nm.tif --> XAG001_0036_550nm.tif good match
+[INFO]    Computing ECC pyramid level 2
+[INFO]    XAG001_0035_790nm.tif --> XAG001_0035_550nm.tif good match
+[INFO]    XAG001_0039_790nm.tif --> XAG001_0039_550nm.tif good match
+[INFO]    Computing ECC pyramid level 2
+[INFO]    XAG001_0038_790nm.tif --> XAG001_0038_550nm.tif good match
+[INFO]    NIR band will be aligned using warp matrix [[ 9.7807795e-01 -6.9167055e-03  1.3259789e+01]
+[-1.2132840e-03  9.8106068e-01  1.0416738e+01]
+[-5.6908880e-06 -9.7289540e-06  1.0000000e+00]] (score: 0.013395005255006254)
+[INFO]    Adding shots to reconstruction
+[INFO]    Backing up reconstruction
+[INFO]    Undistorting /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/opensfm ...
+2021-10-11 20:45:36,207 DEBUG: Undistorting image XAG001_0039_790nm.tif
+2021-10-11 20:45:36,207 DEBUG: Undistorting image XAG001_0039_735nm.tif
+2021-10-11 20:45:36,207 DEBUG: Undistorting image XAG001_0039_660nm.tif
+2021-10-11 20:45:36,208 DEBUG: Undistorting image XAG001_0035_790nm.tif
+2021-10-11 20:45:36,242 DEBUG: Undistorting image XAG001_0037_735nm.tif
+[WARNING] Cannot perform radiometric calibration, no FNumber/Exposure Time or Radiometric Calibration EXIF tags found in XAG001_0039_790nm.tif. Using Digital Number.
+2021-10-11 20:45:36,255 DEBUG: Undistorting image XAG001_0037_ndvi.tif
+[WARNING] Cannot perform radiometric calibration, no FNumber/Exposure Time or Radiometric Calibration EXIF tags found in XAG001_0039_735nm.tif. Using Digital Number.
+[WARNING] Cannot perform radiometric calibration, no FNumber/Exposure Time or Radiometric Calibration EXIF tags found in XAG001_0039_660nm.tif. Using Digital Number.
+2021-10-11 20:45:36,226 DEBUG: Undistorting image XAG001_0035_660nm.tif
+2021-10-11 20:45:36,258 DEBUG: Undistorting image XAG001_0037_790nm.tif
+[WARNING] Cannot perform radiometric calibration, no FNumber/Exposure Time or Radiometric Calibration EXIF tags found in XAG001_0035_790nm.tif. Using Digital Number.
+[WARNING] Cannot perform radiometric calibration, no FNumber/Exposure Time or Radiometric Calibration EXIF tags found in XAG001_0037_735nm.tif. Using Digital Number.
+[WARNING] Cannot perform radiometric calibration, no FNumber/Exposure Time or Radiometric Calibration EXIF tags found in XAG001_0037_790nm.tif. Using Digital Number.
+[WARNING] Cannot perform radiometric calibration, no FNumber/Exposure Time or Radiometric Calibration EXIF tags found in XAG001_0035_660nm.tif. Using Digital Number.
+[WARNING] Cannot perform radiometric calibration, no FNumber/Exposure Time or Radiometric Calibration EXIF tags found in XAG001_0037_ndvi.tif. Using Digital Number.
+2021-10-11 20:45:36,607 DEBUG: Undistorting image XAG001_0036_550nm.tif
+[WARNING] Cannot perform radiometric calibration, no FNumber/Exposure Time or Radiometric Calibration EXIF tags found in XAG001_0036_550nm.tif. Using Digital Number.
+2021-10-11 20:45:36,973 DEBUG: Undistorting image XAG001_0038_550nm.tif
+2021-10-11 20:45:36,975 DEBUG: Undistorting image XAG001_0035_ndvi.tif
+2021-10-11 20:45:36,979 DEBUG: Undistorting image XAG001_0036_ndvi.tif
+[WARNING] Cannot perform radiometric calibration, no FNumber/Exposure Time or Radiometric Calibration EXIF tags found in XAG001_0035_ndvi.tif. Using Digital Number.
+2021-10-11 20:45:37,235 DEBUG: Undistorting image XAG001_0038_735nm.tif
+2021-10-11 20:45:37,237 DEBUG: Undistorting image XAG001_0035_735nm.tif
+2021-10-11 20:45:37,238 DEBUG: Undistorting image XAG001_0037_550nm.tif
+[WARNING] Cannot perform radiometric calibration, no FNumber/Exposure Time or Radiometric Calibration EXIF tags found in XAG001_0038_550nm.tif. Using Digital Number.
+[WARNING] Cannot perform radiometric calibration, no FNumber/Exposure Time or Radiometric Calibration EXIF tags found in XAG001_0036_ndvi.tif. Using Digital Number.
+[WARNING] Cannot perform radiometric calibration, no FNumber/Exposure Time or Radiometric Calibration EXIF tags found in XAG001_0035_735nm.tif. Using Digital Number.
+[WARNING] Cannot perform radiometric calibration, no FNumber/Exposure Time or Radiometric Calibration EXIF tags found in XAG001_0038_735nm.tif. Using Digital Number.
+[WARNING] Cannot perform radiometric calibration, no FNumber/Exposure Time or Radiometric Calibration EXIF tags found in XAG001_0037_550nm.tif. Using Digital Number.
+2021-10-11 20:45:37,382 DEBUG: Undistorting image XAG001_0038_ndvi.tif
+[WARNING] Cannot perform radiometric calibration, no FNumber/Exposure Time or Radiometric Calibration EXIF tags found in XAG001_0038_ndvi.tif. Using Digital Number.
+2021-10-11 20:45:37,730 DEBUG: Undistorting image XAG001_0039_ndvi.tif
+2021-10-11 20:45:38,350 DEBUG: Undistorting image XAG001_0035_550nm.tif
+[WARNING] Cannot perform radiometric calibration, no FNumber/Exposure Time or Radiometric Calibration EXIF tags found in XAG001_0039_ndvi.tif. Using Digital Number.
+[WARNING] Cannot perform radiometric calibration, no FNumber/Exposure Time or Radiometric Calibration EXIF tags found in XAG001_0035_550nm.tif. Using Digital Number.
+2021-10-11 20:45:38,372 DEBUG: Undistorting image XAG001_0036_660nm.tif
+2021-10-11 20:45:38,493 DEBUG: Undistorting image XAG001_0039_550nm.tif
+[WARNING] Cannot perform radiometric calibration, no FNumber/Exposure Time or Radiometric Calibration EXIF tags found in XAG001_0036_660nm.tif. Using Digital Number.
+2021-10-11 20:45:38,598 DEBUG: Undistorting image XAG001_0036_735nm.tif
+[WARNING] Cannot perform radiometric calibration, no FNumber/Exposure Time or Radiometric Calibration EXIF tags found in XAG001_0039_550nm.tif. Using Digital Number.
+2021-10-11 20:45:39,196 DEBUG: Undistorting image XAG001_0037_660nm.tif
+[WARNING] Cannot perform radiometric calibration, no FNumber/Exposure Time or Radiometric Calibration EXIF tags found in XAG001_0036_735nm.tif. Using Digital Number.
+2021-10-11 20:45:39,197 DEBUG: Undistorting image XAG001_0036_790nm.tif
+2021-10-11 20:45:39,209 DEBUG: Undistorting image XAG001_0038_790nm.tif
+[WARNING] Cannot perform radiometric calibration, no FNumber/Exposure Time or Radiometric Calibration EXIF tags found in XAG001_0038_790nm.tif. Using Digital Number.
+2021-10-11 20:45:39,335 DEBUG: Undistorting image XAG001_0038_660nm.tif
+[WARNING] Cannot perform radiometric calibration, no FNumber/Exposure Time or Radiometric Calibration EXIF tags found in XAG001_0037_660nm.tif. Using Digital Number.
+[WARNING] Cannot perform radiometric calibration, no FNumber/Exposure Time or Radiometric Calibration EXIF tags found in XAG001_0036_790nm.tif. Using Digital Number.
+[WARNING] Cannot perform radiometric calibration, no FNumber/Exposure Time or Radiometric Calibration EXIF tags found in XAG001_0038_660nm.tif. Using Digital Number.
+[INFO]    Restored reconstruction.json
+[INFO]    Undistorting /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/opensfm ...
+2021-10-11 20:45:40,594 DEBUG: Undistorting the reconstruction
+2021-10-11 20:45:40,852 DEBUG: Undistorting image XAG001_0039_550nm.tif
+2021-10-11 20:45:40,852 DEBUG: Undistorting image XAG001_0035_550nm.tif
+2021-10-11 20:45:40,860 DEBUG: Undistorting image XAG001_0037_550nm.tif
+2021-10-11 20:45:40,901 DEBUG: Undistorting image XAG001_0038_550nm.tif
+[WARNING] Cannot perform radiometric calibration, no FNumber/Exposure Time or Radiometric Calibration EXIF tags found in XAG001_0039_550nm.tif. Using Digital Number.
+2021-10-11 20:45:40,902 DEBUG: Undistorting image XAG001_0036_550nm.tif
+[WARNING] Cannot perform radiometric calibration, no FNumber/Exposure Time or Radiometric Calibration EXIF tags found in XAG001_0035_550nm.tif. Using Digital Number.
+[WARNING] Cannot perform radiometric calibration, no FNumber/Exposure Time or Radiometric Calibration EXIF tags found in XAG001_0038_550nm.tif. Using Digital Number.
+[WARNING] Cannot perform radiometric calibration, no FNumber/Exposure Time or Radiometric Calibration EXIF tags found in XAG001_0037_550nm.tif. Using Digital Number.
+[WARNING] Cannot perform radiometric calibration, no FNumber/Exposure Time or Radiometric Calibration EXIF tags found in XAG001_0036_550nm.tif. Using Digital Number.
+[INFO]    running /code/SuperBuild/install/bin/opensfm/bin/opensfm export_visualsfm --points "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/opensfm"
+[INFO]    Multiple bands found
+[INFO]    Finished opensfm stage
+[INFO]    Running openmvs stage
+[INFO]    running /code/SuperBuild/install/bin/opensfm/bin/opensfm export_openmvs "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/opensfm"
+[INFO]    Running dense reconstruction. This might take a while.
+[INFO]    Estimating depthmaps
+[INFO]    running /code/SuperBuild/install/bin/OpenMVS/DensifyPointCloud "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/opensfm/undistorted/openmvs/scene.mvs"  --resolution-level 2 --min-resolution 320 --max-resolution 1280 --max-threads 8 --number-views-fuse 2 -w "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/opensfm/undistorted/openmvs/depthmaps" -v 0 --geometric-iters 0
+20:45:45 [App     ] Build date: Sep 14 2021, 23:21:34
+20:45:45 [App     ] CPU: Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHz (8 cores)
+20:45:45 [App     ] RAM: 12.34GB Physical Memory 4.00GB Virtual Memory
+20:45:45 [App     ] OS: Linux 5.10.16.3-microsoft-standard-WSL2 (x86_64)
+20:45:45 [App     ] SSE & AVX compatible CPU & OS detected
+20:45:45 [App     ] Command line: /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/opensfm/undistorted/openmvs/scene.mvs --resolution-level 2 --min-resolution 320 --max-resolution 1280 --max-threads 8 --number-views-fuse 2 -w /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/opensfm/undistorted/openmvs/depthmaps -v 0 --geometric-iters 0
+20:45:45 [App     ] Preparing images for dense reconstruction completed: 5 images (200ms)
+20:45:45 [App     ] Selecting images for dense reconstruction completed: 5 images (3ms)
+
+Estimated depth-maps 1 (20.00%, 301ms, ETA 1s)...
+Estimated depth-maps 2 (40.00%, 1s, ETA 1s)...
+Estimated depth-maps 3 (60.00%, 2s, ETA 1s)...
+Estimated depth-maps 4 (80.00%, 2s, ETA 692ms)...
+Estimated depth-maps 5 (100.00%, 3s, ETA 0ms)...
+Estimated depth-maps 5 (100%, 3s511ms)
+
+Filtered depth-maps 5 (100%, 43ms)
+
+Fused depth-maps 5 (100%, 38ms)
+20:45:49 [App     ] Densifying point-cloud completed: 33492 points (3s803ms)
+20:45:49 [App     ] MEMORYINFO: {
+20:45:49 [App     ] 	VmPeak:	  821088 kB
+20:45:49 [App     ] 	VmSize:	  759956 kB
+20:45:49 [App     ] } ENDINFO
+[INFO]    running /code/SuperBuild/install/bin/OpenMVS/DensifyPointCloud --filter-point-cloud -1 -i "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/opensfm/undistorted/openmvs/scene_dense.mvs" -v 0
+20:45:49 [App     ] Build date: Sep 14 2021, 23:21:34
+20:45:49 [App     ] CPU: Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHz (8 cores)
+20:45:49 [App     ] RAM: 12.34GB Physical Memory 4.00GB Virtual Memory
+20:45:49 [App     ] OS: Linux 5.10.16.3-microsoft-standard-WSL2 (x86_64)
+20:45:49 [App     ] SSE & AVX compatible CPU & OS detected
+20:45:49 [App     ] Command line: --filter-point-cloud -1 -i /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/opensfm/undistorted/openmvs/scene_dense.mvs -v 0
+
+Point visibility checks 33492 (100%, 996ms)
+20:45:50 [App     ] MEMORYINFO: {
+20:45:50 [App     ] 	VmPeak:	  130016 kB
+20:45:50 [App     ] 	VmSize:	  128688 kB
+20:45:50 [App     ] } ENDINFO
+[INFO]    Finished openmvs stage
+[INFO]    Running odm_filterpoints stage
+[INFO]    Filtering /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/opensfm/undistorted/openmvs/scene_dense_dense_filtered.ply (statistical, meanK 16, standard deviation 2.5)
+[INFO]    running pdal translate -i "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/opensfm/undistorted/openmvs/scene_dense_dense_filtered.ply" -o "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_filterpoints/point_cloud.ply" outlier range --writers.ply.sized_types=false --writers.ply.storage_mode="little endian" --writers.ply.dims="x=float,y=float,z=float,nx=float,ny=float,nz=float,red=uchar,blue=uchar,green=uchar,views=uchar" --filters.outlier.method="statistical" --filters.outlier.mean_k=16 --filters.outlier.multiplier=2.5 --filters.range.limits="Classification![7:7]"
+[INFO]    Finished odm_filterpoints stage
+[INFO]    Running odm_meshing stage
+[INFO]    Writing ODM Mesh file in: /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_meshing/odm_mesh.ply
+[INFO]    running "/code/SuperBuild/install/bin/PoissonRecon" --in "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_filterpoints/point_cloud.ply" --out "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_meshing/odm_mesh.dirty.ply" --depth 11 --pointWeight 4.0 --samplesPerNode 1.0 --threads 7 --maxMemory 6 --bType 2 --linearFit
+[INFO]    running "/code/SuperBuild/install/bin/OpenMVS/ReconstructMesh" -i "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_meshing/odm_mesh.dirty.ply" -o "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_meshing/odm_mesh.ply" --remove-spikes 0 --remove-spurious 20 --smooth 0 --target-face-num 400000
+20:46:16 [App     ] Build date: Sep 14 2021, 23:21:34
+20:46:16 [App     ] CPU: Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHz (8 cores)
+20:46:16 [App     ] RAM: 12.34GB Physical Memory 4.00GB Virtual Memory
+20:46:16 [App     ] OS: Linux 5.10.16.3-microsoft-standard-WSL2 (x86_64)
+20:46:16 [App     ] SSE & AVX compatible CPU & OS detected
+20:46:16 [App     ] Command line: -i /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_meshing/odm_mesh.dirty.ply -o /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_meshing/odm_mesh.ply --remove-spikes 0 --remove-spurious 20 --smooth 0 --target-face-num 400000
+20:46:17 [App     ] Mesh loaded: 118272 vertices, 236520 faces (80ms)
+20:46:17 [App     ] Cleaned mesh: 118272 vertices, 235798 faces (739ms)
+20:46:18 [App     ] Cleaned mesh: 117901 vertices, 235798 faces (724ms)
+20:46:18 [App     ] Cleaned mesh: 117901 vertices, 235798 faces (507ms)
+20:46:19 [App     ] Scene saved (257ms):
+0 images (32766 calibrated)
+0 points, 117901 vertices, 235798 faces
+20:46:19 [App     ] Mesh saved: 117901 vertices, 235798 faces (59ms)
+20:46:19 [App     ] MEMORYINFO: {
+20:46:19 [App     ] 	VmPeak:	  148388 kB
+20:46:19 [App     ] 	VmSize:	   77496 kB
+20:46:19 [App     ] } ENDINFO
+[INFO]    Writing ODM 2.5D Mesh file in: /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_meshing/odm_25dmesh.ply
+[WARNING] Maximum resolution set to 1.0 * (GSD - 10.0%) (14.07 cm / pixel, requested resolution was 5.00 cm / pixel)
+[INFO]    ODM 2.5D DSM resolution: 2.1998574335657235
+[INFO]    Created temporary directory: /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_meshing/tmp
+[INFO]    Creating DSM for 2.5D mesh
+[INFO]    running pdal info "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_filterpoints/point_cloud.ply" > "/tmp/tmpk3e0exi1.json"
+[INFO]    Point cloud bounds are [minx: -56.70898438, maxx: 80.17466736] [miny: -105.7950363, maxy: 100.0411911]
+[INFO]    DEM resolution is (94, 63), max tile size is 4096, will split DEM generation into 1 tiles
+[INFO]    Generating /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_meshing/tmp/mesh_dsm_r3.1110682178359164_x0_y0.tif (max, radius: 3.1110682178359164, resolution: 2.1998574335657235)
+[INFO]    running pdal pipeline -i /tmp/tmp5pgydzxi.json > /dev/null 2>&1
+[INFO]    running gdalbuildvrt -input_file_list "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_meshing/tmp/tiles_list.txt" "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_meshing/tmp/tiles.vrt"
+0...10...20...30...40...50...60...70...80...90...100 - done.
+[INFO]    running gdal_translate -co NUM_THREADS=8 -co BIGTIFF=IF_SAFER --config GDAL_CACHEMAX 33.55% "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_meshing/tmp/tiles.vrt" "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_meshing/tmp/tiles.tmp.tif"
+Input file size is 63, 94
+0...10...20...30...40...50...60...70...80...90...100 - done.
+[INFO]    running gdal_translate -co NUM_THREADS=8 -co BIGTIFF=IF_SAFER --config GDAL_CACHEMAX 33.55% -outsize 10% 0 "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_meshing/tmp/tiles.tmp.tif" "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_meshing/tmp/tiles.small.tif"
+0
+...10..
+.20...30...40...50
+..
+.60...70...80...
+90.
+Input file size is 63, 94
+0...10...20...30...40...50...60...70...80...90...100 - done.
+[INFO]    running gdalbuildvrt -resolution highest -r bilinear "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_meshing/tmp/merged.vrt" "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_meshing/tmp/tiles.small_filled.tif" "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_meshing/tmp/tiles.tmp.tif"
+0...10...20...30...40...50...60...70...80...90...100 - done.
+[INFO]    running gdal_translate -co NUM_THREADS=8 -co TILED=YES -co BIGTIFF=IF_SAFER -co COMPRESS=DEFLATE --config GDAL_CACHEMAX 33.55% "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_meshing/tmp/merged.vrt" "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_meshing/tmp/tiles.tif"
+Input file size is 63, 94
+0...10...20...30...40...50...60...70...80...90...100 - done.
+[INFO]    Starting smoothing...
+[INFO]    Smoothing iteration 1
+[INFO]    Completed smoothing to create /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_meshing/tmp/mesh_dsm.tif in 0:00:00.013597
+[INFO]    Completed mesh_dsm.tif in 0:00:01.054373
+[INFO]    Creating mesh from DSM: /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_meshing/tmp/mesh_dsm.tif
+[INFO]    running "/code/SuperBuild/install/bin/dem2mesh" -inputFile "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_meshing/tmp/mesh_dsm.tif" -outputFile "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_meshing/odm_25dmesh.dirty.ply" -maxTileLength 2000 -maxVertexCount 200000 -maxConcurrency 8
+[INFO]    running "/code/SuperBuild/install/bin/OpenMVS/ReconstructMesh" -i "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_meshing/odm_25dmesh.dirty.ply" -o "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_meshing/odm_25dmesh.ply" --remove-spikes 0 --remove-spurious 20 --smooth 0 --target-face-num 400000
+20:46:20 [App     ] Build date: Sep 14 2021, 23:21:34
+20:46:20 [App     ] CPU: Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHz (8 cores)
+20:46:20 [App     ] RAM: 12.34GB Physical Memory 4.00GB Virtual Memory
+20:46:20 [App     ] OS: Linux 5.10.16.3-microsoft-standard-WSL2 (x86_64)
+20:46:20 [App     ] SSE & AVX compatible CPU & OS detected
+20:46:20 [App     ] Command line: -i /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_meshing/odm_25dmesh.dirty.ply -o /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_meshing/odm_25dmesh.ply --remove-spikes 0 --remove-spurious 20 --smooth 0 --target-face-num 400000
+20:46:20 [App     ] Mesh loaded: 5922 vertices, 11532 faces (2ms)
+20:46:20 [App     ] Cleaned mesh: 5922 vertices, 11532 faces (20ms)
+20:46:20 [App     ] Cleaned mesh: 5922 vertices, 11532 faces (13ms)
+20:46:20 [App     ] Cleaned mesh: 5922 vertices, 11532 faces (12ms)
+20:46:20 [App     ] Scene saved (9ms):
+0 images (32767 calibrated)
+0 points, 5922 vertices, 11532 faces
+20:46:20 [App     ] Mesh saved: 5922 vertices, 11532 faces (6ms)
+20:46:20 [App     ] MEMORYINFO: {
+20:46:20 [App     ] 	VmPeak:	   71052 kB
+20:46:20 [App     ] 	VmSize:	   67616 kB
+20:46:20 [App     ] } ENDINFO
+[INFO]    Finished odm_meshing stage
+[INFO]    Running mvs_texturing stage
+[INFO]    Writing MVS Textured file in: /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_texturing/odm_textured_model_geo.obj
+[INFO]    running "/code/SuperBuild/install/bin/texrecon" "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/opensfm/undistorted/reconstruction_green.nvm" "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_meshing/odm_mesh.ply" "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_texturing/odm_textured_model_geo" -d gmi -o gauss_clamping -t none  --skip_global_seam_leveling
+/code/SuperBuild/install/bin/texrecon (built on Sep 14 2021, 23:17:33)
+Load and prepare mesh:
+Reading PLY: 117901 verts... 235798 faces... done.
+Generating texture views:
+NVM: Loading file...
+NVM: Number of views: 5
+NVM: Number of features: 0
+
+
+Loading 100%... done. (Took 0.107s)
+Building adjacency graph:
+
+
+Adding edges 100%... done. (Took 0.844s)
+353697 total edges.
+View selection:
+Building BVH from 235798 faces... done. (Took: 335 ms)
+
+
+Calculating face qualities 100%... done. (Took 1.698s)
+
+
+Postprocessing face infos 100%... done. (Took 0.04s)
+Maximum quality of a face within an image: 43.0159
+Clamping qualities to 3.47173 within normalization.
+Writing data cost file... done.
+Optimizing:
+Time[s]	Energy
+0	213277
+1	210807
+1	208596
+2	207308
+2	206679
+2	206317
+3	206101
+4	205941
+4	205814
+4	205713
+5	205639
+5	205581
+5	205533
+6	205482
+14788 faces have not been seen
+Took: 8.928s
+Generating texture patches:
+Running... done. (Took 0.708s)
+309 texture patches.
+
+
+Calculating validity masks for texture patches 100%... done. (Took 0.142s)
+Running local seam leveling:
+
+
+Blending texture patches 100%... done. (Took 2.497s)
+Generating texture atlases:
+Sorting texture patches... done.
+
+Working on atlas 1 100%... done.
+Finalizing texture atlases... done. (Took: 1.074s)
+Building objmodel:
+Saving model... done.
+Whole texturing procedure took: 16.834s
+[INFO]    Writing MVS Textured file in: /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_texturing_25d/odm_textured_model_geo.obj
+[INFO]    running "/code/SuperBuild/install/bin/texrecon" "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/opensfm/undistorted/reconstruction_green.nvm" "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_meshing/odm_25dmesh.ply" "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_texturing_25d/odm_textured_model_geo" -d gmi -o gauss_clamping -t none  --skip_global_seam_leveling   --nadir_mode
+/code/SuperBuild/install/bin/texrecon (built on Sep 14 2021, 23:17:33)
+Load and prepare mesh:
+Reading PLY: 5922 verts... 11532 faces... done.
+Generating texture views:
+NVM: Loading file...
+NVM: Number of views: 5
+NVM: Number of features: 0
+
+
+Loading 100%... done. (Took 0.142s)
+Building adjacency graph:
+
+
+Adding edges 100%... done. (Took 0.045s)
+17143 total edges.
+View selection:
+Building BVH from 11532 faces... done. (Took: 15 ms)
+
+
+Calculating face qualities 100%... done. (Took 0.312s)
+
+
+Postprocessing face infos 100%... done. (Took 0.001s)
+Maximum quality of a face within an image: 0.996101
+Clamping qualities to 0.981457 within normalization.
+Writing data cost file... done.
+Optimizing:
+Time[s]	Energy
+0	5669
+0	5669
+0	5579
+0	5504
+0	5482
+0	5465
+0	5452
+0	5452
+0	5446
+0	5441
+0	5440
+0	5439
+0	5436
+0	5436
+0	5436
+224 faces have not been seen
+Took: 0.641s
+Generating texture patches:
+Running... done. (Took 0.172s)
+7 texture patches.
+
+
+Calculating validity masks for texture patches 100%... done. (Took 0.067s)
+Running local seam leveling:
+
+
+Blending texture patches 100%... done. (Took 0.925s)
+Generating texture atlases:
+Sorting texture patches... done.
+
+Working on atlas 1 100%... done.
+Finalizing texture atlases... done. (Took: 0.371s)
+Building objmodel:
+Saving model... done.
+Whole texturing procedure took: 2.977s
+[INFO]    Writing MVS Textured file in: /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_texturing_25d/rgb/odm_textured_model_geo.obj
+[INFO]    running "/code/SuperBuild/install/bin/texrecon" "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/opensfm/undistorted/reconstruction_rgb.nvm" "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_meshing/odm_25dmesh.ply" "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_texturing_25d/rgb/odm_textured_model_geo" -d gmi -o gauss_clamping -t none --no_intermediate_results --skip_global_seam_leveling   --nadir_mode -L "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_texturing_25d/odm_textured_model_geo_labeling.vec"
+/code/SuperBuild/install/bin/texrecon (built on Sep 14 2021, 23:17:33)
+Load and prepare mesh:
+Reading PLY: 5922 verts... 11532 faces... done.
+Generating texture views:
+NVM: Loading file...
+NVM: Number of views: 5
+NVM: Number of features: 0
+
+
+Loading 100%... done. (Took 0.252s)
+Building adjacency graph:
+
+
+Adding edges 100%... done. (Took 0.026s)
+17143 total edges.
+Loading labeling from file... done.
+Generating texture patches:
+Running... done. (Took 0.277s)
+7 texture patches.
+
+
+Calculating validity masks for texture patches 100%... done. (Took 0.065s)
+Running local seam leveling:
+
+
+Blending texture patches 100%... done. (Took 1.109s)
+Generating texture atlases:
+Sorting texture patches... done.
+
+Working on atlas 1 100%... done.
+Finalizing texture atlases... done. (Took: 0.283s)
+Building objmodel:
+Saving model... done.
+Whole texturing procedure took: 2.995s
+[INFO]    Writing MVS Textured file in: /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_texturing_25d/red/odm_textured_model_geo.obj
+[INFO]    running "/code/SuperBuild/install/bin/texrecon" "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/opensfm/undistorted/reconstruction_red.nvm" "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_meshing/odm_25dmesh.ply" "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_texturing_25d/red/odm_textured_model_geo" -d gmi -o gauss_clamping -t none --no_intermediate_results --skip_global_seam_leveling   --nadir_mode -L "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_texturing_25d/odm_textured_model_geo_labeling.vec"
+/code/SuperBuild/install/bin/texrecon (built on Sep 14 2021, 23:17:33)
+Load and prepare mesh:
+Reading PLY: 5922 verts... 11532 faces... done.
+Generating texture views:
+NVM: Loading file...
+NVM: Number of views: 5
+NVM: Number of features: 0
+
+
+Loading 100%... done. (Took 0.114s)
+Building adjacency graph:
+
+
+Adding edges 100%... done. (Took 0.026s)
+17143 total edges.
+Loading labeling from file... done.
+Generating texture patches:
+Running... done. (Took 0.169s)
+7 texture patches.
+
+
+Calculating validity masks for texture patches 100%... done. (Took 0.073s)
+Running local seam leveling:
+
+
+Blending texture patches 100%... done. (Took 1.128s)
+Generating texture atlases:
+Sorting texture patches... done.
+
+Working on atlas 1 100%... done.
+Finalizing texture atlases... done. (Took: 0.28s)
+Building objmodel:
+Saving model... done.
+Whole texturing procedure took: 2.241s
+[INFO]    Writing MVS Textured file in: /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_texturing_25d/rededge/odm_textured_model_geo.obj
+[INFO]    running "/code/SuperBuild/install/bin/texrecon" "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/opensfm/undistorted/reconstruction_rededge.nvm" "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_meshing/odm_25dmesh.ply" "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_texturing_25d/rededge/odm_textured_model_geo" -d gmi -o gauss_clamping -t none --no_intermediate_results --skip_global_seam_leveling   --nadir_mode -L "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_texturing_25d/odm_textured_model_geo_labeling.vec"
+/code/SuperBuild/install/bin/texrecon (built on Sep 14 2021, 23:17:33)
+Load and prepare mesh:
+Reading PLY: 5922 verts... 11532 faces... done.
+Generating texture views:
+NVM: Loading file...
+NVM: Number of views: 5
+NVM: Number of features: 0
+
+
+Loading 100%... done. (Took 0.111s)
+Building adjacency graph:
+
+
+Adding edges 100%... done. (Took 0.025s)
+17143 total edges.
+Loading labeling from file... done.
+Generating texture patches:
+Running... done. (Took 0.131s)
+7 texture patches.
+
+
+Calculating validity masks for texture patches 100%... done. (Took 0.058s)
+Running local seam leveling:
+
+
+Blending texture patches 100%... done. (Took 1.026s)
+Generating texture atlases:
+Sorting texture patches... done.
+
+Working on atlas 1 100%... done.
+Finalizing texture atlases... done. (Took: 0.245s)
+Building objmodel:
+Saving model... done.
+Whole texturing procedure took: 2.042s
+[INFO]    Writing MVS Textured file in: /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_texturing_25d/nir/odm_textured_model_geo.obj
+[INFO]    running "/code/SuperBuild/install/bin/texrecon" "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/opensfm/undistorted/reconstruction_nir.nvm" "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_meshing/odm_25dmesh.ply" "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_texturing_25d/nir/odm_textured_model_geo" -d gmi -o gauss_clamping -t none --no_intermediate_results --skip_global_seam_leveling   --nadir_mode -L "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_texturing_25d/odm_textured_model_geo_labeling.vec"
+/code/SuperBuild/install/bin/texrecon (built on Sep 14 2021, 23:17:33)
+Load and prepare mesh:
+Reading PLY: 5922 verts... 11532 faces... done.
+Generating texture views:
+NVM: Loading file...
+NVM: Number of views: 5
+NVM: Number of features: 0
+
+
+Loading 100%... done. (Took 0.11s)
+Building adjacency graph:
+
+
+Adding edges 100%... done. (Took 0.031s)
+17143 total edges.
+Loading labeling from file... done.
+Generating texture patches:
+Running... done. (Took 0.153s)
+7 texture patches.
+
+
+Calculating validity masks for texture patches 100%... done. (Took 0.076s)
+Running local seam leveling:
+
+
+Blending texture patches 100%... done. (Took 1.045s)
+Generating texture atlases:
+Sorting texture patches... done.
+
+Working on atlas 1 100%... done.
+Finalizing texture atlases... done. (Took: 0.31s)
+Building objmodel:
+Saving model... done.
+Whole texturing procedure took: 2.197s
+[INFO]    Finished mvs_texturing stage
+[INFO]    Running odm_georeferencing stage
+[WARNING] GCPs could not be loaded for writing to /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_georeferencing/ground_control_points.gpkg
+[INFO]    Georeferencing point cloud
+[INFO]    running pdal translate -i "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_filterpoints/point_cloud.ply" -o "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_georeferencing/odm_georeferenced_model.laz" ferry transformation --filters.ferry.dimensions="views => UserData" --writers.las.compression="lazip" --filters.transformation.matrix="1 0 0 467494.0 0 1 0 5192844.0 0 0 1 0 0 0 0 1" --writers.las.offset_x=467494.0 --writers.las.offset_y=5192844.0 --writers.las.offset_z=0 --writers.las.a_srs="+proj=utm +zone=34 +datum=WGS84 +units=m +no_defs +type=crs"
+[INFO]    Calculating cropping area and generating bounds shapefile from point cloud
+[INFO]    running pdal translate -i "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_georeferencing/odm_georeferenced_model.laz" -o "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_georeferencing/odm_georeferenced_model.decimated.las" decimation --filters.decimation.step=40
+[INFO]    running pdal info --boundary --filters.hexbin.edge_size=1 --filters.hexbin.threshold=0 "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_georeferencing/odm_georeferenced_model.decimated.las" > "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_georeferencing/odm_georeferenced_model.boundary.json"
+[INFO]    running pdal info --summary "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_georeferencing/odm_georeferenced_model.laz" > "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_georeferencing/odm_georeferenced_model.summary.json"
+[INFO]    running ogr2ogr -overwrite -f GPKG -a_srs "+proj=utm +zone=34 +datum=WGS84 +units=m +no_defs" /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_georeferencing/odm_georeferenced_model.bounds.gpkg /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_georeferencing/odm_georeferenced_model.bounds.geojson
+[INFO]    Creating Entwine Point Tile output
+[INFO]    running entwine build --threads 8 --tmp "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/entwine_pointcloud-tmp" -i /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_georeferencing/odm_georeferenced_model.laz -o "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/entwine_pointcloud"
+1/1: /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_georeferencing/odm_georeferenced_model.laz
+Dimensions: [
+X:int32, Y:int32, Z:int32, Intensity:uint16, ReturnNumber:uint8,
+NumberOfReturns:uint8, ScanDirectionFlag:uint8, EdgeOfFlightLine:uint8,
+Classification:uint8, ScanAngleRank:float32, UserData:uint8,
+PointSourceId:uint16, GpsTime:float64, Red:uint16, Green:uint16, Blue:uint16
+]
+Points: 32,357
+Bounds: [(467437, 5192738, 167), (467575, 5192945, 194)]
+Scale: 0.01
+SRS: EPSG:32634
+
+Adding 0 - /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_georeferencing/odm_georeferenced_model.laz
+Joining
+Done 0
+Saving
+Wrote 32,357 points.
+[INFO]    Finished odm_georeferencing stage
+[INFO]    Running odm_dem stage
+[WARNING] Maximum resolution set to 2.0 * (GSD - 10.0%) (28.14 cm / pixel, requested resolution was 5.00 cm / pixel)
+[INFO]    Classify: False
+[INFO]    Create DSM: False
+[INFO]    Create DTM: False
+[INFO]    DEM input file /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_georeferencing/odm_georeferenced_model.laz found: True
+[WARNING] DEM will not be generated
+[INFO]    Finished odm_dem stage
+[INFO]    Running odm_orthophoto stage
+[WARNING] Maximum resolution set to 1.0 * (GSD - 10.0%) (14.07 cm / pixel, requested resolution was 5.00 cm / pixel)
+[INFO]    running "/code/SuperBuild/install/bin/odm_orthophoto" -inputFiles /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_texturing_25d/odm_textured_model_geo.obj,/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_texturing_25d/rgb/odm_textured_model_geo.obj,/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_texturing_25d/red/odm_textured_model_geo.obj,/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_texturing_25d/rededge/odm_textured_model_geo.obj,/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_texturing_25d/nir/odm_textured_model_geo.obj -logFile "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_orthophoto/odm_orthophoto_log.txt" -outputFile "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_orthophoto/odm_orthophoto_render.tif" -resolution 7.106824179355582  -outputCornerFile "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_orthophoto/odm_orthophoto_corners.txt" -bands Green,RGB,Red,Rededge,NIR
+[INFO]    Creating GeoTIFF
+[INFO]    running gdal_translate -a_ullr 467437.291015625 5192944.99156189 467573.6821746826 5192740.404823303 -co TILED=YES -co COMPRESS=DEFLATE -co PREDICTOR=2 -co BIGTIFF=IF_SAFER -co BLOCKXSIZE=512 -co BLOCKYSIZE=512 -co NUM_THREADS=8 -a_srs "+proj=utm +zone=34 +datum=WGS84 +units=m +no_defs +type=crs" --config GDAL_CACHEMAX 33.45% --config GDAL_TIFF_INTERNAL_MASK YES "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_orthophoto/odm_orthophoto_render.tif" "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_orthophoto/odm_orthophoto.tif" > "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_orthophoto/gdal_translate_log.txt"
+[INFO]    Cropping /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_orthophoto/odm_orthophoto.tif
+[INFO]    running gdalwarp -cutline /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_georeferencing/odm_georeferenced_model.bounds.gpkg -crop_to_cutline -co TILED=YES -co COMPRESS=DEFLATE -co PREDICTOR=2 -co BIGTIFF=IF_SAFER -co BLOCKXSIZE=512 -co BLOCKYSIZE=512 -co NUM_THREADS=8 -dstalpha /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_orthophoto/odm_orthophoto.original.tif /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_orthophoto/odm_orthophoto.tif --config GDAL_CACHEMAX 33.45%
+Using band 8 of source image as alpha.
+Creating output file that is 808P x 1320L.
+Processing /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_orthophoto/odm_orthophoto.original.tif [1/1] : 0...10...20...30...40...50...60...70...80...90...100 - done.
+[INFO]    Optimizing /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_orthophoto/odm_orthophoto.tif as Cloud Optimized GeoTIFF
+[INFO]    running gdal_translate -of COG -co NUM_THREADS=8 -co BLOCKSIZE=256 -co COMPRESS=DEFLATE -co PREDICTOR=2 -co BIGTIFF=IF_SAFER -co RESAMPLING=NEAREST --config GDAL_CACHEMAX 33.5% --config GDAL_NUM_THREADS 8 "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_orthophoto/odm_orthophoto.tif" "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_orthophoto/odm_orthophoto_cogeo.tif"
+Input file size is 808, 1320
+0...10...20...30...40...50...60...70...80...90...100 - done.
+[INFO]    Finished odm_orthophoto stage
+[INFO]    Running odm_report stage
+[INFO]    Exporting shots.geojson
+[INFO]    Wrote /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_report/shots.geojson
+[INFO]    running pdal info --dimensions "X,Y,Z" "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_georeferencing/odm_georeferenced_model.laz" > "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_georeferencing/odm_georeferenced_model.info.json"
+[INFO]    running pdal translate -i "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_georeferencing/odm_georeferenced_model.laz" -o "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/opensfm/stats/overlap.tif" --writer gdal --writers.gdal.resolution=0.14702857142846498 --writers.gdal.data_type=uint8_t --writers.gdal.dimension=UserData --writers.gdal.output_type=max --writers.gdal.radius=0.20792979977047654
+[INFO]    Cropping /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/opensfm/stats/overlap.tif
+[INFO]    running gdalwarp -cutline /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_georeferencing/odm_georeferenced_model.bounds.gpkg -crop_to_cutline -co TILED=YES -co COMPRESS=DEFLATE -co PREDICTOR=2 -co BIGTIFF=IF_SAFER -co BLOCKXSIZE=512 -co BLOCKYSIZE=512 -co NUM_THREADS=8  /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/opensfm/stats/overlap.original.tif /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/opensfm/stats/overlap.tif --config GDAL_CACHEMAX 33.4%
+Creating output file that is 772P x 1263L.
+Processing /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/opensfm/stats/overlap.original.tif [1/1] : 0Using internal nodata values (e.g. 255) for image /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/opensfm/stats/overlap.original.tif.
+Copying nodata values from source /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/opensfm/stats/overlap.original.tif to destination /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/opensfm/stats/overlap.tif.
+...10...20...30...40...50...60...70...80...90...100 - done.
+[INFO]    running gdaldem color-relief "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/opensfm/stats/overlap.tif" "/code/opendm/report/overlap_color_map.txt" "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/opensfm/stats/overlap.png" -of PNG -alpha
+0...10...20...30...40...50...60...70...80...90...100 - done.
+[INFO]    running gdal_translate -of png "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_orthophoto/odm_orthophoto.tif" "/var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/opensfm/stats/ortho.png" -outsize 1400 0 -b 1 -b 2 -b 3 -a_nodata 0 --config GDAL_CACHEMAX 33.4%
+Warning 6: PNG driver doesn't support data type Float32. Only eight bit (Byte) and sixteen bit (UInt16) bands supported. Defaulting to Byte
+
+Input file size is 808, 1320
+0...10...20...30...40...50...60...70...80...90...100 - done.
+[INFO]    Exporting report to /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0/odm_report/report.pdf
+2021-10-11 20:47:21,816 DEBUG: Final doc sections size summary:
+2021-10-11 20:47:21,816 DEBUG: - header.size: 9.0B
+2021-10-11 20:47:21,817 DEBUG: - pages.size: 4.0KiB
+2021-10-11 20:47:21,817 DEBUG: - resources.fonts.size: 199.0B
+2021-10-11 20:47:21,819 DEBUG: - resources.images.size: 2.3MiB
+2021-10-11 20:47:21,819 DEBUG: - resources.dict.size: 204.0B
+2021-10-11 20:47:21,820 DEBUG: - info.size: 55.0B
+2021-10-11 20:47:21,820 DEBUG: - catalog.size: 104.0B
+2021-10-11 20:47:21,820 DEBUG: - xref.size: 670.0B
+2021-10-11 20:47:21,820 DEBUG: - trailer.size: 67.0B
+[INFO]    Finished odm_report stage
+[INFO]    Running odm_postprocess stage
+[INFO]    Post Processing
+[INFO]    Finished odm_postprocess stage
+[INFO]    No more stages to run
+[INFO]    MMMMMMMMMMMNNNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNNNMMMMMMMMMMM
+[INFO]    MMMMMMdo:..---../sNMMMMMMMMMMMMMMMMMMMMMMMMMMNs/..---..:odMMMMMM
+[INFO]    MMMMy-.odNMMMMMNy/`/mMMMMMMMMMMMMMMMMMMMMMMm/`/hNMMMMMNdo.-yMMMM
+[INFO]    MMN/`sMMMMMMMMMNNMm/`yMMMMMMMMMMMMMMMMMMMMy`/mMNNMMMMMMMMNs`/MMM
+[INFO]    MM/ hMMMMMMMMNs.+MMM/ dMMMMMMMMMMMMMMMMMMh +MMM+.sNMMMMMMMMh +MM
+[INFO]    MN /MMMMMMNo/./mMMMMN :MMMMMMMMMMMMMMMMMM: NMMMMm/./oNMMMMMM: NM
+[INFO]    Mm +MMMMMN+ `/MMMMMMM`-MMMMMMMMMMMMMMMMMM-`MMMMMMM:` oNMMMMM+ mM
+[INFO]    MM..NMMNs./mNMMMMMMMy sMMMMMMMMMMMMMMMMMMo hMMMMMMMNm/.sNMMN`-MM
+[INFO]    MMd`:mMNomMMMMMMMMMy`:MMMMMMMNmmmmNMMMMMMN:`hMMMMMMMMMdoNMm-`dMM
+[INFO]    MMMm:.omMMMMMMMMNh/  sdmmho/.`..`-``-/sddh+  /hNMMMMMMMMdo.:mMMM
+[INFO]    MMMMMd+--/osss+:-:/`  ```:- .ym+ hmo``:-`   `+:-:ossso/-:+dMMMMM
+[INFO]    MMMMMMMNmhysosydmNMo   /ds`/NMM+ hMMd..dh.  sMNmdysosyhmNMMMMMMM
+[INFO]    MMMMMMMMMMMMMMMMMMMs .:-:``hmmN+ yNmds -:.:`-NMMMMMMMMMMMMMMMMMM
+[INFO]    MMMMMMMMMMMMMMMMMMN.-mNm- //:::. -:://: +mMd`-NMMMMMMMMMMMMMMMMM
+[INFO]    MMMMMMMMMMMMMMMMMM+ dMMN -MMNNN+ yNNNMN :MMMs sMMMMMMMMMMMMMMMMM
+[INFO]    MMMMMMMMMMMMMMMMMM`.mmmy /mmmmm/ smmmmm``mmmh :MMMMMMMMMMMMMMMMM
+[INFO]    MMMMMMMMMMMMMMMMMM``:::- ./////. -:::::` :::: -MMMMMMMMMMMMMMMMM
+[INFO]    MMMMMMMMMMMMMMMMMM:`mNNd /NNNNN+ hNNNNN .NNNy +MMMMMMMMMMMMMMMMM
+[INFO]    MMMMMMMMMMMMMMMMMMd`/MMM.`ys+//. -/+oso +MMN.`mMMMMMMMMMMMMMMMMM
+[INFO]    MMMMMMMMMMMMMMMMMMMy /o:- `oyhd/ shys+ `-:s-`hMMMMMMMMMMMMMMMMMM
+[INFO]    MMMMMMMMNmdhhhdmNMMM`  +d+ sMMM+ hMMN:`hh-  sMMNmdhhhdmNMMMMMMMM
+[INFO]    MMMMMms:::/++//::+ho    .+- /dM+ hNh- +/`   -h+:://++/::/smMMMMM
+[INFO]    MMMN+./hmMMMMMMNds-  ./oso:.``:. :-``.:os+-  -sdNMMMMMMmy:.oNMMM
+[INFO]    MMm-.hMNhNMMMMMMMMNo`/MMMMMNdhyyyyhhdNMMMM+`oNMMMMMMMMNhNMh.-mMM
+[INFO]    MM:`mMMN/-sNNMMMMMMMo yMMMMMMMMMMMMMMMMMMy sMMMMMMMNNs-/NMMm`:MM
+[INFO]    Mm /MMMMMd/.-oMMMMMMN :MMMMMMMMMMMMMMMMMM-`MMMMMMMo-./dMMMMM/ NM
+[INFO]    Mm /MMMMMMm:-`sNMMMMN :MMMMMMMMMMMMMMMMMM-`MMMMMNs`-/NMMMMMM/ NM
+[INFO]    MM:`mMMMMMMMMd/-sMMMo yMMMMMMMMMMMMMMMMMMy sMMMs-/dMMMMMMMMd`:MM
+[INFO]    MMm-.hMMMMMMMMMdhMNo`+MMMMMMMMMMMMMMMMMMMM+`oNMhdMMMMMMMMMh.-mMM
+[INFO]    MMMNo./hmNMMMMMNms--yMMMMMMMMMMMMMMMMMMMMMMy--smNMMMMMNmy/.oNMMM
+[INFO]    MMMMMms:-:/+++/:-+hMMMMMMMMMMMMMMMMMMMMMMMMMNh+-:/+++/:-:smMMMMM
+[INFO]    MMMMMMMMNdhhyhdmMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMmdhyhhmNMMMMMMMM
+[INFO]    MMMMMMMMMMMMMMMNNNNNMMMMMMNNNNNNMMMMMMMMNNMMMMMMMNNMMMMMMMMMMMMM
+[INFO]    MMMMMMMMMMMMMh/-...-+dMMMm......:+hMMMMs../MMMMMo..sMMMMMMMMMMMM
+[INFO]    MMMMMMMMMMMM/  /yhy-  sMMm  -hhy/  :NMM+   oMMMy   /MMMMMMMMMMMM
+[INFO]    MMMMMMMMMMMy  /MMMMN`  NMm  /MMMMo  +MM: .` yMd``` :MMMMMMMMMMMM
+[INFO]    MMMMMMMMMMM+  sMMMMM:  hMm  /MMMMd  -MM- /s `h.`d- -MMMMMMMMMMMM
+[INFO]    MMMMMMMMMMMs  +MMMMM.  mMm  /MMMMy  /MM. +M/   yM: `MMMMMMMMMMMM
+[INFO]    MMMMMMMMMMMN-  smNm/  +MMm  :NNdo` .mMM` oMM+/yMM/  MMMMMMMMMMMM
+[INFO]    MMMMMMMMMMMMNo-    `:yMMMm      `:sNMMM` sMMMMMMM+  NMMMMMMMMMMM
+[INFO]    MMMMMMMMMMMMMMMNmmNMMMMMMMNmmmmNMMMMMMMNNMMMMMMMMMNNMMMMMMMMMMMM
+[INFO]    ODM app finished - Mon Oct 11 20:47:21  2021
+..100 - done.
+Postprocessing: /var/www/data/dc6aba02-3639-4809-8d80-5daf2018adf0
+
+Found point cloud: odm_georeferencing/odm_georeferenced_model.laz
+
+Entwine point cloud is already built.
+
+Entwine point cloud is already built.
+
+Postprocessing: done (•̀ᴗ•́)و!
