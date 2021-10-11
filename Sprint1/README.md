@@ -28,9 +28,6 @@ This was quite effective in demonstrating some multi-spectral image analysis, as
 
 ![Image 2](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/textured_model_test1/capture1.PNG)
 ![Image 3](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/textured_model_test1/capture2.PNG)
-![Image 4](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/textured_model_test1/odm_orthophoto_EVI.tif)
-![Image 5](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/textured_model_test1/odm_orthophoto_NDVI.tif)
-
 
 I tested two sets of photos from this dataset, and included the first set of reports in this repository, under textured_model_test1. This folder includes PDF reports of the entire image set, and some rendered photos showing the Plant Health results, as well as a 3D object for interactive exploration.
 
