@@ -61,20 +61,6 @@ Rasterio, another common software tool has their own license posted online[[15]]
 OpenDroneMap is licensed under GNU Affero General Public License v3.0, with specifications listed here[[16]](#16). 
 
 
-## Reproduction of OS Results
-
-For this project, I attempted to reproduce the results in [[11]](#11), first by downloading the Cold Springs Fire data from the NAIP and following their guide to establishing a working environment in Python.
-
-First, I needed to install Microsoft Visual C++ 14.0 tools. I then ran into some Python issues, and was advised to reinstall using Anacadona, additionally for troubleshooting Rasterio package installation.
-
-Ran into some additional issues with Anaconda and gdal, rasterio, and rioaxxary installation, and was ultimately unable to follow the guide to completion.
-
-Instead, I set up OpenDroneMap's WebODM system, and downloaded some shared multi-spectral datasets from their user forums, and set out to extract some 3D models from these aerial images. Sourced from https://community.opendronemap.org/t/xmission-multispectral/7524. I first processed folders 01 and 03 separately, which consisted of a Green, Red, Red edge, NIR, and NDVI image for each position (5 bands). The data also included a 6th RGB image, however this was excluded as it was of different dimensions and WebODM failed processing when it was included.
-
-This was quite effective in demonstrating some multi-spectral image analysis, as using the WebODM interface, it was possible to analyze the combined scene and use some of their preset algorithms to determine "Plant Health", generally based on various values or red, green, and blue in order to characterize plant health.
-
-I tested two sets of photos from this dataset, and included the first set of reports in this repository, under textured_model_test1. This folder includes PDF reports of the entire image set, and some rendered photos showing the Plant Health results, as well as a 3D object for interactive exploration.
-
 ## References
 
 <a id="1">[1]</a> 
