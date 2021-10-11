@@ -26,6 +26,12 @@ Next, I set up OpenDroneMap's WebODM system, and downloaded some shared multi-sp
 
 This was quite effective in demonstrating some multi-spectral image analysis, as using the WebODM interface, it was possible to analyze the combined scene and use some of their preset algorithms to determine "Plant Health", generally based on various values or red, green, and blue in order to characterize plant health.
 
+![Image 2](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/textured_model_test1/capture1.PNG)
+![Image 3](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/textured_model_test1/capture2.PNG)
+![Image 4](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/textured_model_test1/odm_orthophoto_EVI.tif)
+![Image 5](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/textured_model_test1/odm_orthophoto_NDVI.tif)
+
+
 I tested two sets of photos from this dataset, and included the first set of reports in this repository, under textured_model_test1. This folder includes PDF reports of the entire image set, and some rendered photos showing the Plant Health results, as well as a 3D object for interactive exploration.
 
 ### OS GitHub 
@@ -40,7 +46,7 @@ https://github.com/kittenish/Image-Shadow-Detection-and-Removal
 https://github.com/ceciliavision/perceptual-reflection-removal#conda-environment
 
 I continued using the same set of images from WebODM, but also tested separately a set of images provided by Ece Sureyya Birol, who is also working on this project, although not through the class.
- 
+
 Describe Drone image acquisition next - camera specifics, etc.
 
 Describe specific links from above that were tested - pipeline, pre-processing, etc.
