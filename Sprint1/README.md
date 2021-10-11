@@ -55,19 +55,19 @@ BEFORE AND AFTER HERE WITH COMMENTS
 
 Testing 3 specific images from the farm house set, the results are as follows:
 
-![Test Image 1]()
-![Test Image 1 - Masks]()
-![Test Image 1 - Output]()
+![Test Image 1](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/program3/test1input.jpg)
+![Test Image 1 - Masks](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/program3/test1mask.jpg)
+![Test Image 1 - Output](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/program3/test1output.jpg)
 
 
-![Test Image 2]()
-![Test Image 2 - Masks]()
-![Test Image 2 - Output]()
+![Test Image 2](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/program3/test2input.jpg)
+![Test Image 2 - Masks](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/program3/test2mask.jpg)
+![Test Image 2 - Output](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/program3/test2output.jpg)
 
 
-![Test Image 3]()
-![Test Image 3 - Masks]()
-![Test Image 3 - Output]()
+![Test Image 3](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/program3/test3input.jpg)
+![Test Image 3 - Masks](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/program3/test3mask.jpg)
+![Test Image 3 - Output](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/program3/test3output.jpg)
 
 
 
