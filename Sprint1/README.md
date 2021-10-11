@@ -53,8 +53,21 @@ BEFORE AND AFTER HERE WITH COMMENTS
 
 #### [Shadow Removal from RGB Images](https://github.com/jvalhondo/Shadow_Removal/blob/master/Shadow_Removal_VA_jvr.m)
 
+Testing 3 specific images from the farm house set, the results are as follows:
 
-BEFORE AND AFTER HERE WITH COMMENTS 
+![Test Image 1]()
+![Test Image 1 - Masks]()
+![Test Image 1 - Output]()
+
+
+![Test Image 2]()
+![Test Image 2 - Masks]()
+![Test Image 2 - Output]()
+
+
+![Test Image 3]()
+![Test Image 3 - Masks]()
+![Test Image 3 - Output]()
 
 
 
