@@ -46,7 +46,19 @@ Rasterio installation issues, same as before in individual work. Need to trouble
 #### [Shadow Detection and Removal Based on YCbCr Color Space](https://github.com/mykhailo-mostipan/shadow-removal)
 
 
-BEFORE AND AFTER HERE WITH COMMENTS 
+![Test Image 1](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/program2/test1.JPG)
+![Test Image 1 - Masks](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/program2/test1_mask.jpg)
+![Test Image 1 - Output](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/program2/test1_output.jpg)
+
+
+![Test Image 2](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/program2/test2.JPG)
+![Test Image 2 - Masks](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/program2/test2_mask.jpg)
+![Test Image 2 - Output](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/program2/test2_output.jpg)
+
+
+![Test Image 3](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/program2/test3.JPG)
+![Test Image 3 - Masks](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/program2/test3_mask.jpg)
+![Test Image 3 - Output](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/program2/test3_output.jpg)
 
 
 
