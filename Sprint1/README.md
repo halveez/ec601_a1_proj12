@@ -41,8 +41,7 @@ I continued using the same set of images from WebODM, but also tested separately
 #### [Near Real - Time Shadow Detection and Removal in Aerial Motion Imagery Application](https://github.com/ThomasWangWeiHong/Shadow-Detection-Algorithm-for-Aerial-and-Satellite-Images)
 
 
-BEFORE AND AFTER HERE WITH COMMENTS 
-
+Rasterio installation issues, same as before in individual work. Need to troubleshoot more, or switch to MATLAB for MVP. 
 
 #### [Shadow Detection and Removal Based on YCbCr Color Space](https://github.com/mykhailo-mostipan/shadow-removal)
 

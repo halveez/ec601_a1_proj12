@@ -4,7 +4,7 @@ import cv2
 
 # read an image with shadow...
 # and it converts to BGR color space automatically
-or_img = cv2.imread('shadow4.jpg')
+or_img = cv2.imread('test3.jpg')
 
 # covert the BGR image to an YCbCr image
 y_cb_cr_img = cv2.cvtColor(or_img, cv2.COLOR_BGR2YCrCb)
@@ -80,6 +80,9 @@ for i in range(y_cb_cr_img.shape[0]):
 
 # covert the YCbCr image to the BGR image
 final_image = cv2.cvtColor(y_cb_cr_img, cv2.COLOR_YCR_CB2BGR)
+
+cv2.imwrite("test3_mask.jpg", binary_mask)
+cv2.imwrite("test3_output.jpg", final_image)
 
 cv2.imshow("im1", or_img)
 cv2.imshow("im2", final_image)
