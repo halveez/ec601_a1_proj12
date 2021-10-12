@@ -1,11 +1,18 @@
 # EC601 Team Project - Sprint 1
 Zachary Halvorson, Boston University Fall 2021
 
-## Product Mission
+## Product Mission, MVP Definition, and User Stories
 
-## MVP Definition
+As an agricultural manager (farmer, rancher, etc.), I want to improve the accuracy of my image-based plant health detection systems, by using additional algorithms to detect and remove shadows from acquired images before processing into plant health metrics.
 
-## User Stories
+The MVP will be defined as a program that effectively eliminates shadows from drone based aerial images (top wodn, minimal imaging angle) of crops, initially focusing on a specific crop such as maize, barley, or soybeans.
+
+Some additional user stories include:
+
+As a user, I need to upload or input images into this tool, and receive a set of output images with shadwos removed that can be used for additional processing.
+
+As a user, I need to easily refine this program with manual or automatic thresholds to optimize the results for my specific use case (farm, region, crop, etc.).
+
 
 ## Reproduction of Open Source Products
 
@@ -41,7 +48,7 @@ I continued using the same set of images from WebODM, but also tested separately
 #### [Near Real - Time Shadow Detection and Removal in Aerial Motion Imagery Application](https://github.com/ThomasWangWeiHong/Shadow-Detection-Algorithm-for-Aerial-and-Satellite-Images)
 
 
-Rasterio installation issues, same as before in individual work. Need to troubleshoot more, or switch to MATLAB for MVP. 
+Rasterio installation issues, same as before in individual work. Need to troubleshoot for future testing.
 
 #### [Shadow Detection and Removal Based on YCbCr Color Space](https://github.com/mykhailo-mostipan/shadow-removal)
 
@@ -84,9 +91,11 @@ Testing 3 specific images from the farm house set, the results are as follows:
 
 ## Plan for Sprint 2:
 
-Definition of architecture
-Technology Selection and justification
-Functional demonstration of major user story
+I will continue testing the Python and MATLAB programs in parallel on the same image sets for comparison, and will switch to a drone based series of aerial crop images for more specific testing and refinement of the models.
+
+I'll also incorporate an open source plant health tool for post-processing instead of WebODM, as this relies on first stitching together a series of images before processing, and is not relevant for single image analysis.
+
+Upon completition of Sprint 2, a user will be able to upload or input an image, and will receive a de-shadowed image, as well as plant health metrics on that image compared to the original image with shadows.
 
 
 ## References

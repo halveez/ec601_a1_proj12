@@ -58,7 +58,7 @@ Many of these tools are built upon OpenCV, which is under the Apache2 license. O
 
 Rasterio, another common software tool has their own license posted online[[15]](#15).
 
-OpenDroneMap is licensed under GNU Affero General Public License v3.0, with specifications listed here[[16]](#16). 
+OpenDroneMap is licensed under GNU Affero General Public License v3.0, with specifications listed here[[16]](#16).
 
 
 ## References
