@@ -1,11 +1,11 @@
-# EC601 Team Project - Sprint 1
+# EC601 Team 12 Project - Sprint 1
 Zachary Halvorson, Boston University Fall 2021
 
 ## Product Mission, MVP Definition, and User Stories
 
 As an agricultural manager (farmer, rancher, etc.), I want to improve the accuracy of my image-based plant health detection systems, by using additional algorithms to detect and remove shadows from acquired images before processing into plant health metrics.
 
-The MVP will be defined as a program that effectively eliminates shadows from drone based aerial images (top wodn, minimal imaging angle) of crops, initially focusing on a specific crop such as maize, barley, or soybeans.
+The MVP will be defined as a program that effectively eliminates shadows from drone based aerial images (top down, minimal imaging angle) of crops, initially focusing on a specific crop such as maize, barley, or soybeans.
 
 Some additional user stories include:
 

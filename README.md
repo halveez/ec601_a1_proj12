@@ -1,4 +1,4 @@
-# EC601 Team Project - Detection and elimination of shadows in multi-spectral images
+# EC601 Team 12 Project - Detection and elimination of shadows in multi-spectral images
 Zachary Halvorson, Boston University Fall 2021
 
 ## Multi-Spectral Imaging and Shadows
