@@ -16,7 +16,7 @@ Some of the most common applications of multi-spectral imaging include agricultu
 
 One of the most well-known multi-spectral imaging systems and programs is NASA's Landsat[[3]](#3). Landsat 1 was launched in 1972, and to this point, there have been 8 different Landsat sattelitles, with a 9th being planned for launch on September 27, 2021. 
 
-![Landsat Image](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/textured_model_test1/original/XAG001_0037.JPG)
+![Landsat Image](https://github.com/halveez/ec601_a1_proj12/blob/main/landsat_image.jpg)
 
 The Landsat 8 for example has sensors that cover 11 different spectral bands, including blue, green, red, NIR, SWIR, and thermal, among others. Not only do these projects provide data that benefits countless industries, but the production of these systems themselves (both the sensors and the carriers, whether satellites or drones) are massive economic projects that can help to sustain work in various industries directly (Landsat 9 was budgeted $650M by the US Congress).
 
