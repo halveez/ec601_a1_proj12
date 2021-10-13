@@ -95,6 +95,12 @@ I will continue testing the Python and MATLAB programs in parallel on the same i
 
 I'll also incorporate an open source plant health tool for post-processing instead of WebODM, as this relies on first stitching together a series of images before processing, and is not relevant for single image analysis.
 
+Two simple options are NDVI and VARI:
+
+$$\Normalized Difference Vegetation Index = frac{(NIR-Red)}{(NIR+Red)}$$
+
+$$\Visible Atmospherically Resistant Index = frac{(Green-Red)}{(Green+Red-Blue)}$$
+
 Upon completition of Sprint 2, a user will be able to upload or input an image, and will receive a de-shadowed image, as well as plant health metrics on that image compared to the original image with shadows.
 
 
