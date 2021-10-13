@@ -97,9 +97,9 @@ I'll also incorporate an open source plant health tool for post-processing inste
 
 Two simple options are NDVI and VARI:
 
-$$Normalized Difference Vegetation Index = frac{(NIR-Red)}{(NIR+Red)}$$
+Normalized Difference Vegetation Index = (NIR - Red) / (NIR + Red)
 
-$$Visible Atmospherically Resistant Index = frac{(Green-Red)}{(Green+Red-Blue)}$$
+Visible Atmospherically Resistant Index = (Green - Red) / (Green + Red - Blue)
 
 Upon completition of Sprint 2, a user will be able to upload or input an image, and will receive a de-shadowed image, as well as plant health metrics on that image compared to the original image with shadows.
 
