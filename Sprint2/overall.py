@@ -125,9 +125,9 @@ def vari_plant(image):
 	plant_health_image = np.zeros((x_dim, y_dim))
 	result_image = np.zeros((x_dim, y_dim))
 
-	cv2.imshow('before', image)
-	cv2.waitKey(0)
-	cv2.destroyAllWindows()
+	#cv2.imshow('before', image)
+	#cv2.waitKey(0)
+	#cv2.destroyAllWindows()
 
 	max_vari = 0
 	vari_list = []
