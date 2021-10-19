@@ -26,6 +26,7 @@ def file_selection():
 
 
 def ycbcr_removal(or_img):
+
 	# Pulled from https://github.com/mykhailo-mostipan/shadow-removal
 
 	# read an image with shadow...
@@ -107,37 +108,88 @@ def ycbcr_removal(or_img):
 	# covert the YCbCr image to the BGR image
 	final_image = cv2.cvtColor(y_cb_cr_img, cv2.COLOR_YCR_CB2BGR)
 
-	# cv2.imwrite("test3_mask.jpg", binary_mask)
-	# cv2.imwrite("test3_output.jpg", final_image)
+	#cv2.imshow("im1", or_img)
+	#cv2.imshow("im2", final_image)
+	#cv2.waitKey(0)
+	#cv2.destroyAllWindows()
 
-	cv2.imshow("im1", or_img)
-	cv2.imshow("im2", final_image)
+	return binary_mask, final_image
+
+#def multispectral_algorithm(opened_image):
+#
+#	return binary_mask, final_image
+
+def vari_plant(image):
+
+	x_dim, y_dim = image.shape[:2]
+	plant_health_image = np.zeros((x_dim, y_dim))
+	result_image = np.zeros((x_dim, y_dim))
+
+	cv2.imshow('before', image)
 	cv2.waitKey(0)
 	cv2.destroyAllWindows()
+
+	max_vari = 0
+	vari_list = []
+
+	for x in range(0, x_dim):
+		for y in range(0, y_dim):
+			# Visible Atmospherically Resistant Index = (Green - Red) / (Green + Red - Blue)
+			color = image[x, y]
+			b = int(color[0])
+			g = int(color[1])
+			r = int(color[2])
+			if ((g+r-b) < 0):
+				vari = 0
+			elif ((g-r) < 0):
+				vari = 0
+			else:
+				vari = (g-r)/(g+r-b)
+			if vari > max_vari:
+				max_vari = vari
+			vari_list.append(vari)
+			plant_health_image[x, y] = vari
+
+
+	# Normalize image
+	norm_plant_health_image = cv2.normalize(plant_health_image, result_image, 0, 255, cv2.NORM_MINMAX)
+
+	return norm_plant_health_image
+
+
+def coordination_function():
+
+	# Call file selection function to get list of images
+	image_list = file_selection()
+
+	# Process each of the images in selected algorithm
+	for image in image_list:
+		# Open and load image into file
+		image_mat = cv2.imread(image.name)
+		
+		# Select and run algorithm by commenting out other lines
+		#mask, processed = multispectral_algorithm(image_mat)
+		mask, processed = ycbcr_removal(image_mat)
+
+		# Save masks and processed images
+		cv2.imwrite('mask_'+os.path.basename(image.name), mask)
+		cv2.imwrite('processed_'+os.path.basename(image.name), processed)
+
+		# Run and save plant health algorithm on original and de-shadowed image
+		original_ph_image = vari_plant(image_mat)
+		improved_ph_image = vari_plant(processed)
+		cv2.imwrite('ph_original_'+os.path.basename(image.name), original_ph_image)
+		cv2.imwrite('ph_processed_'+os.path.basename(image.name), improved_ph_image)
+
+
+		# Create and save image showing differences
+		cv2.imwrite('ph_original_'+os.path.basename(image.name), original_ph_image-improved_ph_image)
+		# need to correct this for negative
 
 	return
 
 
 if __name__ == "__main__":
 
-	# Manual testing
-	# if (False):
-	#	ycbcr_removal(cv2.imread('test1.jpg'))
-	#	ycbcr_removal(cv2.imread('test2.jpg'))
-	#	ycbcr_removal(cv2.imread('test3.jpg'))
-
-	# User input testing
-	if(True):
-		#print(folder_selection())
-		
-		for image in file_selection():
-			image_mat = cv2.imread(image.name)
-			cv2.imshow(os.path.basename(image.name), image_mat)
-			cv2.waitKey(0)
-		cv2.destroyAllWindows()
-
-
-
-	# Output image testing
-	#if(False):
+	coordination_function()
 
