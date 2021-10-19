@@ -20,40 +20,7 @@ Upon completition of Sprint 2, a user will be able to upload or input an image, 
 ## [Shadow Detection and Removal Based on YCbCr Color Space](https://github.com/mykhailo-mostipan/shadow-removal)
 
 
-![Test Image 1](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/program2/test1.JPG)
-![Test Image 1 - Masks](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/program2/test1_mask.jpg)
-![Test Image 1 - Output](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/program2/test1_output.jpg)
-
-
-![Test Image 2](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/program2/test2.JPG)
-![Test Image 2 - Masks](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/program2/test2_mask.jpg)
-![Test Image 2 - Output](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/program2/test2_output.jpg)
-
-
-![Test Image 3](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/program2/test3.JPG)
-![Test Image 3 - Masks](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/program2/test3_mask.jpg)
-![Test Image 3 - Output](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/program2/test3_output.jpg)
-
-
-
 ## [Shadow Removal from RGB Images](https://github.com/jvalhondo/Shadow_Removal/blob/master/Shadow_Removal_VA_jvr.m)
-
-Testing 3 specific images from the farm house set, the results are as follows:
-
-![Test Image 1](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/program3/test1input.jpg)
-![Test Image 1 - Masks](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/program3/test1mask.jpg)
-![Test Image 1 - Output](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/program3/test1output.jpg)
-
-
-![Test Image 2](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/program3/test2input.jpg)
-![Test Image 2 - Masks](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/program3/test2mask.jpg)
-![Test Image 2 - Output](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/program3/test2output.jpg)
-
-
-![Test Image 3](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/program3/test3input.jpg)
-![Test Image 3 - Masks](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/program3/test3mask.jpg)
-![Test Image 3 - Output](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint1/program3/test3output.jpg)
-
 
 
 ## References
