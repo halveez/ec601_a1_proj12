@@ -1,11 +1,28 @@
 # Pulled from https://github.com/mykhailo-mostipan/shadow-removal
 import numpy as np
 import cv2
+import tkinter as tk
+from tkinter import filedialog
+import os.path
 
+
+def folder_selection():
+	root = tk.Tk()
+	root.withdraw()
+	folder_path = filedialog.askdirectory()
+
+	return folder_path
 
 def file_selection():
+	ftypes = [
+	('JPG image files', '*.jpg'),
+	('PNG image files', '*.png')
+	]
+	root = tk.Tk()
+	root.withdraw()
+	file_list = filedialog.askopenfiles(filetypes=ftypes)
 
-	return
+	return file_list
 
 
 def ycbcr_removal(or_img):
@@ -104,11 +121,23 @@ def ycbcr_removal(or_img):
 if __name__ == "__main__":
 
 	# Manual testing
-	ycbcr_removal(cv2.imread('test1.jpg'))
-	ycbcr_removal(cv2.imread('test2.jpg'))
-	ycbcr_removal(cv2.imread('test3.jpg'))
+	# if (False):
+	#	ycbcr_removal(cv2.imread('test1.jpg'))
+	#	ycbcr_removal(cv2.imread('test2.jpg'))
+	#	ycbcr_removal(cv2.imread('test3.jpg'))
 
 	# User input testing
+	if(True):
+		#print(folder_selection())
+		
+		for image in file_selection():
+			image_mat = cv2.imread(image.name)
+			cv2.imshow(os.path.basename(image.name), image_mat)
+			cv2.waitKey(0)
+		cv2.destroyAllWindows()
+
+
 
 	# Output image testing
+	#if(False):
 
