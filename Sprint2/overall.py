@@ -139,7 +139,7 @@ def vari_plant(image):
 			b = int(color[0])
 			g = int(color[1])
 			r = int(color[2])
-			if ((g+r-b) < 0):
+			if ((g+r-b) <= 0):
 				vari = 0
 			elif ((g-r) < 0):
 				vari = 0
@@ -151,7 +151,7 @@ def vari_plant(image):
 			plant_health_image[x, y] = vari
 
 
-	# Normalize image
+	# Normalize image - not sure if this is correct yet
 	norm_plant_health_image = cv2.normalize(plant_health_image, result_image, 0, 255, cv2.NORM_MINMAX)
 
 	return norm_plant_health_image
