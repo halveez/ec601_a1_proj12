@@ -115,9 +115,18 @@ def ycbcr_removal(or_img):
 
 	return binary_mask, final_image
 
-#def multispectral_algorithm(opened_image):
-#
-#	return binary_mask, final_image
+def multispectral_algorithm(opened_image):
+
+	# Possibly need to first align multiple photos as slight variation exists
+
+	# Image A being RGB
+
+	# Image B being NIR bands, they do not overlap perfectly, so this will cause issues
+	# if evaluating pixel intensities directly assuming they overlap perfectly
+
+
+
+	return binary_mask, final_image
 
 def vari_plant(image):
 
@@ -152,7 +161,13 @@ def vari_plant(image):
 
 	return norm_plant_health_image
 
-def ndvi_plant(image):
+def ndvi_plant(red_image, nir_image):
+
+	# temporary to work with exeisting code
+	image = red_image
+
+	# Need to ensure that red_image and nir_image are the same dimensions and that the are aligned very closely
+	# as the index is done on a per pixel basis assuming the pixels are aligned
 
 	x_dim, y_dim = image.shape[:2]
 	plant_health_image = np.zeros((x_dim, y_dim))
