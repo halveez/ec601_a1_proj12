@@ -125,10 +125,6 @@ def vari_plant(image):
 	plant_health_image = np.zeros((x_dim, y_dim))
 	result_image = np.zeros((x_dim, y_dim))
 
-	#cv2.imshow('before', image)
-	#cv2.waitKey(0)
-	#cv2.destroyAllWindows()
-
 	max_vari = 0
 	vari_list = []
 
@@ -156,6 +152,35 @@ def vari_plant(image):
 
 	return norm_plant_health_image
 
+def ndvi_plant(image):
+
+	x_dim, y_dim = image.shape[:2]
+	plant_health_image = np.zeros((x_dim, y_dim))
+	result_image = np.zeros((x_dim, y_dim))
+
+	max_ndvi = 0
+	ndvi_list = []
+
+	for x in range(0, x_dim):
+		for y in range(0, y_dim):
+			# Normalized Difference Vegetation Index = (NIR - Red) / (NIR + Red)
+			color = image[x, y]
+			nir = 
+			r = 
+			if ((nir-r) < 0):
+				ndvi = 0
+			else:
+				ndvi = (nir-r)/(nir+r)
+			if ndvi > max_ndvi:
+				max_ndvi = ndvi
+			ndvi_list.append(ndvi)
+			plant_health_image[x, y] = ndvi
+
+
+	# Normalize image - not sure if this is correct yet
+	norm_plant_health_image = cv2.normalize(plant_health_image, result_image, 0, 255, cv2.NORM_MINMAX)
+
+	return norm_plant_health_image
 
 def coordination_function():
 
