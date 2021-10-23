@@ -24,7 +24,6 @@ def file_selection():
 
 	return file_list
 
-
 def ycbcr_removal(or_img):
 
 	# Pulled from https://github.com/mykhailo-mostipan/shadow-removal
@@ -115,9 +114,13 @@ def ycbcr_removal(or_img):
 
 	return binary_mask, final_image
 
-def multispectral_algorithm(opened_image):
+def multispectral_algorithm(image_list):
 
 	# Possibly need to first align multiple photos as slight variation exists
+
+		# Open and load image into file
+		red_original = cv2.imread(image.name)
+		nir_original = cv2.imread(image.name)
 
 	# Image A being RGB
 
@@ -155,7 +158,6 @@ def vari_plant(image):
 			vari_list.append(vari)
 			plant_health_image[x, y] = vari
 
-
 	# Normalize image - not sure if this is correct yet
 	norm_plant_health_image = cv2.normalize(plant_health_image, result_image, 0, 255, cv2.NORM_MINMAX)
 
@@ -163,13 +165,10 @@ def vari_plant(image):
 
 def ndvi_plant(red_image, nir_image):
 
-	# temporary to work with exeisting code
-	image = red_image
-
 	# Need to ensure that red_image and nir_image are the same dimensions and that the are aligned very closely
 	# as the index is done on a per pixel basis assuming the pixels are aligned
 
-	x_dim, y_dim = image.shape[:2]
+	x_dim, y_dim = red_image.shape[:2]
 	plant_health_image = np.zeros((x_dim, y_dim))
 	result_image = np.zeros((x_dim, y_dim))
 
@@ -179,36 +178,75 @@ def ndvi_plant(red_image, nir_image):
 	for x in range(0, x_dim):
 		for y in range(0, y_dim):
 			# Normalized Difference Vegetation Index = (NIR - Red) / (NIR + Red)
-			color = image[x, y]
-			nir = 
-			r = 
-			if ((nir-r) < 0):
+			red = red_image[x, y]
+			nir = nir_image[x, y]
+			if ((nir-red) < 0):
 				ndvi = 0
 			else:
-				ndvi = (nir-r)/(nir+r)
+				ndvi = (nir-red)/(nir+red)
 			if ndvi > max_ndvi:
 				max_ndvi = ndvi
 			ndvi_list.append(ndvi)
 			plant_health_image[x, y] = ndvi
 
+	cv2.imshow(plant_health_image)
+	cv2.waitKey(0)
+	cv2.destroyAllWindows()
 
 	# Normalize image - not sure if this is correct yet
 	norm_plant_health_image = cv2.normalize(plant_health_image, result_image, 0, 255, cv2.NORM_MINMAX)
 
+	cv2.imshow(norm_plant_health_image)
+	cv2.waitKey(0)
+	cv2.destroyAllWindows()
+	
 	return norm_plant_health_image
 
-def coordination_function():
+def nir_coordination_function():
 
 	# Call file selection function to get list of images
 	image_list = file_selection()
 
-	# Process each of the images in selected algorithm
+	# Select from list the proper bands
+	for image in image_list:
+		if image.name contains 000...
+			rgb_image = image
+		if image.name contains 001...
+			red_image = image
+		if image.name contains 005...
+			nir_image = image
+
+	# Process set of images in selected algorithm
+	red_mask, red_processed, nir_mask, nir_processed = multispectral_algorithm(red_image, nir_image)
+
+	# Save masks and processed images
+	cv2.imwrite('mask_'+os.path.basename(red_image.name), red_mask)
+	cv2.imwrite('mask_'+os.path.basename(nir_image.name), nir_mask)
+	cv2.imwrite('processed_'+os.path.basename(red_image.name), red_processed)
+	cv2.imwrite('processed_'+os.path.basename(nir_image.name), nir_processed)
+
+	# Run and save plant health algorithm on original and de-shadowed images
+	original_ph_image = ndvi_plant(red_image, nir_image)
+	improved_ph_image = ndvi_plant(red_processed, nir_processed)
+	cv2.imwrite('ph_original_'+os.path.basename(rgb_image.name), original_ph_image)
+	cv2.imwrite('ph_processed_'+os.path.basename(rgb_image.name), improved_ph_image)
+
+	# Create and save image showing differences
+	cv2.imwrite('ph_original_'+os.path.basename(rgb_image.name), original_ph_image-improved_ph_image)
+	# need to correct this for negative
+
+	return
+
+def rgb_coordination_function():
+
+	# Call file selection function to get list of images
+	image_list = file_selection()
+
+	# Process each of the images in selected algorithm - for RGB single based image
 	for image in image_list:
 		# Open and load image into file
 		image_mat = cv2.imread(image.name)
 		
-		# Select and run algorithm by commenting out other lines
-		#mask, processed = multispectral_algorithm(image_mat)
 		mask, processed = ycbcr_removal(image_mat)
 
 		# Save masks and processed images
