@@ -16,7 +16,8 @@ def folder_selection():
 def file_selection():
 	ftypes = [
 	('JPG image files', '*.jpg'),
-	('PNG image files', '*.png')
+	('PNG image files', '*.png'),
+	('TIF image files', '*.TIF')
 	]
 	root = tk.Tk()
 	root.withdraw()
@@ -118,9 +119,9 @@ def multispectral_algorithm(image_list):
 
 	# Possibly need to first align multiple photos as slight variation exists
 
-		# Open and load image into file
-		red_original = cv2.imread(image.name)
-		nir_original = cv2.imread(image.name)
+	# Open and load image into file
+	red_original = cv2.imread(image.name)
+	nir_original = cv2.imread(image.name)
 
 	# Image A being RGB
 
@@ -175,11 +176,19 @@ def ndvi_plant(red_image, nir_image):
 	max_ndvi = 0
 	ndvi_list = []
 
+	# cv2.imshow("red", red_image)
+	# cv2.waitKey(0)
+	# cv2.destroyAllWindows()
+
+	# cv2.imshow("nir", nir_image)
+	# cv2.waitKey(0)
+	# cv2.destroyAllWindows()
+
 	for x in range(0, x_dim):
 		for y in range(0, y_dim):
 			# Normalized Difference Vegetation Index = (NIR - Red) / (NIR + Red)
-			red = red_image[x, y]
-			nir = nir_image[x, y]
+			red = red_image[x, y][1]
+			nir = nir_image[x, y][1]
 			if ((nir-red) < 0):
 				ndvi = 0
 			else:
@@ -189,17 +198,17 @@ def ndvi_plant(red_image, nir_image):
 			ndvi_list.append(ndvi)
 			plant_health_image[x, y] = ndvi
 
-	cv2.imshow(plant_health_image)
+	cv2.imshow("ph", plant_health_image)
 	cv2.waitKey(0)
 	cv2.destroyAllWindows()
 
 	# Normalize image - not sure if this is correct yet
 	norm_plant_health_image = cv2.normalize(plant_health_image, result_image, 0, 255, cv2.NORM_MINMAX)
 
-	cv2.imshow(norm_plant_health_image)
+	cv2.imshow("norm_ph", norm_plant_health_image)
 	cv2.waitKey(0)
 	cv2.destroyAllWindows()
-	
+
 	return norm_plant_health_image
 
 def nir_coordination_function():
@@ -207,14 +216,20 @@ def nir_coordination_function():
 	# Call file selection function to get list of images
 	image_list = file_selection()
 
-	# Select from list the proper bands
-	for image in image_list:
-		if image.name contains 000...
-			rgb_image = image
-		if image.name contains 001...
-			red_image = image
-		if image.name contains 005...
-			nir_image = image
+	# # Select from list the proper bands
+	# 0510 is RGB
+	# 0511 is Blue
+	# 0512 is Green
+	# 0513 is Red
+	# 0514 is RedEdge
+	# 0515 is NIR
+	# for image in image_list:
+	# 	if image.name contains 000...
+	# 		rgb_image = image
+	# 	if image.name contains 001...
+	# 		red_image = image
+	# 	if image.name contains 005...
+	# 		nir_image = image
 
 	# Process set of images in selected algorithm
 	red_mask, red_processed, nir_mask, nir_processed = multispectral_algorithm(red_image, nir_image)
@@ -266,8 +281,17 @@ def rgb_coordination_function():
 
 	return
 
-
 if __name__ == "__main__":
 
-	coordination_function()
+	#rgb_coordination_function()
+	#nir_coordination_function()
 
+	# Manual NDVI testing
+	# red_file = file_selection()
+	# nir_file = file_selection()
+	# for image in red_file:
+	# 	red_image = cv2.imread(image.name)
+	# for image in nir_file:
+	# 	nir_image = cv2.imread(image.name)
+
+	ndvi_plant(cv2.imread("DJI_0743.TIF"), cv2.imread("DJI_0745.TIF"))
