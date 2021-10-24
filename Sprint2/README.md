@@ -31,6 +31,7 @@ NDVI and VARI both successfully implemented:
 Normalized Difference Vegetation Index = (NIR - Red) / (NIR + Red)
 
 Visible Atmospherically Resistant Index = (Green - Red) / (Green + Red - Blue)
+
 ### VARI on RGB Original
 ![Original VARI](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/ph_original_DJI_0740.JPG)
 ### VARI on RGB De-Shadowed
@@ -38,15 +39,9 @@ Visible Atmospherically Resistant Index = (Green - Red) / (Green + Red - Blue)
 ### Difference in VARI 
 ![Difference in VARI](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/ph_difference_DJI_0740.JPG)
 
-
 ### NDVI on Original Red and NIR
 ![Original NDVI](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/ndvi_original_DJI_0740_save.JPG)
 
-
-Upon completition of Sprint 2, a user will be able to upload or input an image, and will receive a de-shadowed image, as well as plant health metrics on that image compared to the original image with shadows.
-
-
-### [Shadow Detection and Removal Based on YCbCr Color Space](https://github.com/mykhailo-mostipan/shadow-removal)
 
 ## Sprint 3 Plans:
 
@@ -56,9 +51,4 @@ Determine if image alignment pre-processing step is necessary as the multispectr
 
 Create a more automatic pipeline for image selection based on file naming expectations for this specific dataset.
 
-## References
-
-<a id="1">[1]</a> 
-Earth Lab. (2018, April 14). Introduction to multispectral remote sensing data in Python.
-Earth Data Science. Retrieved September 17, 2021
-https://www.earthdatascience.org/courses/use-data-open-source-python/multispectral-remote-sensing/intro-multispectral-data/
+### [Shadow Detection and Removal Based on YCbCr Color Space](https://github.com/mykhailo-mostipan/shadow-removal)

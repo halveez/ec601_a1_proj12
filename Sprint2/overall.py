@@ -216,7 +216,7 @@ def ndvi_plant(red_image, nir_image):
 		for y in range(0, y_dim): 
 			# use max_ndvi and min_ndvi to normalize between -1 and 1
 			#norm_plant_health_image[x, y] = 2*((norm_plant_health_image[x, y] - min_ndvi)/(max_ndvi - min_ndvi))-1
-			norm_plant_health_image[x, y] = 255*((norm_plant_health_image[x, y] - min_ndvi)/(max_ndvi - min_ndvi))
+			norm_plant_health_image[x, y] = ((norm_plant_health_image[x, y] - min_ndvi)/(max_ndvi - min_ndvi))
 
 	cv2.imshow("Normalized NDVI Plant Health Index", norm_plant_health_image)
 	cv2.waitKey(0)
