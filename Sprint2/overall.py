@@ -162,11 +162,22 @@ def vari_plant(image):
 			vari_list.append(vari)
 			plant_health_image[x, y] = vari
 
+	print(max_vari)
+	print(min_vari)
+
+	cv2.imshow("VARI Plant Health Index", plant_health_image)
+	cv2.waitKey(0)
+	cv2.destroyAllWindows()
+
 	# Normalize image to 0,1
 	norm_plant_health_image = plant_health_image
 	for x in range(0, x_dim):
 		for y in range(0, y_dim):
 			norm_plant_health_image[x, y] = ((norm_plant_health_image[x, y] - min_vari)/(max_vari - min_vari))
+
+	cv2.imshow("Normalized VARI Plant Health Index", plant_health_image)
+	cv2.waitKey(0)
+	cv2.destroyAllWindows()
 
 	return norm_plant_health_image
 
@@ -195,12 +206,9 @@ def ndvi_plant(red_image, nir_image):
 			ndvi_list.append(ndvi)
 			plant_health_image[x, y] = ndvi
 
-	cv2.imshow("ph", plant_health_image)
+	cv2.imshow("NDVI Plant Health Index", plant_health_image)
 	cv2.waitKey(0)
 	cv2.destroyAllWindows()
-
-	print(max_ndvi)
-	print(min_ndvi)
 
 	# Normalize image
 	norm_plant_health_image = plant_health_image
@@ -210,7 +218,7 @@ def ndvi_plant(red_image, nir_image):
 			#norm_plant_health_image[x, y] = 2*((norm_plant_health_image[x, y] - min_ndvi)/(max_ndvi - min_ndvi))-1
 			norm_plant_health_image[x, y] = ((norm_plant_health_image[x, y] - min_ndvi)/(max_ndvi - min_ndvi))
 
-	cv2.imshow("norm_ph", norm_plant_health_image)
+	cv2.imshow("Normalized NDVI Plant Health Index", norm_plant_health_image)
 	cv2.waitKey(0)
 	cv2.destroyAllWindows()
 
@@ -218,10 +226,31 @@ def ndvi_plant(red_image, nir_image):
 
 def nir_coordination_function():
 
-	# Call file selection function to get list of images
-	image_list = file_selection()
+	# Call file selection function to get specific images
+	rgb_file = file_selection()
+	red_file = file_selection()
+	nir_file = file_selection()
+	for image in rgb_file:
+		rgb_image = cv2.imread(image.name)
+	for image in red_file:
+		red_image = cv2.imread(image.name)
+	for image in nir_file:
+		nir_image = cv2.imread(image.name)
 
-	# # Select from list the proper bands
+	cv2.imshow("RGB Image", rgb_image)
+	cv2.waitKey(0)
+	cv2.destroyAllWindows()
+
+	cv2.imshow("Red Image", red_image)
+	cv2.waitKey(0)
+	cv2.destroyAllWindows()
+
+	cv2.imshow("NIR Image", nir_image)
+	cv2.waitKey(0)
+	cv2.destroyAllWindows()
+		
+
+	# # Select from list the proper bands - develop later for automatic image selection given a large folder of sets of images
 	# 0510 is RGB
 	# 0511 is Blue
 	# 0512 is Green
@@ -236,23 +265,23 @@ def nir_coordination_function():
 	# 	if image.name contains 005...
 	# 		nir_image = image
 
-	# Process set of images in selected algorithm
-	red_mask, red_processed, nir_mask, nir_processed = multispectral_algorithm(red_image, nir_image)
+	# Process set of images in selected algorithm - to be developed
+	# red_mask, red_processed, nir_mask, nir_processed = multispectral_algorithm(red_image, nir_image)
 
 	# Save masks and processed images
-	cv2.imwrite('mask_'+os.path.basename(red_image.name), red_mask)
-	cv2.imwrite('mask_'+os.path.basename(nir_image.name), nir_mask)
-	cv2.imwrite('processed_'+os.path.basename(red_image.name), red_processed)
-	cv2.imwrite('processed_'+os.path.basename(nir_image.name), nir_processed)
+	# cv2.imwrite('mask_'+os.path.basename(red_image.name), red_mask)
+	# cv2.imwrite('mask_'+os.path.basename(nir_image.name), nir_mask)
+	# cv2.imwrite('processed_'+os.path.basename(red_image.name), red_processed)
+	# cv2.imwrite('processed_'+os.path.basename(nir_image.name), nir_processed)
 
 	# Run and save plant health algorithm on original and de-shadowed images
 	original_ph_image = ndvi_plant(red_image, nir_image)
-	improved_ph_image = ndvi_plant(red_processed, nir_processed)
-	cv2.imwrite('ph_original_'+os.path.basename(rgb_image.name), original_ph_image)
-	cv2.imwrite('ph_processed_'+os.path.basename(rgb_image.name), improved_ph_image)
+	# improved_ph_image = ndvi_plant(red_processed, nir_processed)
+	cv2.imwrite('ph_original_'+os.path.basename(rgb_file[0].name), original_ph_image)
+	# cv2.imwrite('ph_processed_'+os.path.basename(rgb_image.name), improved_ph_image)
 
 	# Create and save image showing differences
-	cv2.imwrite('ph_original_'+os.path.basename(rgb_image.name), original_ph_image-improved_ph_image)
+	# cv2.imwrite('ph_original_'+os.path.basename(rgb_image.name), original_ph_image-improved_ph_image)
 	# need to correct this for negative
 
 	return
@@ -288,15 +317,10 @@ def rgb_coordination_function():
 
 if __name__ == "__main__":
 
-	#rgb_coordination_function()
-	#nir_coordination_function()
 
-	# Manual NDVI testing
-	# red_file = file_selection()
-	# nir_file = file_selection()
-	# for image in red_file:
-	# 	red_image = cv2.imread(image.name)
-	# for image in nir_file:
-	# 	nir_image = cv2.imread(image.name)
+	# For RGB function, select a series of photos for sequential processing - performs shadow detection and elimination followed by VARI analysis on a per image basis
+	rgb_coordination_function()
 
-	ndvi_plant(cv2.imread("DJI_0743.TIF"), cv2.imread("DJI_0745.TIF"))
+	# For NIR function, select the specific photos for the Red and then NIR image
+	nir_coordination_function()
+

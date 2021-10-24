@@ -1,27 +1,44 @@
 # EC601 Team 12 Project - Sprint 2
 Zachary Halvorson, Boston University Fall 2021
 
+## Sprint 2 Results:
 
-## Plan for Sprint 2:
+User image selection pipeline, processing, displaying, and storing of results successfully implemented.
 
-I will continue testing the Python and MATLAB programs in parallel on the same image sets for comparison, and will switch to a drone based series of aerial crop images for more specific testing and refinement of the models.
+![RGB](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/DJI_0740.JPG)
+![Blue](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/DJI_0741.TIF)
+![Green]https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/DJI_0742.TIF)
+![Red](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/DJI_0743.TIF)
+![RedEdge](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/DJI_0744.TIF)
+![NIR](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/DJI_0745.TIF)
 
-I'll also incorporate an open source plant health tool for post-processing instead of WebODM, as this relies on first stitching together a series of images before processing, and is not relevant for single image analysis.
 
-Two simple options are NDVI and VARI:
+NDVI and VARI both successfully implemented:
 
 Normalized Difference Vegetation Index = (NIR - Red) / (NIR + Red)
 
 Visible Atmospherically Resistant Index = (Green - Red) / (Green + Red - Blue)
 
+IMAGES HERE showing both methods
+
+![VARI]()
+![Normalized VARI]()
+![NDVI]()
+![Normalized NDVI]()
+
+
 Upon completition of Sprint 2, a user will be able to upload or input an image, and will receive a de-shadowed image, as well as plant health metrics on that image compared to the original image with shadows.
 
 
-## [Shadow Detection and Removal Based on YCbCr Color Space](https://github.com/mykhailo-mostipan/shadow-removal)
+### [Shadow Detection and Removal Based on YCbCr Color Space](https://github.com/mykhailo-mostipan/shadow-removal)
 
+## Sprint 3 Plans:
 
-## [Shadow Removal from RGB Images](https://github.com/jvalhondo/Shadow_Removal/blob/master/Shadow_Removal_VA_jvr.m)
+Implement a shadow detection and elimination method that utilizes the multispectral data.
 
+Determine if image alignment pre-processing step is necessary as the multispectral images do not overlap perfectly.
+
+Create a more automatic pipeline for image selection based on file naming expectations for this specific dataset.
 
 ## References
 
