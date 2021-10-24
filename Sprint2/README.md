@@ -6,11 +6,11 @@ Zachary Halvorson, Boston University Fall 2021
 User image selection pipeline, processing, displaying, and storing of results successfully implemented.
 
 ![RGB](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/DJI_0740.JPG)
-![Blue](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/DJI_0741.TIF)
-![Green]https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/DJI_0742.TIF)
-![Red](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/DJI_0743.TIF)
-![RedEdge](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/DJI_0744.TIF)
-![NIR](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/DJI_0745.TIF)
+![Blue](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/DJI_0741.TIF.jpg)
+![Green](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/DJI_0742.TIF.jpg)
+![Red](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/DJI_0743.TIF.jpg)
+![RedEdge](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/DJI_0744.TIF.jpg)
+![NIR](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/DJI_0745.TIF.jpg)
 
 
 NDVI and VARI both successfully implemented:
