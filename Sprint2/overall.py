@@ -175,7 +175,7 @@ def vari_plant(image):
 		for y in range(0, y_dim):
 			norm_plant_health_image[x, y] = 255*((norm_plant_health_image[x, y] - min_vari)/(max_vari - min_vari))
 
-	cv2.imshow("Normalized VARI Plant Health Index", plant_health_image)
+	cv2.imshow("Normalized VARI Plant Health Index", norm_plant_health_image)
 	cv2.waitKey(0)
 	cv2.destroyAllWindows()
 
@@ -306,7 +306,7 @@ def rgb_coordination_function():
 		original_ph_image = vari_plant(image_mat)
 		improved_ph_image = vari_plant(processed)
 		cv2.imwrite('ph_original_'+os.path.basename(image.name), original_ph_image)
-		cv2.imwrite('ph_processed_'+os.path.basename(image.name), improved_ph_image)
+		cv2.imwrite('ph_improved_'+os.path.basename(image.name), improved_ph_image)
 
 
 		# Create and save image showing differences
