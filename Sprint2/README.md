@@ -4,8 +4,6 @@ Zachary Halvorson, Boston University Fall 2021
 ## Sprint 2 Results:
 
 User image selection pipeline, processing, displaying, and storing of results successfully implemented.
-### RGB Image:
-![RGB](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/DJI_0740.JPG)
 ### Blue Image:
 ![Blue](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/DJI_0741.TIF.jpg)
 ### Green Image:
@@ -17,6 +15,16 @@ User image selection pipeline, processing, displaying, and storing of results su
 ### NIR Image:
 ![NIR](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/DJI_0745.TIF.jpg)
 
+## RGB Shadow Removal Results
+
+### RGB Original
+![RGB Original](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/DJI_0740.JPG)
+### RGB Mask
+![RGB Mask](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/mask_DJI_0740.JPG)
+### RGB De-Shadowed
+![RGB De-Shadowed](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/processed_DJI_0740.JPG)
+
+## Plant Health Results
 
 NDVI and VARI both successfully implemented:
 
