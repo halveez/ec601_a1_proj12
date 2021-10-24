@@ -310,7 +310,7 @@ def rgb_coordination_function():
 
 
 		# Create and save image showing differences
-		cv2.imwrite('ph_original_'+os.path.basename(image.name), original_ph_image-improved_ph_image)
+		cv2.imwrite('ph_difference_'+os.path.basename(image.name), original_ph_image-improved_ph_image)
 		# need to correct this for negative
 
 	return
