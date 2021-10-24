@@ -4,12 +4,17 @@ Zachary Halvorson, Boston University Fall 2021
 ## Sprint 2 Results:
 
 User image selection pipeline, processing, displaying, and storing of results successfully implemented.
-
+### RGB Image:
 ![RGB](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/DJI_0740.JPG)
+### Blue Image:
 ![Blue](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/DJI_0741.TIF.jpg)
+### Green Image:
 ![Green](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/DJI_0742.TIF.jpg)
+### Red Image:
 ![Red](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/DJI_0743.TIF.jpg)
+### RedEdge Image:
 ![RedEdge](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/DJI_0744.TIF.jpg)
+### NIR Image:
 ![NIR](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/DJI_0745.TIF.jpg)
 
 
