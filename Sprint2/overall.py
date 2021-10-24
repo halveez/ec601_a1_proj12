@@ -139,6 +139,7 @@ def vari_plant(image):
 	result_image = np.zeros((x_dim, y_dim))
 
 	max_vari = 0
+	min_vari = 0
 	vari_list = []
 
 	for x in range(0, x_dim):
@@ -156,45 +157,41 @@ def vari_plant(image):
 				vari = (g-r)/(g+r-b)
 			if vari > max_vari:
 				max_vari = vari
+			if vari < min_vari:
+				min_vari = vari
 			vari_list.append(vari)
 			plant_health_image[x, y] = vari
 
-	# Normalize image - not sure if this is correct yet
-	norm_plant_health_image = cv2.normalize(plant_health_image, result_image, 0, 255, cv2.NORM_MINMAX)
+	# Normalize image to 0,1
+	norm_plant_health_image = plant_health_image
+	for x in range(0, x_dim):
+		for y in range(0, y_dim):
+			norm_plant_health_image[x, y] = ((norm_plant_health_image[x, y] - min_vari)/(max_vari - min_vari))
 
 	return norm_plant_health_image
 
 def ndvi_plant(red_image, nir_image):
 
-	# Need to ensure that red_image and nir_image are the same dimensions and that the are aligned very closely
-	# as the index is done on a per pixel basis assuming the pixels are aligned
+	# Need to ensure images are the same size and are aligned as the index is done on a per pixel basis blindly
 
 	x_dim, y_dim = red_image.shape[:2]
 	plant_health_image = np.zeros((x_dim, y_dim))
 	result_image = np.zeros((x_dim, y_dim))
 
 	max_ndvi = 0
+	min_ndvi = 100
 	ndvi_list = []
-
-	# cv2.imshow("red", red_image)
-	# cv2.waitKey(0)
-	# cv2.destroyAllWindows()
-
-	# cv2.imshow("nir", nir_image)
-	# cv2.waitKey(0)
-	# cv2.destroyAllWindows()
 
 	for x in range(0, x_dim):
 		for y in range(0, y_dim):
 			# Normalized Difference Vegetation Index = (NIR - Red) / (NIR + Red)
-			red = red_image[x, y][1]
-			nir = nir_image[x, y][1]
-			if ((nir-red) < 0):
-				ndvi = 0
-			else:
-				ndvi = (nir-red)/(nir+red)
+			red = int(red_image[x, y][1])
+			nir = int(nir_image[x, y][1])
+			ndvi = (nir-red)/(nir+red)
 			if ndvi > max_ndvi:
 				max_ndvi = ndvi
+			if ndvi < min_ndvi:
+				min_ndvi = ndvi
 			ndvi_list.append(ndvi)
 			plant_health_image[x, y] = ndvi
 
@@ -202,8 +199,16 @@ def ndvi_plant(red_image, nir_image):
 	cv2.waitKey(0)
 	cv2.destroyAllWindows()
 
-	# Normalize image - not sure if this is correct yet
-	norm_plant_health_image = cv2.normalize(plant_health_image, result_image, 0, 255, cv2.NORM_MINMAX)
+	print(max_ndvi)
+	print(min_ndvi)
+
+	# Normalize image
+	norm_plant_health_image = plant_health_image
+	for x in range(0, x_dim):
+		for y in range(0, y_dim): 
+			# use max_ndvi and min_ndvi to normalize between -1 and 1
+			#norm_plant_health_image[x, y] = 2*((norm_plant_health_image[x, y] - min_ndvi)/(max_ndvi - min_ndvi))-1
+			norm_plant_health_image[x, y] = ((norm_plant_health_image[x, y] - min_ndvi)/(max_ndvi - min_ndvi))
 
 	cv2.imshow("norm_ph", norm_plant_health_image)
 	cv2.waitKey(0)
