@@ -31,13 +31,16 @@ NDVI and VARI both successfully implemented:
 Normalized Difference Vegetation Index = (NIR - Red) / (NIR + Red)
 
 Visible Atmospherically Resistant Index = (Green - Red) / (Green + Red - Blue)
+### VARI on RGB Original
+![Original VARI](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/ph_original_DJI_0740.JPG)
+### VARI on RGB De-Shadowed
+![Deshadowed VARI](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/ph_improved_DJI_0740.JPG)
+### Difference in VARI 
+![Difference in VARI](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/ph_difference_DJI_0740.JPG)
 
-IMAGES HERE showing both methods
 
-![VARI]()
-![Normalized VARI]()
-![NDVI]()
-![Normalized NDVI]()
+### NDVI on Original Red and NIR
+![Original NDVI]()
 
 
 Upon completition of Sprint 2, a user will be able to upload or input an image, and will receive a de-shadowed image, as well as plant health metrics on that image compared to the original image with shadows.
