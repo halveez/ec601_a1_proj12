@@ -40,7 +40,7 @@ Visible Atmospherically Resistant Index = (Green - Red) / (Green + Red - Blue)
 
 
 ### NDVI on Original Red and NIR
-![Original NDVI]()
+![Original NDVI](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/ndvi_original_DJI_0740_save.JPG)
 
 
 Upon completition of Sprint 2, a user will be able to upload or input an image, and will receive a de-shadowed image, as well as plant health metrics on that image compared to the original image with shadows.

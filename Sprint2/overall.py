@@ -218,9 +218,6 @@ def ndvi_plant(red_image, nir_image):
 			#norm_plant_health_image[x, y] = 2*((norm_plant_health_image[x, y] - min_ndvi)/(max_ndvi - min_ndvi))-1
 			norm_plant_health_image[x, y] = 255*((norm_plant_health_image[x, y] - min_ndvi)/(max_ndvi - min_ndvi))
 
-
-	cv2.imwrite('ndvi_original_DJI_0740.jpg', norm_plant_health_image)
-
 	cv2.imshow("Normalized NDVI Plant Health Index", norm_plant_health_image)
 	cv2.waitKey(0)
 	cv2.destroyAllWindows()
@@ -280,7 +277,7 @@ def nir_coordination_function():
 	# Run and save plant health algorithm on original and de-shadowed images
 	original_ph_image = ndvi_plant(red_image, nir_image)
 	# improved_ph_image = ndvi_plant(red_processed, nir_processed)
-	# cv2.imwrite('ndvi_original_'+os.path.basename(rgb_file[0].name), original_ph_image)
+	cv2.imwrite('ndvi_original_'+os.path.basename(rgb_file[0].name), original_ph_image)
 	# cv2.imwrite('ph_processed_'+os.path.basename(rgb_image.name), improved_ph_image)
 
 	# Create and save image showing differences
@@ -322,7 +319,7 @@ if __name__ == "__main__":
 
 
 	# For RGB function, select a series of photos for sequential processing - performs shadow detection and elimination followed by VARI analysis on a per image basis
-	# rgb_coordination_function()
+	rgb_coordination_function()
 
 	# For NIR function, select the specific photos for the Red and then NIR image
 	nir_coordination_function()
