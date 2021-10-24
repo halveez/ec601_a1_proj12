@@ -169,11 +169,11 @@ def vari_plant(image):
 	cv2.waitKey(0)
 	cv2.destroyAllWindows()
 
-	# Normalize image to 0,1
+	# Normalize image to 0,1 or 0, 255 for display
 	norm_plant_health_image = plant_health_image
 	for x in range(0, x_dim):
 		for y in range(0, y_dim):
-			norm_plant_health_image[x, y] = ((norm_plant_health_image[x, y] - min_vari)/(max_vari - min_vari))
+			norm_plant_health_image[x, y] = 255*((norm_plant_health_image[x, y] - min_vari)/(max_vari - min_vari))
 
 	cv2.imshow("Normalized VARI Plant Health Index", plant_health_image)
 	cv2.waitKey(0)
