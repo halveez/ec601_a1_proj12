@@ -5,9 +5,7 @@ Zachary Halvorson, Boston University Fall 2021
 
 Implement a shadow detection and elimination method that utilizes the multispectral data.
 
-Create additional prompts to allow user to crop image regions based on target areas (ignore grass for instance)
-
-Test additional sets of images form provided dataset - automate batch testing
+Automate batch testing for additional sets of images from provided dataset
 
 Add in rectangle detection based on the plots, auto averaging and labeling on the images - color code / overlay the NDVI values over each of the regions in the input NIR or RED image (possibly on the RGB image)
 

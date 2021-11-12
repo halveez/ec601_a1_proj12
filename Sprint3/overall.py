@@ -206,9 +206,11 @@ def ndvi_plant(red_image, nir_image):
 			ndvi_list.append(ndvi)
 			plant_health_image[x, y] = ndvi
 
-	cv2.imshow("NDVI Plant Health Index", plant_health_image)
-	cv2.waitKey(0)
-	cv2.destroyAllWindows()
+	# cv2.imshow("NDVI Plant Health Index", plant_health_image)
+	# cv2.waitKey(0)
+	# cv2.destroyAllWindows()
+
+	return plant_health_image
 
 	# Normalize image
 	norm_plant_health_image = plant_health_image
@@ -218,11 +220,11 @@ def ndvi_plant(red_image, nir_image):
 			#norm_plant_health_image[x, y] = 2*((norm_plant_health_image[x, y] - min_ndvi)/(max_ndvi - min_ndvi))-1
 			norm_plant_health_image[x, y] = ((norm_plant_health_image[x, y] - min_ndvi)/(max_ndvi - min_ndvi))
 
-	cv2.imshow("Normalized NDVI Plant Health Index", norm_plant_health_image)
-	cv2.waitKey(0)
-	cv2.destroyAllWindows()
+	# cv2.imshow("Normalized NDVI Plant Health Index", norm_plant_health_image)
+	# cv2.waitKey(0)
+	# cv2.destroyAllWindows()
 
-	return norm_plant_health_image
+	# return norm_plant_health_image
 
 def nir_coordination_function():
 
@@ -280,9 +282,76 @@ def nir_coordination_function():
 	cv2.imwrite('ndvi_original_'+os.path.basename(rgb_file[0].name), original_ph_image)
 	# cv2.imwrite('ph_processed_'+os.path.basename(rgb_image.name), improved_ph_image)
 
-	# Create and save image showing differences
-	# cv2.imwrite('ph_original_'+os.path.basename(rgb_image.name), original_ph_image-improved_ph_image)
-	# need to correct this for negative
+	# Prompt user to crop the input 
+
+	return
+
+def batch_nir_coordination_function():
+
+	# Call file selection function to get specific images
+	# multi_folder = folder_selection()
+	# output_folder = folder_selection()
+	# collage_folder = folder_selection()
+	multi_folder = "C:/Users/zthal/Desktop/Fall2021/EC601/GitHub/ec601_a1_proj12/Sprint3/BatchInput"
+	output_folder = "C:/Users/zthal/Desktop/Fall2021/EC601/GitHub/ec601_a1_proj12/Sprint3/BatchOutput"
+	collage_folder = "C:/Users/zthal/Desktop/Fall2021/EC601/GitHub/ec601_a1_proj12/Sprint3/CollageOutput"	
+	image_list = os.listdir(multi_folder)
+
+	# 0510 is RGB, 0511 is Blue, 0512 is Green, 0513 is Red, 0514 is RedEdge, 0515 is NIR
+
+	rgb_list = []
+	red_list = []
+	nir_list = []
+
+	for image in image_list:
+		split = image.split(".", 1)
+		fname = split[0]
+		fext = split[1]
+		if (fname[-1] == "0"):
+			rgb_image = image
+			rgb_list.append(rgb_image)
+		if (fname[-1] == "3"):
+			red_image = image
+			red_list.append(red_image)
+		if (fname[-1] == "5"):
+			nir_image = image
+			nir_list.append(nir_image)
+
+	ndvi_list = []
+
+	for i in range(0, len(rgb_list)):
+		rgb_image = cv2.imread(multi_folder + "/" + rgb_list[i])
+		red_image = cv2.imread(multi_folder + "/" + red_list[i])
+		nir_image = cv2.imread(multi_folder + "/" + nir_list[i])
+
+		# Process set of images in selected algorithm - to be developed
+		# red_mask, red_processed, nir_mask, nir_processed = multispectral_algorithm(red_image, nir_image)
+
+		# Run and save plant health algorithm on original and de-shadowed images
+
+		ndvi_image = ndvi_plant(red_image, nir_image)
+		ndvi_list.append(ndvi_image)
+		cv2.imwrite(output_folder + "/" + "ndvi_" + str(i) + ".jpg", 255*ndvi_image)
+
+		# Replace with results of multispectral deshadowing
+		deshadowed_red_image = red_image
+		deshadowed_nir_image = nir_image
+		deshadowed_ndvi_image = ndvi_image
+		# deshadowed_ndvi_image = ndvi_plant(deshadowed_red_image, deshadowed_nir_image)
+
+		c_red_image = cv2.resize(cv2.cvtColor(red_image, cv2.COLOR_BGR2GRAY), (200,200))
+		c_nir_image = cv2.resize(cv2.cvtColor(nir_image, cv2.COLOR_BGR2GRAY), (200,200))
+		c_ndvi_image = cv2.resize(ndvi_image, (200,200))
+		c_n_red_image = cv2.resize(cv2.cvtColor(deshadowed_red_image, cv2.COLOR_BGR2GRAY), (200,200))
+		c_n_nir_image = cv2.resize(cv2.cvtColor(deshadowed_nir_image, cv2.COLOR_BGR2GRAY), (200,200))
+		c_n_ndvi_image = cv2.resize(deshadowed_ndvi_image, (200,200))
+
+		c_row1 = np.hstack([c_red_image, c_nir_image, 255*c_ndvi_image])
+		c_row2 = np.hstack([c_n_red_image, c_n_nir_image, 255*c_n_ndvi_image])
+
+		collage = np.vstack([c_row1, c_row2])
+
+		cv2.imwrite(collage_folder + "/" + "collage_" + str(i) + ".jpg", collage)
 
 	return
 
@@ -319,8 +388,11 @@ if __name__ == "__main__":
 
 
 	# For RGB function, select a series of photos for sequential processing - performs shadow detection and elimination followed by VARI analysis on a per image basis
-	rgb_coordination_function()
+	# rgb_coordination_function()
 
 	# For NIR function, select the specific photos for the Red and then NIR image
-	nir_coordination_function()
+	# nir_coordination_function()
+
+	# For batched NIR function, select the folder containing all photos
+	batch_nir_coordination_function()
 
