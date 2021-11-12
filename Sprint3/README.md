@@ -1,13 +1,11 @@
 # EC601 Team 12 Project - Sprint 3
 Zachary Halvorson, Boston University Fall 2021
 
-## Sprint 3 To Do List - CHANGE TO "RESULTS" FOR PRESENTATION:
+## Sprint 3 Results
 
 Implement a shadow detection and elimination method that utilizes the multispectral data.
 
-Automate batch testing for additional sets of images from provided dataset
-
-Add in rectangle detection based on the plots, auto averaging and labeling on the images - color code / overlay the NDVI values over each of the regions in the input NIR or RED image (possibly on the RGB image)
+Automated batch testing for additional sets of images from provided dataset
 
 
 ## Multispectral Shadow Removal Results
@@ -19,11 +17,9 @@ Add in rectangle detection based on the plots, auto averaging and labeling on th
 Normalized Difference Vegetation Index = (NIR - Red) / (NIR + Red)
 
 
-IMAGE RESULTS HERE FOR NDVI ON CROPPED REGIONS, BOUNDED BOX, MAPPED EXPORT
-
 ## Sprint 4 Plans:
 
 Determine if image alignment pre-processing step is necessary as the multispectral images do not overlap perfectly.
 
+Work on enhanced data output and processing based on pre-cropped regions or detecting crop bounding boxes automatically.
 
-### [Shadow Detection and Removal Based on YCbCr Color Space](https://github.com/mykhailo-mostipan/shadow-removal)

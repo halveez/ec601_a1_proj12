@@ -300,6 +300,8 @@ def batch_nir_coordination_function():
 	# 0510 is RGB, 0511 is Blue, 0512 is Green, 0513 is Red, 0514 is RedEdge, 0515 is NIR
 
 	rgb_list = []
+	blue_list = []
+	green_list = []
 	red_list = []
 	nir_list = []
 
@@ -310,6 +312,12 @@ def batch_nir_coordination_function():
 		if (fname[-1] == "0"):
 			rgb_image = image
 			rgb_list.append(rgb_image)
+		if (fname[-1] == "1"):
+			blue_image = image
+			blue_list.append(blue_image)
+		if (fname[-1] == "2"):
+			green_image = image
+			green_list.append(green_image)			
 		if (fname[-1] == "3"):
 			red_image = image
 			red_list.append(red_image)
@@ -318,26 +326,27 @@ def batch_nir_coordination_function():
 			nir_list.append(nir_image)
 
 	ndvi_list = []
+	deshadowed_ndvi_list = []
 
 	for i in range(0, len(rgb_list)):
+		# Open images from filepaths
 		rgb_image = cv2.imread(multi_folder + "/" + rgb_list[i])
 		red_image = cv2.imread(multi_folder + "/" + red_list[i])
 		nir_image = cv2.imread(multi_folder + "/" + nir_list[i])
-
-		# Process set of images in selected algorithm - to be developed
-		# red_mask, red_processed, nir_mask, nir_processed = multispectral_algorithm(red_image, nir_image)
+		blue_image = cv2.imread(multi_folder + "/" + blue_list[i])
+		green_image = cv2.imread(multi_folder + "/" + green_list[i])
 
 		# Run and save plant health algorithm on original and de-shadowed images
+
+		deshadowed_red_image, deshadowed_nir_image = nir_b_ratio(blue_image, green_image, red_image, nir_image)
+		deshadowed_ndvi_image = ndvi_plant(deshadowed_red_image, deshadowed_nir_image)
+		deshadowed_ndvi_list.append(deshadowed_ndvi_image)
+		cv2.imwrite(output_folder + "/" + "deshadowed_ndvi_" + str(i) + ".jpg", 255*deshadowed_ndvi_image)
 
 		ndvi_image = ndvi_plant(red_image, nir_image)
 		ndvi_list.append(ndvi_image)
 		cv2.imwrite(output_folder + "/" + "ndvi_" + str(i) + ".jpg", 255*ndvi_image)
 
-		# Replace with results of multispectral deshadowing
-		deshadowed_red_image = red_image
-		deshadowed_nir_image = nir_image
-		deshadowed_ndvi_image = ndvi_image
-		# deshadowed_ndvi_image = ndvi_plant(deshadowed_red_image, deshadowed_nir_image)
 
 		c_red_image = cv2.resize(cv2.cvtColor(red_image, cv2.COLOR_BGR2GRAY), (200,200))
 		c_nir_image = cv2.resize(cv2.cvtColor(nir_image, cv2.COLOR_BGR2GRAY), (200,200))
@@ -383,6 +392,72 @@ def rgb_coordination_function():
 		# need to correct this for negative
 
 	return
+
+def nir_b_ratio(blue_band, green_band, red_band, nir_band):
+	
+	# Shadows become darker than non-shadow regions when comparing RG(B) to RG(NIR)
+	blue_vals = blue_band[:,:,0]
+	green_vals = green_band[:,:,0]
+	red_vals = red_band[:,:,0]
+	nir_vals = nir_band[:,:,0]
+
+	# Create composition image of R,G,B and R,G,NIR
+	rgb_composed = cv2.merge([red_vals, green_vals, blue_vals])
+	rgnir_composed = cv2.merge([red_vals, green_vals, nir_vals])
+
+	# Convert to HSV
+	rgb_hsv = cv2.cvtColor(rgb_composed, cv2.COLOR_RGB2HSV)
+	rgnir_hsv = cv2.cvtColor(rgnir_composed, cv2.COLOR_RGB2HSV)
+
+	# Determine difference in HSV between the two regions
+	difference_hsv = rgb_hsv-rgnir_hsv
+	difference_saturation = rgb_hsv[:,:,1]-rgnir_hsv[:,:,1]
+	difference_value = rgb_hsv[:,:,2]-rgnir_hsv[:,:,2]
+
+	# Convert this image into a mask based on a threshold
+	difference_rgb = cv2.cvtColor(difference_hsv, cv2.COLOR_HSV2RGB)
+	difference_gray = cv2.cvtColor(difference_rgb, cv2.COLOR_RGB2GRAY)
+	difference_gray_blurred = cv2.blur(difference_gray, (5, 5))
+	ret, difference_mask = cv2.threshold(difference_gray_blurred, 127, 255, cv2.THRESH_BINARY)
+
+	# Create an image showing ratio between images
+	# cv2.imshow("RGB Composed", rgb_composed)
+	# cv2.waitKey(0)
+	# cv2.destroyAllWindows()
+	# cv2.imshow("RGNIR Composed", rgnir_composed)
+	# cv2.waitKey(0)
+	# cv2.destroyAllWindows()
+	# cv2.imshow("RGB_HSV Composed", rgb_hsv)
+	# cv2.waitKey(0)
+	# cv2.destroyAllWindows()
+	# cv2.imshow("RGNIR_HSV Composed", rgnir_hsv)
+	# cv2.waitKey(0)
+	# cv2.destroyAllWindows()
+	# cv2.imshow("Difference HSV", difference_hsv)
+	# cv2.waitKey(0)
+	# cv2.destroyAllWindows()
+	# cv2.imshow("Difference RGB",difference_rgb)
+	# cv2.waitKey(0)
+	# cv2.destroyAllWindows()
+	# cv2.imshow("Difference Gray",difference_gray)
+	# cv2.waitKey(0)
+	# cv2.destroyAllWindows()
+	# cv2.imshow("Difference Mask",difference_mask)
+	# cv2.waitKey(0)
+	# cv2.destroyAllWindows()
+
+	# Use this mask to adjust the values of the original RED and NIR
+	deshadowed_red_vals = red_band.copy()
+	deshadowed_nir_vals = nir_band.copy()
+	x_dim, y_dim = red_band.shape[:2]
+
+	for x in range(0, x_dim):
+		for y in range(0, y_dim):
+			if (difference_mask[x, y] == 255):
+				deshadowed_red_vals[x, y] = deshadowed_red_vals[x, y]+100
+				deshadowed_nir_vals[x, y] = deshadowed_nir_vals[x, y]+100
+	
+	return deshadowed_red_vals, deshadowed_nir_vals
 
 if __name__ == "__main__":
 
