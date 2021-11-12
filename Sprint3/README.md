@@ -23,3 +23,5 @@ Determine if image alignment pre-processing step is necessary as the multispectr
 
 Work on enhanced data output and processing based on pre-cropped regions or detecting crop bounding boxes automatically.
 
+
+https://etd.lib.metu.edu.tr/upload/12619166/index.pdf
