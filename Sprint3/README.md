@@ -34,10 +34,10 @@ Original: Red, NIR, NDVI
 De-shadowed: Red, NIR, NDVI
 
 ### Example NDVI Image:
-![NDVI](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/DJI_0742.TIF.jpg)
+![NDVI](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint3/ndvi_23.jpg)
 
 ### Example De-shadowed NDVI Image:
-![De-shadowedNDVI](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/DJI_0742.TIF.jpg)
+![De-shadowedNDVI](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint3/deshadowed_ndvi_23.jpg)
 
 
 ## Sprint 4 Plans:
