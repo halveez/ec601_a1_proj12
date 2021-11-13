@@ -10,7 +10,7 @@ Automated batch testing for additional sets of images from provided dataset
 
 ## Multispectral Shadow Removal Results
 
-### [Based on ALGORITHM X FOUND HERE](https://www.google.com/)
+### [Based on Shadow Detection on Multispectral Images Thesis by Hazan Sevim](https://etd.lib.metu.edu.tr/upload/12619166/index.pdf)
 
 ## Sprint 3 Plant Health Results
 
@@ -23,5 +23,3 @@ Determine if image alignment pre-processing step is necessary as the multispectr
 
 Work on enhanced data output and processing based on pre-cropped regions or detecting crop bounding boxes automatically.
 
-
-https://etd.lib.metu.edu.tr/upload/12619166/index.pdf

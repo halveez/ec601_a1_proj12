@@ -411,8 +411,19 @@ def nir_b_ratio(blue_band, green_band, red_band, nir_band):
 
 	# Determine difference in HSV between the two regions
 	difference_hsv = rgb_hsv-rgnir_hsv
+	difference_hue = rgb_hsv[:,:,0]-rgnir_hsv[:,:,0]
 	difference_saturation = rgb_hsv[:,:,1]-rgnir_hsv[:,:,1]
 	difference_value = rgb_hsv[:,:,2]-rgnir_hsv[:,:,2]
+
+	# More complicated comparison between regions
+	# ratiomap_image = difference_hsv.copy()
+	# x_dim, y_dim = ratiomap_image.shape[:2]
+	# for x in range(0, x_dim):
+	# 	for y in range(0, y_dim):
+	# 		# Ratiomap = (Sat - Val) / (Sat + Val)
+	# 		# Need to do error checking for divide by zero, etc.
+	# 		ratiomap_image[x, y] = (rgnir_hsv[x,y,1] - rgnir_hsv[x,y,2]) / (rgnir_hsv[x,y,1] + rgnir_hsv[x,y,2])
+
 
 	# Convert this image into a mask based on a threshold
 	difference_rgb = cv2.cvtColor(difference_hsv, cv2.COLOR_HSV2RGB)
