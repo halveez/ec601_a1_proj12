@@ -25,12 +25,17 @@ Ratiomap(HCV) = Hue + 1 / Value + 1
 
 Otsu's method is often used for automatic thresholding based on the ratiomaps and comparisons between images in order to create a shadow mask.
 
+For this sprint, I tested the following:
+
+	difference_hsv = rgb_hsv-rgnir_hsv
+
 
 ## Sprint 3 Plant Health Results
 
 ### Collage GIF
 ![CollageGIF](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/DJI_0741.TIF.jpg)
 Original: Red, NIR, NDVI
+
 De-shadowed: Red, NIR, NDVI
 
 ### Example NDVI Image:
