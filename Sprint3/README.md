@@ -33,7 +33,7 @@ For this sprint, I tested the following:
 ## Sprint 3 Plant Health Results
 
 ### Collage GIF
-![CollageGIF](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint2/DJI_0741.TIF.jpg)
+![CollageGIF](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint3/collage_gif.gif)
 Original: Red, NIR, NDVI
 
 De-shadowed: Red, NIR, NDVI
