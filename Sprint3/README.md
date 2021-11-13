@@ -28,12 +28,16 @@ Otsu's method is often used for automatic thresholding based on the ratiomaps an
 For this sprint, I tested the following:
 
 	difference_hsv = rgb_hsv-rgnir_hsv
-
+	difference_rgb = cv2.cvtColor(difference_hsv, cv2.COLOR_HSV2RGB)
+	difference_gray = cv2.cvtColor(difference_rgb, cv2.COLOR_RGB2GRAY)
+	difference_gray_blurred = cv2.blur(difference_gray, (5, 5))
+	ret, difference_mask = cv2.threshold(difference_gray_blurred, 127, 255, cv2.THRESH_BINARY)
 
 ## Sprint 3 Plant Health Results
 
 ### Collage GIF
 ![CollageGIF](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint3/collage_gif.gif)
+
 Original: Red, NIR, NDVI
 
 De-shadowed: Red, NIR, NDVI
