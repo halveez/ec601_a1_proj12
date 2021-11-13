@@ -198,6 +198,9 @@ def ndvi_plant(red_image, nir_image):
 			# Normalized Difference Vegetation Index = (NIR - Red) / (NIR + Red)
 			red = int(red_image[x, y][1])
 			nir = int(nir_image[x, y][1])
+			if (nir+red==0):
+				red=0
+				nir=1
 			ndvi = (nir-red)/(nir+red)
 			if ndvi > max_ndvi:
 				max_ndvi = ndvi
