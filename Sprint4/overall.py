@@ -410,10 +410,7 @@ def batch_nir_coordination_function():
 		green_image = cv2.imread(multi_folder + "/" + green_list[i])
 
 		# Perform image alignment algorithms - im1 is the reference, im2 is the matched/edited
-		f_aligned, warp_matrix = featureAlign(im1, im2)
-		ecc_aligned, warp_matrix = eccAlign(im1, im2)
-		rotated, rotationMatrix = rotationAlign(im1, im2)
-		#warp_matrix = translation(im1, im2)
+		# nir_image, warp_matrix = eccAlign(red_image, nir_image)
 
 		# Run and save plant health algorithm on original and de-shadowed images
 		deshadowed_red_image, deshadowed_nir_image = nir_b_ratio(blue_image, green_image, red_image, nir_image)
@@ -441,7 +438,6 @@ def batch_nir_coordination_function():
 		cv2.imwrite(collage_folder + "/" + "collage_" + str(i) + ".jpg", collage)
 
 	return
-
 
 def rgb_coordination_function():
 
@@ -500,48 +496,16 @@ def nir_b_ratio(blue_band, green_band, red_band, nir_band):
 	for x in range(0, x_dim):
 		for y in range(0, y_dim):
 			# Ratiomap = (Sat - Val) / (Sat + Val)
-			# Need to do error checking for divide by zero, etc.
 			if (((rgnir_hsv[x,y,1] + rgnir_hsv[x,y,2]))==0):
 				ratiomap_image[x, y] = 255
 			else:
 				ratiomap_image[x, y] = abs((rgnir_hsv[x,y,1] - rgnir_hsv[x,y,2]) / (rgnir_hsv[x,y,1] + rgnir_hsv[x,y,2]))
 
+	ratiomap_image = ratiomap_image[:,:,0]
 	ratiomap_blurred = cv2.blur(ratiomap_image, (5, 5))
-
+	
 	# Adjust threshold here for mask creation
-	ret, r_difference_mask = cv2.threshold(difference_gray_blurred, 127, 255, cv2.THRESH_BINARY)
-
-	# Convert this image into a mask based on a threshold
-	difference_rgb = cv2.cvtColor(difference_hsv, cv2.COLOR_HSV2RGB)
-	difference_gray = cv2.cvtColor(difference_rgb, cv2.COLOR_RGB2GRAY)
-	difference_gray_blurred = cv2.blur(difference_gray, (5, 5))
-	ret, difference_mask = cv2.threshold(difference_gray_blurred, 127, 255, cv2.THRESH_BINARY)
-
-	# Create an image showing ratio between images
-	# cv2.imshow("RGB Composed", rgb_composed)
-	# cv2.waitKey(0)
-	# cv2.destroyAllWindows()
-	# cv2.imshow("RGNIR Composed", rgnir_composed)
-	# cv2.waitKey(0)
-	# cv2.destroyAllWindows()
-	# cv2.imshow("RGB_HSV Composed", rgb_hsv)
-	# cv2.waitKey(0)
-	# cv2.destroyAllWindows()
-	# cv2.imshow("RGNIR_HSV Composed", rgnir_hsv)
-	# cv2.waitKey(0)
-	# cv2.destroyAllWindows()
-	# cv2.imshow("Difference HSV", difference_hsv)
-	# cv2.waitKey(0)
-	# cv2.destroyAllWindows()
-	# cv2.imshow("Difference RGB",difference_rgb)
-	# cv2.waitKey(0)
-	# cv2.destroyAllWindows()
-	# cv2.imshow("Difference Gray",difference_gray)
-	# cv2.waitKey(0)
-	# cv2.destroyAllWindows()
-	# cv2.imshow("Difference Mask",difference_mask)
-	# cv2.waitKey(0)
-	# cv2.destroyAllWindows()
+	ret, r_difference_mask = cv2.threshold(ratiomap_blurred, 8, 255, cv2.THRESH_BINARY)
 
 	# Use this mask to adjust the values of the original RED and NIR
 	deshadowed_red_vals = red_band.copy()
@@ -552,7 +516,7 @@ def nir_b_ratio(blue_band, green_band, red_band, nir_band):
 	adjustment = 50
 	for x in range(0, x_dim):
 		for y in range(0, y_dim):
-			if (r_difference_mask[x, y] == 255):
+			if (r_difference_mask[x, y] == 0):
 				deshadowed_red_vals[x, y] = deshadowed_red_vals[x, y] + adjustment
 				deshadowed_nir_vals[x, y] = deshadowed_nir_vals[x, y] + adjustment
 	
@@ -568,7 +532,7 @@ if __name__ == "__main__":
 	# nir_coordination_function()
 
 	# For batched NIR function, select the folder containing all photos
-	# batch_nir_coordination_function()
+	batch_nir_coordination_function()
 
 	# For image alignment tests,
-	image_alignment_batch_testing()
+	# image_alignment_batch_testing()
