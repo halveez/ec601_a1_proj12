@@ -1,4 +1,5 @@
-# Pulled from https://github.com/mykhailo-mostipan/shadow-removal
+import os, argparse
+from numpy.fft import fft2, ifft2, fftshift
 import numpy as np
 import cv2
 import tkinter as tk
@@ -295,9 +296,9 @@ def batch_nir_coordination_function():
 	# multi_folder = folder_selection()
 	# output_folder = folder_selection()
 	# collage_folder = folder_selection()
-	multi_folder = "C:/Users/zthal/Desktop/Fall2021/EC601/GitHub/ec601_a1_proj12/Sprint3/BatchInput"
-	output_folder = "C:/Users/zthal/Desktop/Fall2021/EC601/GitHub/ec601_a1_proj12/Sprint3/BatchOutput"
-	collage_folder = "C:/Users/zthal/Desktop/Fall2021/EC601/GitHub/ec601_a1_proj12/Sprint3/CollageOutput"	
+	multi_folder = "C:/Users/zthal/Desktop/Fall2021/EC601/GitHub/ec601_a1_proj12/Sprint4/BatchInput"
+	output_folder = "C:/Users/zthal/Desktop/Fall2021/EC601/GitHub/ec601_a1_proj12/Sprint4/BatchOutput"
+	collage_folder = "C:/Users/zthal/Desktop/Fall2021/EC601/GitHub/ec601_a1_proj12/Sprint4/CollageOutput"	
 	image_list = os.listdir(multi_folder)
 
 	# 0510 is RGB, 0511 is Blue, 0512 is Green, 0513 is Red, 0514 is RedEdge, 0515 is NIR
@@ -366,6 +367,20 @@ def batch_nir_coordination_function():
 		cv2.imwrite(collage_folder + "/" + "collage_" + str(i) + ".jpg", collage)
 
 	return
+
+def image_alignment(image_a, image_b):
+
+	# Pulling from the following sources
+	# http://graphics.cs.cmu.edu/courses/15-463/2004_fall/www/Papers/MSR-TR-2004-92-Sep27.pdf
+	# https://github.com/khufkens/align_images
+
+
+	image_a_aligned = image_a.copy()
+	image_b_aligned = image_b.copy()
+
+
+
+	return 
 
 def rgb_coordination_function():
 

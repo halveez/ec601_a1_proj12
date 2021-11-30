@@ -8,6 +8,11 @@ Compare multiple multispectral methods for shadow detection and REMOVAL through 
 
 Implement image alignment pre-processing step is necessary as the multispectral images do not overlap perfectly.
 
+## [Image Alignment Methods](https://github.com/khufkens/align_images)
+
+FFT phase correlation
+Enhanced Correlation Coefficient (ECC) maximization
+Feature based registration
 
 ## Multispectral Shadow Removal Results
 
