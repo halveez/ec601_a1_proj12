@@ -410,7 +410,7 @@ def batch_nir_coordination_function():
 		green_image = cv2.imread(multi_folder + "/" + green_list[i])
 
 		# Perform image alignment algorithms - im1 is the reference, im2 is the matched/edited
-		# nir_image, warp_matrix = eccAlign(red_image, nir_image)
+		nir_image, warp_matrix = eccAlign(red_image, nir_image)
 
 		# Run and save plant health algorithm on original and de-shadowed images
 		deshadowed_red_image, deshadowed_nir_image = nir_b_ratio(blue_image, green_image, red_image, nir_image)
