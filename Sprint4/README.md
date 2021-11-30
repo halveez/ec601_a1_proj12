@@ -54,14 +54,18 @@ And an accompanying shadow removal method based on the mask:
 ![A](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint4/alignment_testA.gif)
 
 Row 1: Red Image, NIR Image
+
 Row 2: Red Image, NIR Feature Aligned Image
+
 Row 3: Red Image, NIR ECC Aligned Image
 
 ### Collage B GIF (5000 iterations, 5000 max features)
 ![B](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint4/alignment_testB.gif)
 
 Row 1: Red Image, NIR Image
+
 Row 2: Red Image, NIR Feature Aligned Image
+
 Row 3: Red Image, NIR ECC Aligned Image
 
 ## Sprint 4 Shadow Removal Results
@@ -70,12 +74,14 @@ Row 3: Red Image, NIR ECC Aligned Image
 ![aligned](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint4/aligned.gif)
 
 Row 1: Red, NIR, NDVI
+
 Row 2: Red, NIR, NDVI
 
 ### Un-Aligned Images:
 ![unaligned](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint4/unaligned.gif)
 
 Row 1: Red, NIR, NDVI
+
 Row 2: Red, NIR, NDVI
 
 
