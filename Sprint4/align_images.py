@@ -6,6 +6,12 @@ import cv2
 import numpy as np
 from numpy.fft import fft2, ifft2, fftshift
 
+# Defaults for the align_images.py functions
+max_features = 5000
+feature_retention = 0.15
+number_of_iterations = 5000
+termination_eps = 1e-8
+
 # argument parser
 def getArgs():
 
@@ -63,7 +69,7 @@ def rotationAlign(im1, im2):
     
     for i in range(0,360):
       rotationMatrix = cv2.getRotationMatrix2D((width/2, height/2), i, 1)
-      rot = cv2.warpAffine(im2_red, rotationMatrix, (width, height))
+      rot = cv2.warpAffine(im2_gray, rotationMatrix, (width, height))
       values[i] = np.mean(im1_gray - rot)
     
     rotationMatrix = cv2.getRotationMatrix2D((width/2, height/2), np.argmin(values), 1)

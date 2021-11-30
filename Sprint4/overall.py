@@ -1,10 +1,13 @@
-import os, argparse
-from numpy.fft import fft2, ifft2, fftshift
+
 import numpy as np
 import cv2
 import tkinter as tk
 from tkinter import filedialog
 import os.path
+
+import os, argparse
+from numpy.fft import fft2, ifft2, fftshift
+from align_images import rotationAlign, eccAlign, featureAlign, translation
 
 
 def folder_selection():
@@ -287,6 +290,73 @@ def nir_coordination_function():
 	# cv2.imwrite('ph_processed_'+os.path.basename(rgb_image.name), improved_ph_image)
 
 	# Prompt user to crop the input 
+	return
+
+
+def image_alignment_batch_testing():
+
+	multi_folder = "C:/Users/zthal/Desktop/Fall2021/EC601/GitHub/ec601_a1_proj12/Sprint4/BatchInput"
+	output_folder = "C:/Users/zthal/Desktop/Fall2021/EC601/GitHub/ec601_a1_proj12/Sprint4/BatchOutput"
+	collage_folder = "C:/Users/zthal/Desktop/Fall2021/EC601/GitHub/ec601_a1_proj12/Sprint4/CollageOutput"
+	aligned_folder = "C:/Users/zthal/Desktop/Fall2021/EC601/GitHub/ec601_a1_proj12/Sprint4/AlignedOutput"
+	image_list = os.listdir(multi_folder)
+
+	# 0510 is RGB, 0511 is Blue, 0512 is Green, 0513 is Red, 0514 is RedEdge, 0515 is NIR
+
+	rgb_list = []
+	blue_list = []
+	green_list = []
+	red_list = []
+	nir_list = []
+
+	for image in image_list:
+		split = image.split(".", 1)
+		fname = split[0]
+		fext = split[1]
+		if (fname[-1] == "0"):
+			rgb_image = image
+			rgb_list.append(rgb_image)
+		if (fname[-1] == "1"):
+			blue_image = image
+			blue_list.append(blue_image)
+		if (fname[-1] == "2"):
+			green_image = image
+			green_list.append(green_image)			
+		if (fname[-1] == "3"):
+			red_image = image
+			red_list.append(red_image)
+		if (fname[-1] == "5"):
+			nir_image = image
+			nir_list.append(nir_image)
+
+
+	for i in range(0, len(rgb_list)):
+		# Open images from filepaths
+		rgb_image = cv2.imread(multi_folder + "/" + rgb_list[i])
+		red_image = cv2.imread(multi_folder + "/" + red_list[i])
+		nir_image = cv2.imread(multi_folder + "/" + nir_list[i])
+		blue_image = cv2.imread(multi_folder + "/" + blue_list[i])
+		green_image = cv2.imread(multi_folder + "/" + green_list[i])
+
+		# Perform image alignment algorithms - im1 is the reference, im2 is the matched/edited
+		f_aligned, warp_matrix = featureAlign(nir_image, red_image)
+		ecc_aligned, warp_matrix = eccAlign(red_image, nir_image)
+		rotated, rotationMatrix = rotationAlign(red_image, nir_image)
+
+		c_red_image = cv2.resize(cv2.cvtColor(red_image, cv2.COLOR_BGR2GRAY), (200,200))
+		c_nir_image = cv2.resize(cv2.cvtColor(nir_image, cv2.COLOR_BGR2GRAY), (200,200))
+		c_f_aligned_nir = cv2.resize(cv2.cvtColor(f_aligned, cv2.COLOR_BGR2GRAY), (200,200))
+		c_ecc_aligned_nir = cv2.resize(cv2.cvtColor(ecc_aligned, cv2.COLOR_BGR2GRAY), (200,200))
+		c_rotated_nir = cv2.resize(cv2.cvtColor(rotated, cv2.COLOR_BGR2GRAY), (200,200))
+
+		c_row1 = np.hstack([c_red_image, c_nir_image])
+		c_row2 = np.hstack([c_red_image, c_f_aligned_nir])
+		c_row3 = np.hstack([c_red_image, c_ecc_aligned_nir])
+		c_row4 = np.hstack([c_red_image, c_rotated_nir])
+
+		collage = np.vstack([c_row1, c_row2, c_row3, c_row4])
+
+		cv2.imwrite(aligned_folder + "/" + "aligned_collage_" + str(i) + ".jpg", collage)
 
 	return
 
@@ -340,8 +410,13 @@ def batch_nir_coordination_function():
 		blue_image = cv2.imread(multi_folder + "/" + blue_list[i])
 		green_image = cv2.imread(multi_folder + "/" + green_list[i])
 
-		# Run and save plant health algorithm on original and de-shadowed images
+		# Perform image alignment algorithms - im1 is the reference, im2 is the matched/edited
+		f_aligned, warp_matrix = featureAlign(im1, im2)
+		ecc_aligned, warp_matrix = eccAlign(im1, im2)
+		rotated, rotationMatrix = rotationAlign(im1, im2)
+		#warp_matrix = translation(im1, im2)
 
+		# Run and save plant health algorithm on original and de-shadowed images
 		deshadowed_red_image, deshadowed_nir_image = nir_b_ratio(blue_image, green_image, red_image, nir_image)
 		deshadowed_ndvi_image = ndvi_plant(deshadowed_red_image, deshadowed_nir_image)
 		deshadowed_ndvi_list.append(deshadowed_ndvi_image)
@@ -368,19 +443,6 @@ def batch_nir_coordination_function():
 
 	return
 
-def image_alignment(image_a, image_b):
-
-	# Pulling from the following sources
-	# http://graphics.cs.cmu.edu/courses/15-463/2004_fall/www/Papers/MSR-TR-2004-92-Sep27.pdf
-	# https://github.com/khufkens/align_images
-
-
-	image_a_aligned = image_a.copy()
-	image_b_aligned = image_b.copy()
-
-
-
-	return 
 
 def rgb_coordination_function():
 
@@ -498,5 +560,7 @@ if __name__ == "__main__":
 	# nir_coordination_function()
 
 	# For batched NIR function, select the folder containing all photos
-	batch_nir_coordination_function()
+	# batch_nir_coordination_function()
 
+	# For image alignment tests,
+	image_alignment_batch_testing()
