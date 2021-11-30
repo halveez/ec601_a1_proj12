@@ -73,7 +73,7 @@ Row 1: Red, NIR, NDVI
 Row 2: Red, NIR, NDVI
 
 ### Un-Aligned Images:
-![unaligned]()
+![unaligned](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint4/unaligned.gif)
 
 Row 1: Red, NIR, NDVI
 Row 2: Red, NIR, NDVI
