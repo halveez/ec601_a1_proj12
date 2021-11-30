@@ -51,16 +51,32 @@ And an accompanying shadow removal method based on the mask:
 ## Sprint 4 Image Alignment Results
 
 ### Collage A GIF (500 iterations, 500 max features)
-![A]()
+![A](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint4/alignment_testA.gif)
+
+Row 1: Red Image, NIR Image
+Row 2: Red Image, NIR Feature Aligned Image
+Row 3: Red Image, NIR ECC Aligned Image
 
 ### Collage B GIF (5000 iterations, 5000 max features)
-![B]()
+![B](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint4/alignment_testB.gif)
 
-### Example NDVI Image:
-![]()
+Row 1: Red Image, NIR Image
+Row 2: Red Image, NIR Feature Aligned Image
+Row 3: Red Image, NIR ECC Aligned Image
 
-### Example De-shadowed NDVI Image:
-![]()
+## Sprint 4 Shadow Removal Results
+
+### Aligned Images:
+![aligned]()
+
+Row 1: Red, NIR, NDVI
+Row 2: Red, NIR, NDVI
+
+### Un-Aligned Images:
+![unaligned]()
+
+Row 1: Red, NIR, NDVI
+Row 2: Red, NIR, NDVI
 
 
 ## Final Plans and Next Steps:
