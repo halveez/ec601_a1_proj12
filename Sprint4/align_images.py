@@ -7,9 +7,9 @@ import numpy as np
 from numpy.fft import fft2, ifft2, fftshift
 
 # Defaults for the align_images.py functions
-max_features = 5000
+max_features = 500
 feature_retention = 0.15
-number_of_iterations = 5000
+number_of_iterations = 500
 termination_eps = 1e-8
 
 # argument parser

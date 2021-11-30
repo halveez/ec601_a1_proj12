@@ -67,7 +67,7 @@ Row 3: Red Image, NIR ECC Aligned Image
 ## Sprint 4 Shadow Removal Results
 
 ### Aligned Images:
-![aligned]()
+![aligned](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint4/aligned.gif)
 
 Row 1: Red, NIR, NDVI
 Row 2: Red, NIR, NDVI
