@@ -102,7 +102,10 @@ def eccAlign(im1,im2):
      number_of_iterations,  termination_eps)
 
     # Run the ECC algorithm. The results are stored in warp_matrix.
-    (cc, warp_matrix) = cv2.findTransformECC (im1_gray, im2_gray, warp_matrix, warp_mode, criteria)
+    try:
+        (cc, warp_matrix) = cv2.findTransformECC (im1_gray, im2_gray, warp_matrix, warp_mode, criteria)
+    except cv2.error:
+        return im2, warp_matrix
 
     if warp_mode == cv2.MOTION_HOMOGRAPHY :
         # Use warpPerspective for Homography 

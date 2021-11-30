@@ -10,9 +10,14 @@ Implement image alignment pre-processing step is necessary as the multispectral 
 
 ## [Image Alignment Methods](https://github.com/khufkens/align_images)
 
+The script includes the following methods, with different capabilities for each:
 FFT phase correlation
 Enhanced Correlation Coefficient (ECC) maximization
 Feature based registration
+
+The images include offsets in both the x and y axis, as well as minimal rotations.
+
+Quick testing 
 
 ## Multispectral Shadow Removal Results
 
