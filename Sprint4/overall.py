@@ -292,7 +292,6 @@ def nir_coordination_function():
 	# Prompt user to crop the input 
 	return
 
-
 def image_alignment_batch_testing():
 
 	multi_folder = "C:/Users/zthal/Desktop/Fall2021/EC601/GitHub/ec601_a1_proj12/Sprint4/BatchInput"
@@ -331,6 +330,7 @@ def image_alignment_batch_testing():
 
 
 	for i in range(0, len(rgb_list)):
+		print("Testing Image " + str(i))
 		# Open images from filepaths
 		rgb_image = cv2.imread(multi_folder + "/" + rgb_list[i])
 		red_image = cv2.imread(multi_folder + "/" + red_list[i])
@@ -339,22 +339,21 @@ def image_alignment_batch_testing():
 		green_image = cv2.imread(multi_folder + "/" + green_list[i])
 
 		# Perform image alignment algorithms - im1 is the reference, im2 is the matched/edited
+		print("Start Feature Align")
 		f_aligned, warp_matrix = featureAlign(nir_image, red_image)
+		print("Start ECC Align")
 		ecc_aligned, warp_matrix = eccAlign(red_image, nir_image)
-		rotated, rotationMatrix = rotationAlign(red_image, nir_image)
-
+		print()
 		c_red_image = cv2.resize(cv2.cvtColor(red_image, cv2.COLOR_BGR2GRAY), (200,200))
 		c_nir_image = cv2.resize(cv2.cvtColor(nir_image, cv2.COLOR_BGR2GRAY), (200,200))
 		c_f_aligned_nir = cv2.resize(cv2.cvtColor(f_aligned, cv2.COLOR_BGR2GRAY), (200,200))
 		c_ecc_aligned_nir = cv2.resize(cv2.cvtColor(ecc_aligned, cv2.COLOR_BGR2GRAY), (200,200))
-		c_rotated_nir = cv2.resize(cv2.cvtColor(rotated, cv2.COLOR_BGR2GRAY), (200,200))
 
 		c_row1 = np.hstack([c_red_image, c_nir_image])
 		c_row2 = np.hstack([c_red_image, c_f_aligned_nir])
 		c_row3 = np.hstack([c_red_image, c_ecc_aligned_nir])
-		c_row4 = np.hstack([c_red_image, c_rotated_nir])
 
-		collage = np.vstack([c_row1, c_row2, c_row3, c_row4])
+		collage = np.vstack([c_row1, c_row2, c_row3])
 
 		cv2.imwrite(aligned_folder + "/" + "aligned_collage_" + str(i) + ".jpg", collage)
 
@@ -496,14 +495,21 @@ def nir_b_ratio(blue_band, green_band, red_band, nir_band):
 	difference_value = rgb_hsv[:,:,2]-rgnir_hsv[:,:,2]
 
 	# More complicated comparison between regions
-	# ratiomap_image = difference_hsv.copy()
-	# x_dim, y_dim = ratiomap_image.shape[:2]
-	# for x in range(0, x_dim):
-	# 	for y in range(0, y_dim):
-	# 		# Ratiomap = (Sat - Val) / (Sat + Val)
-	# 		# Need to do error checking for divide by zero, etc.
-	# 		ratiomap_image[x, y] = (rgnir_hsv[x,y,1] - rgnir_hsv[x,y,2]) / (rgnir_hsv[x,y,1] + rgnir_hsv[x,y,2])
+	ratiomap_image = difference_hsv.copy()
+	x_dim, y_dim = ratiomap_image.shape[:2]
+	for x in range(0, x_dim):
+		for y in range(0, y_dim):
+			# Ratiomap = (Sat - Val) / (Sat + Val)
+			# Need to do error checking for divide by zero, etc.
+			if (((rgnir_hsv[x,y,1] + rgnir_hsv[x,y,2]))==0):
+				ratiomap_image[x, y] = 255
+			else:
+				ratiomap_image[x, y] = abs((rgnir_hsv[x,y,1] - rgnir_hsv[x,y,2]) / (rgnir_hsv[x,y,1] + rgnir_hsv[x,y,2]))
 
+	ratiomap_blurred = cv2.blur(ratiomap_image, (5, 5))
+
+	# Adjust threshold here for mask creation
+	ret, r_difference_mask = cv2.threshold(difference_gray_blurred, 127, 255, cv2.THRESH_BINARY)
 
 	# Convert this image into a mask based on a threshold
 	difference_rgb = cv2.cvtColor(difference_hsv, cv2.COLOR_HSV2RGB)
@@ -542,11 +548,13 @@ def nir_b_ratio(blue_band, green_band, red_band, nir_band):
 	deshadowed_nir_vals = nir_band.copy()
 	x_dim, y_dim = red_band.shape[:2]
 
+	# Adjust value here for shadow removal method
+	adjustment = 50
 	for x in range(0, x_dim):
 		for y in range(0, y_dim):
-			if (difference_mask[x, y] == 255):
-				deshadowed_red_vals[x, y] = deshadowed_red_vals[x, y]+100
-				deshadowed_nir_vals[x, y] = deshadowed_nir_vals[x, y]+100
+			if (r_difference_mask[x, y] == 255):
+				deshadowed_red_vals[x, y] = deshadowed_red_vals[x, y] + adjustment
+				deshadowed_nir_vals[x, y] = deshadowed_nir_vals[x, y] + adjustment
 	
 	return deshadowed_red_vals, deshadowed_nir_vals
 
