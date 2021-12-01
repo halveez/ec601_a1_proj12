@@ -78,14 +78,14 @@ Row 3: Red Image, NIR ECC Aligned Image
 
 Row 1: Red, NIR, NDVI
 
-Row 2: Red, NIR, NDVI
+Row 2: De-shadowed Red, De-shadowed NIR, De-shadowed NDVI
 
 ### Un-Aligned Images:
 ![unaligned](https://github.com/halveez/ec601_a1_proj12/blob/main/Sprint4/unaligned.gif)
 
 Row 1: Red, NIR, NDVI
 
-Row 2: Red, NIR, NDVI
+Row 2: De-shadowed Red, De-shadowed NIR, De-shadowed NDVI
 
 
 ## Final Plans and Next Steps:
