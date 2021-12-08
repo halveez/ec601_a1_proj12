@@ -65,6 +65,8 @@ OpenDroneMap is licensed under GNU Affero General Public License v3.0, with spec
 
 ## End of Semester Progress Report
 
+Please find detailed descriptions of each sprint's work in the /Sprint1-4 folders, what follows is a brief description:
+
 In Sprint 1 I reproduced open source implementations and began setting up the testing environment, comparing a few RGB shadow detection algorithms in both MATLAB and Python.
 
 In Sprint 2 I established a user image selection pipeline for processing, displaying, and storing results from testing the RGB based shadow detection algorithms. I also implemented plant health metrics using VARI and NDVI.
