@@ -63,7 +63,7 @@ Rasterio, another common software tool has their own license posted online[[15]]
 OpenDroneMap is licensed under GNU Affero General Public License v3.0, with specifications listed here[[16]](#16).
 
 
-### End of Semester Progress Report
+## End of Semester Progress Report
 
 In Sprint 1 I reproduced open source implementations and began setting up the testing environment, comparing a few RGB shadow detection algorithms in both MATLAB and Python.
 
@@ -74,7 +74,7 @@ In Sprint 3 I implemented a multispectral shadow elimination and removal method 
 In Sprint 4 I compared various multispectral methods for shadow detection and elimination, as well as implemented a pre-processing image alignment step in order to increase the accuracy of the plant health metrics when comparing images that are not perfectly aligne due to drone movement between captures.
 
 
-### Next Steps
+## Next Steps
 
 There remains many opportunities to test other shadow detection and elimination algorithms in order to improve the overall accuracy, especially for fine tuning for specific implementations. Automatic thresholding for the shadow mask should also be implemented.
 
@@ -82,7 +82,7 @@ Similarly, the pre-processing steps (image alignment, cropping on desired region
 
 Long term, the ccreation of a GUI would offer a much more effective user intertace than running the Python program from the command line manually. A cloud-based architecture would also allow users to upload images for batch processing remotely, and eliminate the need for powerful computers to run all of the algorithms locally.
 
-### Acknowledgements
+## Acknowledgements
 
 I’d like to thank Professor Osama Alshaykh for his instruction, Ece Sureyya Birol for her assistance in beginning this project, and the Norwegian University of Life Sciences for providing the dataset used for testing.
 
