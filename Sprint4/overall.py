@@ -532,7 +532,7 @@ if __name__ == "__main__":
 	# nir_coordination_function()
 
 	# For batched NIR function, select the folder containing all photos
-	batch_nir_coordination_function()
+	# batch_nir_coordination_function()
 
 	# For image alignment tests,
-	# image_alignment_batch_testing()
+	image_alignment_batch_testing()
