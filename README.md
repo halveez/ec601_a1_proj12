@@ -7,14 +7,14 @@ Detection and elimination of shadows in multi-spectral imaging covers both the d
 
 There is an important distinction between multi-spectral imaging, and hyper-spectral imaging, wherein multi-spectral imaging only detects limited wavelengths in discrete steps or bands, and where hyper-spectral imaging covers a broader range of wavelengths, often with much higher resolution and a greater number of spectral bands[[1]](#1). 
 
-Generally for hyper-spectral imaging, the more narrow and greater number of total bands leads to significantly more information that can then be used to inform later analysis. Multi-spectral imaging can still provide interesting data, but is comparatively limited. Of course, this trade off coincides with hyper-spectral systems being much more expensive and rare in practice, where multi-spectral imaging systems are more affordable and arleady exist in many circumstances (orbitting satellites).
+Generally for hyper-spectral imaging, the more narrow and greater number of total bands leads to significantly more information that can then be used to inform later analysis. Multi-spectral imaging can still provide interesting data, but is comparatively limited. Of course, this trade off coincides with hyper-spectral systems being much more expensive and rare in practice, where multi-spectral imaging systems are more affordable and already exist in many circumstances (orbiting satellites).
 
 
 ## Applications
 
-Some of the most common applications of multi-spectral imaging include agricultural monitoring, environmental management, archaelogy, and large scale mining and production[[2]](#2). These industries will often use drone based imaging systems to monitor fertilization status, crop production, water retention in a field, and even the composition of the soil, among many other characteristics.
+Some of the most common applications of multi-spectral imaging include agricultural monitoring, environmental management, archaeology, and large scale mining and production[[2]](#2). These industries will often use drone based imaging systems to monitor fertilization status, crop production, water retention in a field, and even the composition of the soil, among many other characteristics.
 
-One of the most well-known multi-spectral imaging systems and programs is NASA's Landsat[[3]](#3). Landsat 1 was launched in 1972, and to this point, there have been 8 different Landsat sattelitles, with a 9th being planned for launch on September 27, 2021. 
+One of the most well-known multi-spectral imaging systems and programs is NASA's Landsat[[3]](#3). Landsat 1 was launched in 1972, and to this point, there have been 8 different Landsat satellites, with a 9th being planned for launch on September 27, 2021. 
 
 ![Landsat Image](https://github.com/halveez/ec601_a1_proj12/blob/main/landsat_image.jpg)
 
@@ -27,9 +27,9 @@ PACE (Plankton, Aerosol, Cloud, ocean Ecosystem) is another NASA program utilizi
 
 Focusing on methods for shadow detection in multi-spectral imaging, one can consider traditional image processing methods, or methods that incorporate machine learning models (PCA, SVM, among others):
 
-Ibrahim et al.(2021), describes the use of Copernicus Sentinel-2 satellites for multi-spectral imaging in the application of small-scale mine mapping, targeting soil and water composition for analysis[[5]](#5). Their method was tailored specifically for this context, and thus is not easily applied to other settings, however the general framework can still be valuable to study. A SVM was implemented to characterize clouds, cloud shadows, and clear pixels from the target images, following Scikit-learn, another paper for the implementation of machine learning in Python. The SVM is able to incorporate all of the spectral bands from the satellites easily as inputs, and their method then incporporates that data with geographic projection based on the known positions and imaging angles of the satellite in relation to the Earth. This is done to project the location of a cloud shadow from the presence of a detected cloud, and can be used to infer certain characteristics abou the ground being observed. Once initial estimates for clouds and shadows are made, they are refine through varoius parameterized filters, smoothing the output, and removing random pixels and holes in detected clouds. Other tools such as Sen2Cor are incorporated to attempt to account for other error sources, specific to the Sentinel-2 satellite data.
+Ibrahim et al.(2021), describes the use of Copernicus Sentinel-2 satellites for multi-spectral imaging in the application of small-scale mine mapping, targeting soil and water composition for analysis[[5]](#5). Their method was tailored specifically for this context, and thus is not easily applied to other settings, however the general framework can still be valuable to study. A SVM was implemented to characterize clouds, cloud shadows, and clear pixels from the target images, following Scikit-learn, another paper for the implementation of machine learning in Python. The SVM is able to incorporate all of the spectral bands from the satellites easily as inputs, and their method then incorporates that data with geographic projection based on the known positions and imaging angles of the satellite in relation to the Earth. This is done to project the location of a cloud shadow from the presence of a detected cloud, and can be used to infer certain characteristics about the ground being observed. Once initial estimates for clouds and shadows are made, they are refine through various parameterized filters, smoothing the output, and removing random pixels and holes in detected clouds. Other tools such as Sen2Cor are incorporated to attempt to account for other error sources, specific to the Sentinel-2 satellite data.
 
-Zi et al.(2018) proposed a combined method of a spectral thresholding function and a subseqent double-branch PCANet with SVM as well[[6]](#6). The images are first segmented on a pixel basis into larger superpixel regions, clustered by SLIC (Simple Linear Iterative Clustering), which clusters pixels together dependent on their location and color in the image. Once the image has been segmented, the different clusters are segmented loosely based on overall brightness with an adjustable threshold, taking into account other known characteristics of clouds such as their absorption differences due to wavelength, brightness, and intensity. Their algorithm then utilizes a double-branched PCANet, a specific type of deep learning network often used for images, with inputs including the raw multi-spectral data, and the previously processed data using spectral thresholds and other methods. As described in their paper, PCANet is faster to implement than standard CNNs, and ultimately combined with their other techniques was more effective in the detection of clouds and cloud shadows in target images. The authors mention that future work needs to be carried out to adapt this algorithm for various types of clouds and other environmental features, such as the presence of ice or snow in the background image.
+Zi et al.(2018) proposed a combined method of a spectral thresholding function and a subsequent double-branch PCANet with SVM as well[[6]](#6). The images are first segmented on a pixel basis into larger superpixel regions, clustered by SLIC (Simple Linear Iterative Clustering), which clusters pixels together dependent on their location and color in the image. Once the image has been segmented, the different clusters are segmented loosely based on overall brightness with an adjustable threshold, taking into account other known characteristics of clouds such as their absorption differences due to wavelength, brightness, and intensity. Their algorithm then utilizes a double-branched PCANet, a specific type of deep learning network often used for images, with inputs including the raw multi-spectral data, and the previously processed data using spectral thresholds and other methods. As described in their paper, PCANet is faster to implement than standard CNNs, and ultimately combined with their other techniques was more effective in the detection of clouds and cloud shadows in target images. The authors mention that future work needs to be carried out to adapt this algorithm for various types of clouds and other environmental features, such as the presence of ice or snow in the background image.
 
 
 ## Open Source Research
@@ -48,7 +48,7 @@ United States Geological Survey Landsat Commercial Cloud Data Access [[10]](#10)
 
 ### Open Source Implementations
 
-Fortunately, there are many openly available guides and courses for multi-sepctral image analysis, with a particulary detailed option being the Earth Data Analytics Online Certificate. Among other topics, this course includes a section on multi-spectral remote sensing, with many additional references for further learning[[11]](#11).
+Fortunately, there are many openly available guides and courses for multi-spectral image analysis, with a particularly detailed option being the Earth Data Analytics Online Certificate. Among other topics, this course includes a section on multi-spectral remote sensing, with many additional references for further learning[[11]](#11).
 
 OpenDroneMap is an open source toolkit that in 2020 recently added support for multi-spectral imaging. Building upon this, FIELDimageR is an R package designed to take drone images from agricultural settings and perform crop analysis, including multi-spectral imaging for the use of vegetation growth, soil disturbance, and water retention. FIELDimageR even includes functions to remove clouds and weeds from composite images[[12]](#12).
 
@@ -56,7 +56,7 @@ Sourced from Zhai et al.(2018)[[13]](#13), a Python implementation of their algo
 
 #### Licensing Considerations
 
-Many of these tools are built upon OpenCV, which is under the Apache2 license. OpenCV automatically includes FFmpeg, which is licensed under LGPLv2.1, and also includes many other binaries, with various licenses as well. For commercial products based on OpenCV, it is important and ultimately necessary to perform close evalutaion of licensing requirements for all tools used[[14]](#14).
+Many of these tools are built upon OpenCV, which is under the Apache2 license. OpenCV automatically includes FFmpeg, which is licensed under LGPLv2.1, and also includes many other binaries, with various licenses as well. For commercial products based on OpenCV, it is important and ultimately necessary to perform close evaluation of licensing requirements for all tools used[[14]](#14).
 
 Rasterio, another common software tool has their own license posted online[[15]](#15).
 
@@ -73,7 +73,7 @@ In Sprint 2 I established a user image selection pipeline for processing, displa
 
 In Sprint 3 I implemented a multispectral shadow elimination and removal method to replace the RGB based method, as well as automated batch testing for comparing larger sets of images.
 
-In Sprint 4 I compared various multispectral methods for shadow detection and elimination, as well as implemented a pre-processing image alignment step in order to increase the accuracy of the plant health metrics when comparing images that are not perfectly aligne due to drone movement between captures.
+In Sprint 4 I compared various multispectral methods for shadow detection and elimination, as well as implemented a pre-processing image alignment step in order to increase the accuracy of the plant health metrics when comparing images that are not perfectly aligned due to drone movement between captures.
 
 
 ## Next Steps
@@ -82,7 +82,7 @@ There remains many opportunities to test other shadow detection and elimination 
 
 Similarly, the pre-processing steps (image alignment, cropping on desired regions, etc.) can also be improved upon.
 
-Long term, the ccreation of a GUI would offer a much more effective user intertace than running the Python program from the command line manually. A cloud-based architecture would also allow users to upload images for batch processing remotely, and eliminate the need for powerful computers to run all of the algorithms locally.
+Long term, the creation of a GUI would offer a much more effective user interface than running the Python program from the command line manually. A cloud-based architecture would also allow users to upload images for batch processing remotely, and eliminate the need for powerful computers to run all of the algorithms locally.
 
 ## Acknowledgements
 
